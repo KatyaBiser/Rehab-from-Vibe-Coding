@@ -1,0 +1,14 @@
+/* ============================================
+   Container & Main Layout
+   ============================================ */
+.container {
+  width: 100%;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin: 0 auto;
+}
+
+.main {
+  min-height: 60vh;
+  padding: var(--spacing-lg) 0;
+}

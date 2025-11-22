@@ -1,0 +1,58 @@
+/* ============================================
+   Table
+   ============================================ */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+}
+
+.table__caption {
+  caption-side: top;
+  padding: var(--spacing-sm);
+  font-weight: 600;
+  font-size: var(--font-size-large);
+  text-align: left;
+  color: var(--primary-dark);
+}
+
+.table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: var(--background-light);
+}
+
+/* Striped table rows using :nth-child */
+.table tbody tr:nth-child(odd) {
+  background-color: var(--background-light);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+/* Make first column wider for "Week" labels */
+.table th:first-child,
+.table td:first-child {
+  width: 100px;
+  white-space: nowrap;
+}

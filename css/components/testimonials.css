@@ -1,0 +1,31 @@
+/* ============================================
+   Testimonials
+   ============================================ */
+.testimonials {
+  background-color: var(--background-light);
+  padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+.testimonial {
+  background-color: var(--background-color);
+  border-left: 4px solid var(--secondary-color);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-small);
+}
+
+.testimonial__text {
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+}
+
+.testimonial__author {
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* First child emphasis */
+.testimonial:first-child {
+  border-left-width: 6px;
+}

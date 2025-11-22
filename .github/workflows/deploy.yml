@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare deployment
+        run: |
+          # Copy CSS and images folders into html directory for deployment
+          cp -r css html/
+          cp -r images html/
+
+          # Update paths in HTML files for production
+          cd html
+          
+          # For files in root (index.html): ../ → ""
+          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|href="../css/|href="css/|g' {} +
+          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|src="../images/|src="images/|g' {} +
+          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|href="../images/|href="images/|g' {} +
+          
+          # For files in subdirectories: ../../ → ""
+          find ./therapists -name "*.html" -type f -exec sed -i 's|href="../../css/|href="../css/|g' {} +
+          find ./therapists -name "*.html" -type f -exec sed -i 's|src="../../images/|src="../images/|g' {} +
+          find ./therapists -name "*.html" -type f -exec sed -i 's|href="../../images/|href="../images/|g' {} +
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload html folder as site root
+          path: './html'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
