@@ -50,9 +50,14 @@
   background-color: var(--background-color);
 }
 
-/* Make first column wider for "Week" labels */
-.table th:first-child,
-.table td:first-child {
-  width: 100px;
-  white-space: nowrap;
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: var(--font-size-small);
+  }
+  
+  .table th,
+  .table td {
+    padding: var(--spacing-xs);
+  }
 }
