@@ -24,33 +24,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare deployment
-        run: |
-          # Copy CSS and images folders into html directory for deployment
-          cp -r css html/
-          cp -r images html/
-
-          # Update paths in HTML files for production
-          cd html
-          
-          # For files in root (index.html): ../ → ""
-          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|href="../css/|href="css/|g' {} +
-          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|src="../images/|src="images/|g' {} +
-          find . -maxdepth 1 -name "*.html" -type f -exec sed -i 's|href="../images/|href="images/|g' {} +
-          
-          # For files in subdirectories: ../../ → ""
-          find ./therapists -name "*.html" -type f -exec sed -i 's|href="../../css/|href="../css/|g' {} +
-          find ./therapists -name "*.html" -type f -exec sed -i 's|src="../../images/|src="../images/|g' {} +
-          find ./therapists -name "*.html" -type f -exec sed -i 's|href="../../images/|href="../images/|g' {} +
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload html folder as site root
-          path: './html'
+          # Upload entire repository as site root
+          path: '.'
 
       - name: Deploy to GitHub Pages
         id: deployment
