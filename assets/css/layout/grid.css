@@ -14,9 +14,3 @@
   grid-template-columns: 1fr;
   gap: var(--spacing-md);
 }
-
-@media (min-width: 768px) {
-  .card--featured {
-    grid-column: span 2;
-  }
-}
