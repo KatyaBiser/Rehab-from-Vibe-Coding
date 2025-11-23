@@ -28,7 +28,7 @@
 \subsection{Fáze 3: Generování obsahu (týden 3-4)}
 \begin{itemize}
     \item Využití AI nástrojů pro generování textového obsahu
-    \item Generování obrázků pomocí AI (DALL-E, Midjourney)
+    \item Vyhledání vhodných fotografií lékařů a rehabilitačních center na webu
     \item Vytvoření profilů 8 fiktivních terapeutů
     \item Napsání biografií, specializací a recenzí
     \item Příprava tabulky příznaků a glosáře pojmů
@@ -101,9 +101,9 @@
 
 \subsection{Generování obsahu}
 \begin{itemize}
-    \item ChatGPT -- generování textů, biografií, recenzí
-    \item Claude AI -- asistence při psaní obsahu
-    \item DALL-E 3 / Midjourney -- generování obrázků terapeutů
+    \item GPT 5.1 -- generování textů, biografií, recenzí pro web
+    \item Claude Code (Sonnet 4.5) -- asistence při psaní kódu
+    \item Google Images -- vyhledávání fotografií lékařů a rehabilitačních center
 \end{itemize}
 
 \subsection{Testování a validace}
@@ -136,8 +136,7 @@
 
 \subsubsection{Použité nástroje}
 \begin{itemize}
-    \item ChatGPT-4
-    \item Claude 3.5 Sonnet
+    \item GPT 5.1
 \end{itemize}
 
 \subsubsection{Jak byly využity}
@@ -147,6 +146,7 @@
     \item Psaní recenzí od fiktivních klientů
     \item Generování tabulky příznaků AI závislosti
     \item Tvorba glosáře odborných pojmů
+    \item Vytváření textového obsahu pro všechny stránky webu
 \end{itemize}
 
 \subsubsection{Příklady promptů}
@@ -158,43 +158,41 @@ specializace a recenze od klientu.
 Ton: satiricky, ale empaticky.
 \end{lstlisting}
 
-\subsection{Generování vizuálního obsahu}
+\subsection{Vizuální obsah}
 
 \subsubsection{Použité nástroje}
 \begin{itemize}
-    \item DALL-E 3 (via ChatGPT Plus)
-    \item Midjourney v6
+    \item Google Images -- vyhledávání fotografií
+    \item Unsplash -- stock fotografie lékařů a zdravotnických zařízení
+    \item Adobe Photoshop -- úprava a optimalizace obrázků
 \end{itemize}
 
 \subsubsection{Jak byly využity}
 \begin{itemize}
-    \item Generování portrétů 8 fiktivních terapeutů
-    \item Vytváření ilustrací pro sekce hlavní stránky
-    \item Design hero images
+    \item Vyhledání vhodných fotografií lékařů pro profily terapeutů
+    \item Výběr obrázků rehabilitačních center a zdravotnických zařízení
+    \item Úprava velikosti a optimalizace obrázků pro web
+    \item Zajištění konzistence vizuálního stylu napříč stránkami
 \end{itemize}
-
-\subsubsection{Příklady promptů}
-\begin{lstlisting}[style=htmlstyle, caption={Prompt pro generování portrétu}]
-Professional portrait photo of a friendly female therapist
-in her 40s, wearing business casual attire, warm smile,
-modern medical office background, high quality,
-corporate photography style
-\end{lstlisting}
 
 \subsection{Asistence při psaní kódu}
 
 \subsubsection{Použité nástroje}
 \begin{itemize}
-    \item GitHub Copilot (vypnuto pro většinu práce)
-    \item ChatGPT pro specifické problémy
+    \item Claude Code (Sonnet 4.5) -- asistent pro psaní HTML a CSS kódu
+    \item GitHub Copilot -- code reviewer v pull requests
 \end{itemize}
 
 \subsubsection{Jak byly využity}
 \begin{itemize}
-    \item Řešení CSS Grid problémů s layout
-    \item Kontrola accessibility best practices
-    \item Generování CSS custom properties struktur
-    \item Návody na responzivní design patterns
+    \item \textbf{Claude Code:} Řešení CSS Grid problémů s layout
+    \item \textbf{Claude Code:} Kontrola accessibility best practices
+    \item \textbf{Claude Code:} Generování CSS custom properties struktur
+    \item \textbf{Claude Code:} Návody na responzivní design patterns
+    \item \textbf{Claude Code:} Psaní a refaktoring HTML/CSS kódu
+    \item \textbf{GitHub Copilot:} Automatická code review v pull requests
+    \item \textbf{GitHub Copilot:} Kontrola a validace změn před merge
+    \item \textbf{GitHub Copilot:} Navrhování vylepšení kódu v PR komentářích
 \end{itemize}
 
 \textbf{POZOR:} Většina HTML/CSS byla napsána ručně bez AI asistence,
@@ -204,29 +202,44 @@ aby projekt skutečně demonstroval fundamentální dovednosti.
 
 \subsection{Přínosy}
 
-\subsubsection{Content generation (9/10)}
+\subsubsection{Content generation -- GPT 5.1 (9/10)}
 \begin{itemize}
     \item[+] Rychlé vytváření konzistentního obsahu
     \item[+] Kreativní nápady pro humorné texty
     \item[+] Úspora času při psaní opakujícího se obsahu
     \item[+] Schopnost generovat různé varianty textu
+    \item[+] Vysoká kvalita gramatiky a stylu
 \end{itemize}
 
-\subsubsection{Image generation (7/10)}
+\subsubsection{Image sourcing -- Google Images / Unsplash (8/10)}
 \begin{itemize}
-    \item[+] Rychlé prototypování vizuálů
-    \item[+] Konzistentní stylový směr
-    \item[+] Levnější než stock fotografie
-    \item[+] Možnost iterace a úprav
+    \item[+] Široký výběr profesionálních fotografií
+    \item[+] Realistické portréty skutečných lidí
+    \item[+] Vysoká kvalita a rozlišení obrázků
+    \item[+] Snadné vyhledávání podle klíčových slov
+    \item[-] Časově náročnější než AI generování
+    \item[-] Nutnost kontroly licencí a autorských práv
 \end{itemize}
 
-\subsubsection{Code assistance (6/10)}
+\subsubsection{Code assistance -- Claude Code Sonnet 4.5 (8/10)}
 \begin{itemize}
-    \item[+] Rychlé řešení specifických problémů
+    \item[+] Velmi rychlé řešení specifických problémů
     \item[+] Užitečné pro učení nových CSS technik
-    \item[+] Dobré pro boilerplate kód
-    \item[-] Často navrhuje frameworky místo custom CSS
-    \item[-] Někdy generuje neoptimální nebo nepřístupný kód
+    \item[+] Vynikající pro psaní sémantického HTML
+    \item[+] Silná podpora pro accessibility best practices
+    \item[+] Generuje moderní, čistý kód bez frameworků
+    \item[+] Dobré pochopení kontextu projektu
+    \item[-] Občas vyžaduje upřesnění požadavků
+\end{itemize}
+
+\subsubsection{Code review -- GitHub Copilot v PR (7/10)}
+\begin{itemize}
+    \item[+] Automatická kontrola kódu před merge
+    \item[+] Identifikace potenciálních problémů
+    \item[+] Navrhuje vylepšení a best practices
+    \item[+] Přidává vrstvu validace bez manuální práce
+    \item[-] Někdy generuje false positive připomínky
+    \item[-] Vyžaduje manuální filtrování doporučení
 \end{itemize}
 
 \subsection{Přesnost a spolehlivost}
@@ -237,14 +250,16 @@ aby projekt skutečně demonstroval fundamentální dovednosti.
 \hline
 \textbf{Oblast} & \textbf{Hodnocení} & \textbf{Poznámky} \\
 \hline
-Content & 8/10 & Gramaticky správné, ale někdy vyžaduje úpravu \\
+Content (GPT 5.1) & 9/10 & Vysoká kvalita textů, minimální úpravy \\
 \hline
-Images & 6/10 & Vizuálně konzistentní, ale problémy s detaily \\
+Images (Web search) & 8/10 & Profesionální fotografie, ale časově náročné hledání \\
 \hline
-Code & 5/10 & Syntakticky správný, ale často zastaralý \\
+Code (Claude Code) & 8/10 & Moderní, přístupný kód s dobrým pochopením kontextu \\
+\hline
+Review (Copilot) & 7/10 & Užitečné připomínky, ale vyžaduje filtrování \\
 \hline
 \end{tabular}
-\caption{Hodnocení přesnosti AI nástrojů}
+\caption{Hodnocení použitých nástrojů}
 \end{table}
 
 \subsection{Doporučení pro použití AI}

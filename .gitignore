@@ -1,4 +1,6 @@
 .DS_Store
+# Privat folders
+supplementary/
 # Latex
 *.aux
 *.fls
