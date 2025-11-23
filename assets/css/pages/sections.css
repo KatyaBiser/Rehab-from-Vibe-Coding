@@ -5,6 +5,7 @@
   margin-bottom: var(--spacing-xl);
   padding-top: var(--spacing-xl);
   position: relative;
+  scroll-margin-top: 100px; /* Offset for sticky header + extra space */
 }
 
 /* Add subtle divider between sections */
