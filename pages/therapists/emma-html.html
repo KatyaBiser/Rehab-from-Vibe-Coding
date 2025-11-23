@@ -52,13 +52,25 @@
     </div>
   </header>
 
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="../../index.html" class="breadcrumbs__link">Home</a></li>
+        <li class="breadcrumbs__item"><a href="../therapists/list.html" class="breadcrumbs__link">Our Therapists</a>
+        </li>
+        <li class="breadcrumbs__item"><span class="breadcrumbs__current" aria-current="page">Dr. Emma HTML</span></li>
+      </ol>
+    </div>
+  </nav>
+
   <!-- Main Content -->
   <main id="main-content" class="main" role="main">
     <div class="container">
 
       <!-- Search Bar -->
       <div class="search" role="search">
-        <form class="search__form" action="#" method="get">
+        <form class="search__form" action="../search-results.html" method="get">
           <label for="search-input" class="sr-only">Search our site</label>
           <input type="search" id="search-input" name="q" class="search__input"
             placeholder="Search programs, therapists, resources..." aria-label="Search">
