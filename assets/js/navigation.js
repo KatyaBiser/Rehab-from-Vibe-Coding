@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.querySelector('.nav__toggle');
     const navList = document.querySelector('.nav__list');
-    const navLinks = document.querySelectorAll('.nav__link');
+
 
     if (!navToggle || !navList) return;
 
@@ -45,17 +45,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Handle viewport resize to reset menu state and body overflow
-    let wasMobile = window.innerWidth < 768;
-    window.addEventListener('resize', () => {
-        const isMobile = window.innerWidth < 768;
-        // If crossing from mobile to desktop
-        if (wasMobile && !isMobile) {
+    // Handle viewport resize to reset menu state and body overflow using matchMedia for better performance
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+    function handleTabletChange(e) {
+        // If we've switched to desktop view (matches min-width: 768px)
+        if (e.matches) {
             navToggle.setAttribute('aria-expanded', 'false');
             navList.classList.remove('nav__list--active');
             navToggle.classList.remove('nav__toggle--active');
             document.body.style.overflow = '';
         }
-        wasMobile = isMobile;
-    });
+    }
+
+    // Listen for changes
+    mediaQuery.addEventListener('change', handleTabletChange);
 });
