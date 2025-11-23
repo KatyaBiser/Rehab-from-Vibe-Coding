@@ -41,4 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
     });
+
+    // Prevent default behavior for dummy links
+    const dummyLinks = document.querySelectorAll('a[href="#"]');
+    dummyLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            link.blur(); // Remove focus to avoid lingering focus styles
+        });
+    });
 });

@@ -1,7 +1,12 @@
 /* ============================================
    Typography
    ============================================ */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: var(--line-height-heading);
   margin-bottom: var(--spacing-sm);
@@ -39,5 +44,10 @@ a {
 a:hover,
 a:focus {
   color: var(--primary-dark);
+  color: var(--primary-dark);
   text-decoration: underline;
+}
+
+a:visited {
+  color: var(--primary-color);
 }
