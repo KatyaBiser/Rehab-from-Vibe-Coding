@@ -1,4 +1,4 @@
-\chapter{Specifikace webu}
+\chapter{Úvod}
 
 \section{Představení řešeného webu}
 
@@ -66,44 +66,12 @@ Každý profil obsahuje:
 Vyhledávací pole je přítomno na všech stránkách, připraveno pro budoucí
 implementaci funkčního vyhledávání.
 
-\section{Cílové skupiny uživatelů}
+\section{Cíl webu a cílové skupiny}
 
-\subsection{Primární cílové skupiny}
-\begin{itemize}
-    \item Junior vývojáři závislí na AI nástrojích (Copilot, ChatGPT)
-    \item Frontend vývojáři s nedostatečnými znalostmi HTML/CSS
-    \item Vývojáři používající pouze CSS frameworky (Bootstrap, Tailwind)
-    \item Senior vývojáři, kteří ztratili přehled o základech
-    \item Týmoví lídři hledající vzdělávací programy pro své týmy
-    \item HR manažeři zodpovědní za rozvoj vývojářů
-\end{itemize}
-
-\subsection{Sekundární cílové skupiny}
-\begin{itemize}
-    \item Studenti informatiky potřebující doplnit znalosti
-    \item Kariérní přesmyčkáři vstupující do webového vývoje
-    \item Freelanceři chtějící zlepšit kvalitu svého kódu
-\end{itemize}
-
-\section{Cíl webu}
-
-\subsection{Hlavní cíle}
-\begin{itemize}
-    \item Představit rehabilitační centrum a jeho služby
-    \item Informovat o problematice AI závislosti ve vývoji softwaru
-    \item Nabídnout edukační programy zaměřené na fundamentální dovednosti
-    \item Umožnit návštěvníkům najít vhodného terapeuta pro své potřeby
-    \item Poskytovat vzdělávací obsah o sémantickém HTML, CSS a přístupnosti
-\end{itemize}
-
-\subsection{Funkční cíle}
-\begin{itemize}
-    \item Prezentace 8 odborníků s jejich specializacemi
-    \item Přehledná navigace mezi sekcemi webu
-    \item Responzivní design pro všechna zařízení
-    \item Vysoká úroveň přístupnosti (WCAG 2.0 AA)
-    \item Možnost budoucího rozšíření o rezervační systém
-\end{itemize}
+Web představuje rehabilitační centrum a jeho služby, informuje o problematice AI
+závislosti ve vývoji a nabízí prezentaci 8 odborníků. Cílové skupiny zahrnují junior
+vývojáře, frontend developery s nedostatečnými znalostmi HTML/CSS, týmové lídry a
+studenty informatiky. Web je plně responzivní s vysokou úrovní přístupnosti (WCAG 2.0 AA).
 
 \section{Požadavky na implementaci}
 
@@ -151,75 +119,9 @@ implementaci funkčního vyhledávání.
 
 \section{Návrh technologií}
 
-\subsection{Frontend}
-\begin{description}
-    \item[HTML5] Nejnovější standard pro strukturu dokumentu
-    \item[CSS3] Moderní styling s Grid, Flexbox, Custom Properties
-    \item[JavaScript] Žádný -- zaměření na čisté HTML/CSS řešení
-    \item[Přístup] Responzivní Mobile-first
-\end{description}
+Projekt využívá HTML5, CSS3 (Grid, Flexbox, Custom Properties) a responzivní Mobile-first přístup. Zaměření na čisté HTML/CSS řešení bez frameworků demonstruje fundamentální dovednosti. Web je nasazen na GitHub Pages (\url{https://katyabiser.github.io/Rehab-from-Vibe-Coding/}).
 
-\subsection{Zdůvodnění volby technologií}
-\begin{itemize}
-    \item HTML5 poskytuje bohatou sadu sémantických elementů
-    \item CSS Grid umožňuje vytvářet komplexní layouty bez frameworků
-    \item CSS Custom Properties zajišťují konzistenci a snadnou údržbu
-    \item Mobile-first přístup odpovídá současným trendům v použití zařízení
-    \item Absence JavaScriptu demonstruje sílu moderního CSS
-\end{itemize}
-
-\subsection{Backend (budoucí rozšíření)}
-\begin{description}
-    \item[Node.js s Express.js] Pro API a server-side logiku
-    \item[PostgreSQL] Relační databáze pro uživatele a rezervace
-    \item[REST API] Pro komunikaci mezi frontendem a backendem
-\end{description}
-
-\section{Nasazení}
-
-\subsection{Hosting}
-\begin{description}
-    \item[Platforma] GitHub Pages
-    \item[URL] \url{https://katyabiser.github.io/Rehab-from-Vibe-Coding/}
-    \item[Výhody] Zdarma, jednoduchý deployment, automatické HTTPS
-\end{description}
-
-\subsection{Budoucí rozšíření hostingu}
-\begin{itemize}
-    \item Vercel nebo Netlify -- pro statické stránky s lepšími funkcemi
-    \item Heroku nebo DigitalOcean -- při implementaci backendu
-    \item Cloudflare CDN -- pro rychlejší načítání globálně
-\end{itemize}
-
-\subsection{Údržba}
-\begin{itemize}
-    \item Verzování pomocí Git/GitHub
-    \item Automatický deployment při push do main branch
-    \item Pravidelné aktualizace obsahu
-    \item Kontrola funkčnosti odkazů
-    \item Monitorování accessibility compliance
-\end{itemize}
-
-\subsection{Analytika (budoucí implementace)}
-\begin{itemize}
-    \item Google Analytics -- sledování návštěvnosti
-    \item Hotjar -- heatmapy a analýza chování uživatelů
-    \item Lighthouse CI -- automatické testování výkonu a přístupnosti
-\end{itemize}
-
-\subsection{Marketing (budoucí plány)}
-\begin{itemize}
-    \item SEO optimalizace (meta tagy, strukturovaná data)
-    \item Social media integrace
-    \item Blog s edukačním obsahem o web developmentu
-    \item Newsletter pro pravidelnou komunikaci s uživateli
-\end{itemize}
-
-\subsection{Kontinuální UX}
-\begin{itemize}
-    \item A/B testování různých verzí call-to-action
-    \item Uživatelské testování s reálnými vývojáři
-    \item Iterativní vylepšování na základě feedbacku
-    \item Accessibility audity s asistivními technologiemi
-    \item Performance monitoring a optimalizace
-\end{itemize}
+% TODO: Přidat screenshot úvodní stránky (index.html) - hero sekce a about
+% TODO: Přidat screenshot seznamu terapeutů (therapists/list.html) - grid layout
+% TODO: Přidat screenshot detailu terapeuta - např. emma-html.html
+% TODO: Přidat screenshot responzivního designu - mobile vs desktop srovnání

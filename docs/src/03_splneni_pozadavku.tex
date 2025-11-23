@@ -24,113 +24,40 @@ Rehabilitační centrum ``Rehab from Vibe Coding'' -- fiktivní zdravotnické
 zařízení poskytující terapeutické služby pro vývojáře závislé na AI
 asistovaném programování.
 
-\section{HTML, CSS a prototyp}
+\section{Základní požadavky}
 
-\subsection{Požadavek 3: Web dává smysl}
-\textbf{SPLNĚNO}
+\begin{table}[h]
+\centering
+\begin{tabular}{|p{6cm}|c|p{6cm}|}
+\hline
+\textbf{Požadavek} & \textbf{Stav} & \textbf{Důkaz} \\
+\hline
+Web dává smysl & \checkmark & 9 stránek s konzistentním obsahem \\
+\hline
+AI generovaný obsah & \checkmark & GPT 5.1 (texty), Claude Code (kód), Google Images (fotky) \\
+\hline
+Označení studentského projektu & \checkmark & Footer: "STUDENT PROJECT" \\
+\hline
+Úvodní stránka & \checkmark & index.html (hero, about, tabulka, glosář, testimonials) \\
+\hline
+Seznam terapeutů & \checkmark & pages/therapists/list.html (8 terapeutů v grid) \\
+\hline
+Detail terapeuta & \checkmark & 8 detailních profilů \\
+\hline
+Vyhledávání & Částečně & UI připraveno, funkce v prototypu \\
+\hline
+Kontakt & \checkmark & Email + telefon v patičce \\
+\hline
+Rezervace & Částečně & CTA tlačítka, proces v prototypu \\
+\hline
+Patička + autoři & \checkmark & Plná patička s 4 jmény autorů \\
+\hline
+\end{tabular}
+\caption{Splnění základních požadavků}
+\end{table}
 
-Kompletní koncept rehabilitačního centra s:
-\begin{itemize}
-    \item Úvodní stránkou s informacemi o službách
-    \item Seznamem terapeutů s jejich specializacemi
-    \item Detailními profily každého terapeuta
-    \item Tabulkou příznaků a glosářem pojmů
-    \item Testimonials od klientů
-    \item Kontaktními informacemi
-\end{itemize}
-
-\subsection{Požadavek 4: AI generovaný obsah}
-\textbf{SPLNĚNO}
-
-\begin{itemize}
-    \item \textbf{Texty:} GPT 5.1 -- generování textového obsahu pro web
-    \item \textbf{Obrázky:} Vyhledáno manuálně na Google Images a Unsplash
-    \item \textbf{Kód:} Claude Code (Sonnet 4.5) -- asistence při psaní HTML/CSS
-    \item \textbf{Code review:} GitHub Copilot v pull requests -- validace změn
-\end{itemize}
-
-\textit{Důkaz:} Všechny obrázky v assets/images/, texty popsány v
-dokumentaci 02\_metodika\_projektu.tex
-
-\subsection{Požadavek 5: Viditelné označení studentského projektu}
-\textbf{SPLNĚNO}
-
-Výrazné označení v patičce každé stránky:
-
-\begin{lstlisting}[style=htmlstyle, caption={Označení studentského projektu}]
-<p class="footer__student-notice">
-  STUDENT PROJECT - Created for Educational Purposes
-</p>
-\end{lstlisting}
-
-\textit{Umístění:} index.html řádek 313-315
-
-\section{Struktura stránek}
-
-\subsection{Požadavek 6: Plnohodnotná úvodní stránka}
-\textbf{SPLNĚNO}
-
-index.html obsahuje:
-\begin{itemize}
-    \item Hero sekci s hlavním nadpisem (řádek 51-60)
-    \item About sekci (řádek 77-92)
-    \item Tabulku příznaků (řádek 95-164)
-    \item Glosář pojmů (řádek 167-198)
-    \item Sekci programů (řádek 201-212)
-    \item Call-to-action (řádek 215-224)
-    \item Testimonials (řádek 229-266)
-    \item Plnou patičku (řádek 269-322)
-\end{itemize}
-
-\subsection{Požadavek 7: Seznam vyšetření/oddělení/lékařů}
-\textbf{SPLNĚNO}
-
-pages/therapists/list.html:
-\begin{itemize}
-    \item Seznam 8 terapeutů v grid layoutu (řádek 76-238)
-    \item Každý terapeut má fotku, jméno, specializaci, popis
-    \item Odkaz na detailní profil
-\end{itemize}
-
-\subsection{Požadavek 8: Detail vyšetření/oddělení/lékaře}
-\textbf{SPLNĚNO}
-
-8 detailních stránek terapeutů s kompletními profily (viz kapitola 1).
-
-\subsection{Požadavek 9: Výsledky vyhledávání}
-\textbf{SPLNĚNO ČÁSTEČNĚ}
-
-\begin{itemize}
-    \item Vyhledávací box přítomen na všech stránkách
-    \item Funkční vyhledávání bude v klikatelném prototypu
-\end{itemize}
-
-\subsection{Požadavek 10: Kontakt}
-\textbf{SPLNĚNO}
-
-Kontaktní informace v patičce všech stránek:
-\begin{itemize}
-    \item Email: info@rehabfromvibe.edu
-    \item Telefon: +420 234 567 890
-\end{itemize}
-
-\subsection{Požadavek 11: Možnost rezervace}
-\textbf{SPLNĚNO ČÁSTEČNĚ}
-
-Call-to-action tlačítka přítomna, kompletní proces bude v prototypu.
-
-\subsection{Požadavek 12: Plnohodnotná patička + jména autorů}
-\textbf{SPLNĚNO}
-
-index.html řádek 269-322 obsahuje:
-\begin{itemize}
-    \item Quick Links sekci
-    \item Popular Programs sekci
-    \item Contact sekci
-    \item Team sekci se jmény autorů
-    \item Označení studentského projektu
-    \item Copyright s time elementem
-\end{itemize}
+% TODO: Přidat screenshot ukázky AI generovaného obsahu - profil terapeuta
+% TODO: Přidat screenshot označení studentského projektu v patičce
 
 \section{HTML5 a sémantické elementy}
 
@@ -347,24 +274,7 @@ Všechny odkazy používají relativní cesty:
 
 \section{Dodatečně implementované prvky}
 
-\subsection{Advanced CSS Selectors}
-\textbf{SPLNĚNO}
-
-Použity pokročilé CSS selektory:
-\begin{itemize}
-    \item \texttt{:first-child} -- testimonials.css
-    \item \texttt{:last-child} -- footer.css
-    \item \texttt{:nth-child()} -- tables.css (striped rows)
-    \item \texttt{:not()} -- sections.css
-    \item Adjacent sibling (+) -- glossary.css
-    \item Direct child ($>$) -- glossary.css
-\end{itemize}
-
-\subsection{CSS Transitions}
-Smooth přechody pro lepší UX s \texttt{transition-speed: 0.3s}.
-
-\subsection{Print Styles}
-Media queries pro tisk dokumentů.
+Použity pokročilé CSS selektory (\texttt{:first-child, :last-child, :nth-child(), :not()}, adjacent sibling, direct child), CSS transitions (0.3s) a print styles.
 
 \section{Shrnutí splnění požadavků}
 
@@ -392,3 +302,7 @@ Media queries pro tisk dokumentů.
 Funkční vyhledávání s výsledky a kompletní rezervační proces budou
 plně implementovány v klikatelném prototypu. HTML/CSS verze obsahuje
 UI prvky připravené pro budoucí integraci.
+
+% TODO: Přidat screenshot sémantických elementů v HTML - inspect element view
+% TODO: Přidat screenshot CSS Grid layoutu - DevTools grid overlay
+% TODO: Přidat screenshot WCAG accessibility audit výsledků (WAVE nebo Lighthouse)
