@@ -20,9 +20,28 @@
     align-items: center;
   }
 
+  .header__logo {
+    font-size: var(--font-size-h3);
+    /* Restore larger font on desktop */
+  }
+
+  .nav__toggle {
+    display: none;
+    /* Hide burger on desktop */
+  }
+
   .nav__list {
+    display: flex;
+    /* Always show on desktop */
     flex-direction: row;
     gap: var(--spacing-md);
+    position: static;
+    /* Reset positioning */
+    width: auto;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .nav__item {
@@ -117,6 +136,7 @@
    Print Styles
    ============================================ */
 @media print {
+
   .header,
   .nav,
   .search,
