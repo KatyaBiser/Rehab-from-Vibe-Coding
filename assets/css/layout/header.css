@@ -78,10 +78,14 @@
   text-decoration: none;
   white-space: nowrap;
   /* Prevent text wrapping */
-  font-size: 1.2rem;
-  /* Smaller font for mobile to fit on one line */
 }
 
+/* Smaller font for mobile to fit on one line */
+@media (max-width: 600px) {
+  .header__logo {
+    font-size: 1.2rem;
+  }
+}
 .header__logo:hover {
   text-decoration: none;
   color: var(--primary-dark);
