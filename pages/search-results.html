@@ -68,36 +68,35 @@
             <section class="section">
                 <h1 class="section__title">Search Results</h1>
                 <p class="section__intro">
-                    Found 3 results for "<strong>CSS Grid</strong>"
+                    Found 1 result for "<strong>Symptoms</strong>"
                 </p>
 
                 <div class="search-results">
-                    <!-- Result 1 -->
+                    <!-- Static Result -->
                     <article class="card" style="margin-bottom: var(--spacing-md);">
-                        <h2 class="card__title"><a href="therapists/marcus-grid.html">Prof. Marcus Grid</a></h2>
+                        <h2 class="card__title"><a href="../index.html#symptoms">AI Dependency Symptoms Checklist</a>
+                        </h2>
                         <p class="card__description">
-                            Layout Architecture Expert specializing in modern CSS layout techniques and grid systems.
-                        </p>
-                    </article>
-
-                    <!-- Result 2 -->
-                    <article class="card" style="margin-bottom: var(--spacing-md);">
-                        <h2 class="card__title"><a href="#">CSS Grid Mastery Program</a></h2>
-                        <p class="card__description">
-                            A 12-week intensive course designed to help developers transition from Bootstrap to native
-                            CSS Grid.
-                        </p>
-                    </article>
-
-                    <!-- Result 3 -->
-                    <article class="card" style="margin-bottom: var(--spacing-md);">
-                        <h2 class="card__title"><a href="#">Blog: Why Floats Are Dead</a></h2>
-                        <p class="card__description">
-                            An in-depth analysis of why modern layout methods have superseded float-based designs.
+                            Recognize the warning signs. If you identify with multiple symptoms below, you may benefit
+                            from our rehabilitation programs.
                         </p>
                     </article>
                 </div>
             </section>
+
+            <script>
+                // Get the search query from the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const query = urlParams.get('q');
+
+                if (query) {
+                    // Update the "Found results for..." text
+                    document.querySelector('.section__intro strong').textContent = query;
+
+                    // Update the search input value to match what was searched
+                    document.getElementById('search-input').value = query;
+                }
+            </script>
 
         </div>
     </main>
