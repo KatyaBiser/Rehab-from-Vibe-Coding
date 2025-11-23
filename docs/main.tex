@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper]{report}
+% --- BASIC SETTINGS AND PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{fix-cm}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{indentfirst}
+
+% --- PAGE GEOMETRY ---
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=30mm,
+    bottom=25mm,
+    inner=35mm,
+    outer=20mm,
+    headheight=14pt,
+    headsep=0.5cm,
+    footskip=0.8cm,
+    includeheadfoot=false
+}
+
+% --- LINE SPACING ---
+\onehalfspacing
+
+% --- HEADER AND FOOTER ---
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+% --- TABLE OF CONTENTS ---
+\usepackage{tocloft}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+\renewcommand{\cftsubsecdotsep}{\cftdotsep}
+
+% --- HYPERREF ---
+\usepackage[hidelinks]{hyperref}
+
+% --- CHAPTER AND SECTION FORMATTING ---
+\usepackage{titlesec}
+
+% Code listing style
+\lstdefinestyle{htmlstyle}{
+    language=HTML,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    captionpos=b
+}
+
+\lstdefinestyle{cssstyle}{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    captionpos=b
+}
+
+% --- CHAPTER AND SECTION FORMATTING ---
+% Heading 1 - 16pt
+\titleformat{\chapter}
+    {\normalfont\fontsize{16}{19}\bfseries}
+    {\thechapter\quad}
+    {0pt}
+    {\fontsize{16}{19}\bfseries}
+\titlespacing*{\chapter}
+    {0pt}{0pt}{20pt}
+
+% Heading 2 - 14pt
+\titleformat{\section}
+    {\normalfont\fontsize{14}{17}\bfseries}
+    {\thesection\quad}
+    {0pt}
+    {\fontsize{14}{17}\bfseries}
+
+% Heading 3 - 12pt
+\titleformat{\subsection}
+    {\normalfont\fontsize{12}{14.4}\bfseries}
+    {\thesubsection\quad}
+    {0pt}
+    {\fontsize{12}{14.4}\bfseries}
+
+% --- ADDITIONAL SETTINGS FOR PRECISE INDENTATION ---
+\setlength{\topskip}{0pt}
+\raggedbottom
+
+\begin{document}
+\makeatletter
+\renewcommand{\@dotsep}{1.0}
+\makeatother
+\renewcommand{\cftchapdotsep}{1.0}
+\renewcommand{\cftsecdotsep}{1.0}
+\renewcommand{\cftsubsecdotsep}{1.0}
+
+% Include face.pdf as the first page
+\includepdf[pages=1]{src/face.pdf}
+
+% Table of contents
+\newpage
+\chapter*{Obsah}
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\newpage
+
+% Include chapters
+\include{src/01_specifikace_webu}
+\include{src/02_metodika_projektu}
+\include{src/03_splneni_pozadavku}
+
+\end{document}
