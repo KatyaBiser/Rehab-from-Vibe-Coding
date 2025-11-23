@@ -36,28 +36,9 @@
   outline-offset: 3px;
 }
 
-.btn--secondary {
-  background-color: var(--secondary-color);
-}
-
-.btn--secondary:hover,
-.btn--secondary:focus {
-  background-color: var(--secondary-dark);
-}
-
 .btn--large {
   padding: var(--spacing-sm) var(--spacing-lg);
   font-size: var(--font-size-normal);
-}
-
-.btn--block {
-  display: block;
-  width: 100%;
-}
-
-/* :not() pseudo-class example */
-.btn:not(.btn--secondary) {
-  /* Primary button specific styles already defined */
 }
 
 .btn--disabled {

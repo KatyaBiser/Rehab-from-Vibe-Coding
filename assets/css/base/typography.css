@@ -41,18 +41,3 @@ a:focus {
   color: var(--primary-dark);
   text-decoration: underline;
 }
-
-a:focus {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 2px;
-}
-
-/* Remove default browser outline on click, but keep for keyboard navigation */
-a:focus:not(:focus-visible) {
-  outline: none;
-}
-
-a:focus-visible {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 2px;
-}

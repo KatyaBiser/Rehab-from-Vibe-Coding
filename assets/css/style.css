@@ -18,7 +18,6 @@
 /* Components */
 @import url('components/buttons.css');
 @import url('components/cards.css');
-@import url('components/forms.css');
 @import url('components/search.css');
 @import url('components/hero.css');
 @import url('components/tables.css');
@@ -32,7 +31,6 @@
 @import url('utilities/accessibility.css');
 @import url('utilities/helpers.css');
 @import url('utilities/glossary.css');
-@import url('utilities/advanced-selectors.css');
 
 /* Responsive Design */
 @import url('responsive/media-queries.css');
