@@ -21,6 +21,7 @@
 @import url('components/search.css');
 @import url('components/hero.css');
 @import url('components/tables.css');
+@import 'components/breadcrumbs.css';
 @import url('components/testimonials.css');
 
 /* Pages */
