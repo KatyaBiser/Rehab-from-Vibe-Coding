@@ -36,9 +36,9 @@
   display: inline-block;
   margin-bottom: var(--spacing-sm);
   font-size: 0.85rem;
-  color: #e74c3c;
+  color: var(--badge-error-color);
   font-weight: 600;
-  background-color: rgba(231, 76, 60, 0.1);
+  background-color: var(--badge-error-bg);
   padding: 4px 8px;
   border-radius: 4px;
   align-self: center;
@@ -48,15 +48,15 @@
   display: inline-block;
   margin-top: auto;
   margin-bottom: var(--spacing-xs);
-  background-color: #f1c40f;
-  color: #2c3e50;
-  font-size: 0.75rem;
+  background-color: var(--badge-premium-color);
+  color: var(--badge-premium-text);
+  font-size: var(--font-size-extra-small);
   font-weight: 700;
   text-transform: uppercase;
   padding: 4px 8px;
   border-radius: 12px;
   letter-spacing: 0.5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-small);
   align-self: center;
 }
 

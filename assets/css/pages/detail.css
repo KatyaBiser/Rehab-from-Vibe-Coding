@@ -27,11 +27,11 @@
   height: 300px;
   border: none;
   /* Remove border */
-  border-radius: 24px;
+  border-radius: var(--border-radius-large);
   /* Modern rounded corners (Squircle-ish) */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-premium);
   /* Soft, premium shadow */
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-speed) ease;
   /* Subtle hover effect */
 }
 
