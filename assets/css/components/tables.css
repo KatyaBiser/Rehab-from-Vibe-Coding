@@ -46,7 +46,7 @@
   .table {
     font-size: var(--font-size-small);
   }
-  
+
   .table th,
   .table td {
     padding: var(--spacing-xs);
