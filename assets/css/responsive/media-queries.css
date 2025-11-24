@@ -129,16 +129,34 @@
   /* Therapists Zigzag: 1st item wide (Left) */
   .grid--therapists .card:nth-child(6n+1) {
     grid-column: span 2;
+    flex-direction: row;
+    /* Horizontal layout for wide cards */
+    text-align: left;
   }
 
-  /* Wide cards on RIGHT (elements 4, 10, 16, 22...) = 6n+4 */
-  .grid--programs .card:nth-child(6n+4) {
-    grid-column: 3 / 5;
-  }
-
-  /* Therapists Zigzag: 6th item wide (Right) - fills the end of the 2nd row */
+  /* Therapists Zigzag: 6th item wide (Right) */
   .grid--therapists .card:nth-child(6n) {
     grid-column: span 2;
+    flex-direction: row;
+    /* Horizontal layout for wide cards */
+    text-align: left;
+  }
+
+  /* Adjust image and content for horizontal cards */
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__image,
+  .grid--therapists .card:nth-child(6n) .therapist-card__image {
+    width: 40%;
+    height: auto;
+    /* Let height match container */
+    min-height: 250px;
+    /* Ensure minimum height */
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__content,
+  .grid--therapists .card:nth-child(6n) .therapist-card__content {
+    width: 60%;
+    justify-content: center;
+    /* Center text vertically */
   }
 
 

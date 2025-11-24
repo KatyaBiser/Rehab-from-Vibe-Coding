@@ -10,8 +10,12 @@
   box-shadow: var(--box-shadow);
   display: flex;
   flex-direction: column;
-  position: relative; /* Enable absolute positioning for clickable overlay */
-  cursor: pointer; /* Show pointer for entire card */
+  position: relative;
+  /* Enable absolute positioning for clickable overlay */
+  cursor: pointer;
+  /* Show pointer for entire card */
+  overflow: hidden;
+  /* Ensure image doesn't overflow rounded corners */
 }
 
 .card:hover {
@@ -43,8 +47,10 @@
 .card__link::after {
   content: '';
   position: absolute;
-  inset: 0; /* Stretch to cover entire card */
-  z-index: 1; /* Place above card content */
+  inset: 0;
+  /* Stretch to cover entire card */
+  z-index: 1;
+  /* Place above card content */
 }
 
 .card__link:hover {
@@ -56,15 +62,28 @@
    ============================================ */
 .therapist-card {
   text-align: center;
+  padding: 0;
+  /* Remove padding from card to let image touch edges */
 }
 
 .therapist-card__image {
-  width: 200px;
-  height: 200px;
-  border-radius: var(--border-radius);
+  width: 100%;
+  height: 250px;
+  /* Fixed height for consistency */
+  border-radius: 0;
+  /* Remove border radius from image itself (handled by container) */
   object-fit: cover;
-  margin: 0 auto var(--spacing-sm);
-  border: 4px solid var(--primary-light);
+  margin: 0;
+  border: none;
+  /* Remove border */
+  display: block;
+}
+
+.therapist-card__content {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .therapist-card__name {
