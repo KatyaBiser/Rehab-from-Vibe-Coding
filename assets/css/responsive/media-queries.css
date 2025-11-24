@@ -145,7 +145,8 @@
   /* Adjust image and content for horizontal cards */
   .grid--therapists .card:nth-child(6n+1) .therapist-card__image,
   .grid--therapists .card:nth-child(6n) .therapist-card__image {
-    width: 40%;
+    width: calc((100% - var(--spacing-md)) / 2);
+    /* Exact width of one column */
     height: auto;
     /* Let height match container */
     min-height: 250px;
@@ -154,7 +155,8 @@
 
   .grid--therapists .card:nth-child(6n+1) .therapist-card__content,
   .grid--therapists .card:nth-child(6n) .therapist-card__content {
-    width: 60%;
+    width: calc(100% - ((100% - var(--spacing-md)) / 2));
+    /* Remaining width */
     justify-content: center;
     /* Center text vertically */
   }
