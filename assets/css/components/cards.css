@@ -118,7 +118,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* position: relative; Removed to allow card__link::after to stretch over the whole card */
+  /* No position: relative needed - allows card__link::after to stretch over the whole card */
 }
 
 .therapist-card__name {
