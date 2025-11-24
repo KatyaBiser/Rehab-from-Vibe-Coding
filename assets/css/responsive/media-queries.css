@@ -103,20 +103,45 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Main grid for programs - 8 therapists with first spanning 2 columns */
+  /* Main grid for programs/therapists - 4 column zigzag layout */
   .grid--programs {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-  }
-
-  /* First card spans 2 columns */
-  .grid--programs .card:first-child {
-    grid-column: 1 / 3;
   }
 
   .grid--therapists {
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-auto-flow: dense;
+    /* Helps fill gaps automatically if any occur */
   }
+
+  /* Zigzag pattern: odd rows have wide card on LEFT, even rows on RIGHT */
+  /* Row 1 (odd): Cards 1, 2, 3 - Card 1 spans 2 columns (left) */
+  /* Row 2 (even): Cards 4, 5, 6 - Card 4 spans 2 columns (right) */
+  /* Row 3 (odd): Cards 7, 8, 9 - Card 7 spans 2 columns (left) */
+
+  /* Wide cards on LEFT (elements 1, 7, 13, 19...) = 6n+1 */
+  .grid--programs .card:nth-child(6n+1) {
+    grid-column: 1 / 3;
+  }
+
+  /* Therapists Zigzag: 1st item wide (Left) */
+  .grid--therapists .card:nth-child(6n+1) {
+    grid-column: span 2;
+  }
+
+  /* Wide cards on RIGHT (elements 4, 10, 16, 22...) = 6n+4 */
+  .grid--programs .card:nth-child(6n+4) {
+    grid-column: 3 / 5;
+  }
+
+  /* Therapists Zigzag: 6th item wide (Right) - fills the end of the 2nd row */
+  .grid--therapists .card:nth-child(6n) {
+    grid-column: span 2;
+  }
+
+
 
   .footer__grid {
     grid-template-columns: repeat(4, 1fr);
