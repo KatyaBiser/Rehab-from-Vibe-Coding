@@ -14,19 +14,13 @@
 .header__container {
   display: flex;
   flex-direction: row;
-  /* Align items horizontally */
   justify-content: space-between;
-  /* Push logo left, burger right */
   align-items: center;
   flex-wrap: nowrap;
-  /* Prevent wrapping */
   gap: var(--spacing-xs);
-  /* Minimal space */
   position: relative;
-  /* For absolute positioning of mobile menu */
 }
 
-/* Burger Menu Button */
 .nav__toggle {
   display: flex;
   flex-direction: column;
@@ -57,7 +51,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Burger Animation */
 .nav__toggle--active .nav__toggle-bar:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
@@ -77,7 +70,6 @@
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  /* Prevent text wrapping */
 }
 
 /* Smaller font for mobile to fit on one line */
@@ -92,11 +84,9 @@
   color: var(--primary-dark);
 }
 
-/* Navigation */
 .nav__list {
   list-style: none;
   display: none;
-  /* Hidden by default on mobile */
   flex-direction: column;
   gap: var(--spacing-md);
   align-items: center;
@@ -104,8 +94,6 @@
   background-color: var(--background-color);
   padding: var(--spacing-md) 0;
   border-top: 1px solid var(--border-color);
-
-  /* Absolute positioning for mobile menu */
   position: absolute;
   top: 100%;
   left: 0;
@@ -115,7 +103,6 @@
 
 .nav__list--active {
   display: flex;
-  /* Show when active */
 }
 
 .nav__item {
@@ -157,7 +144,6 @@
   text-decoration: none;
 }
 
-/* Search Toggle & Dropdown */
 .nav__item--search {
   position: relative;
   display: flex;
@@ -215,7 +201,6 @@
   }
 }
 
-/* Adjust search form within dropdown */
 .search-dropdown .search__form {
   margin: 0;
   width: 100%;
@@ -225,7 +210,6 @@
   width: 100%;
 }
 
-/* Mobile adjustments for search */
 @media (max-width: 768px) {
   .nav__item--search {
     justify-content: flex-start;
@@ -239,7 +223,6 @@
     border: none;
     padding: var(--spacing-xs) 0;
     display: none;
-    /* Keep hidden until toggled */
   }
 
   .search-dropdown--active {
