@@ -30,16 +30,6 @@
   box-shadow: var(--box-shadow);
 }
 
-/* Remove outline on click for buttons, keep for keyboard */
-.btn:focus:not(:focus-visible) {
-  outline: none;
-}
-
-.btn:focus-visible {
-  outline: 2px solid var(--primary-light);
-  outline-offset: 3px;
-}
-
 .btn--large {
   padding: var(--spacing-sm) var(--spacing-lg);
   font-size: var(--font-size-normal);

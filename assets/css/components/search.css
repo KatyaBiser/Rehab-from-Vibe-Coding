@@ -19,9 +19,8 @@
   font-family: var(--font-primary);
 }
 
-.search__input:focus {
-  outline: 2px solid var(--primary-color);
-  border-color: var(--primary-color);
+.search__input:focus-visible {
+  border-color: var(--primary-light);
 }
 
 .search__button {

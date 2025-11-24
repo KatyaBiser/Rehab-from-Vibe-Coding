@@ -34,13 +34,13 @@
   z-index: 101;
 }
 
-.nav__toggle:focus {
+.nav__toggle:focus:not(:focus-visible) {
   outline: none;
 }
 
 .nav__toggle:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 4px;
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
 }
 
 .nav__toggle-bar {
