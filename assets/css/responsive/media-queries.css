@@ -62,6 +62,7 @@
 
   .footer__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
   }
 
   /* Programs List - Horizontal Layout */
@@ -164,6 +165,12 @@
 
   .footer__grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .footer__section:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: var(--spacing-lg);
   }
 
   .program-item__image {
