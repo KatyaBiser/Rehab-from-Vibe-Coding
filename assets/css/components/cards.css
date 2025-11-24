@@ -118,7 +118,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  flex-grow: 1;
   /* position: relative; Removed to allow card__link::after to stretch over the whole card */
 }
 
