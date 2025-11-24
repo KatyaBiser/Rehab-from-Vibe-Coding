@@ -118,8 +118,8 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: relative;
-  /* For absolute positioning of badges */
+  flex-grow: 1;
+  /* position: relative; Removed to allow card__link::after to stretch over the whole card */
 }
 
 .therapist-card__name {
