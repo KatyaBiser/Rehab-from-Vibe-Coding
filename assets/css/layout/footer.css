@@ -29,12 +29,15 @@
   margin-bottom: var(--spacing-xs);
 }
 
-.footer__link {
-  color: var(--primary-light);
+.footer__link,
+.footer__link:visited {
+  color: white;
+  text-decoration: none;
+  transition: color var(--transition-speed);
 }
 
 .footer__link:hover {
-  color: white;
+  color: var(--accent-color);
 }
 
 .footer__bottom {
@@ -55,6 +58,6 @@
 }
 
 /* Last child of a list */
-.footer__list > li:last-child {
+.footer__list>li:last-child {
   margin-bottom: 0;
 }
