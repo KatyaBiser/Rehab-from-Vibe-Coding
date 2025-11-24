@@ -44,14 +44,8 @@
     width: auto;
   }
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid--programs {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .grid,
+  .grid--programs,
   .grid--therapists {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -101,14 +95,13 @@
   }
 
   /* Main grid for programs/therapists - 4 column zigzag layout */
-  .grid--programs {
+  .grid--programs,
+  .grid--therapists {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
   }
 
   .grid--therapists {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
     grid-auto-flow: dense;
   }
 
