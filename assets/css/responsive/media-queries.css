@@ -22,21 +22,17 @@
 
   .header__logo {
     font-size: var(--font-size-h3);
-    /* Restore larger font on desktop */
   }
 
   .nav__toggle {
     display: none;
-    /* Hide burger on desktop */
   }
 
   .nav__list {
     display: flex;
-    /* Always show on desktop */
     flex-direction: row;
     gap: var(--spacing-md);
     position: static;
-    /* Reset positioning */
     width: auto;
     padding: 0;
     border: none;
@@ -113,7 +109,6 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     grid-auto-flow: dense;
-    /* Helps fill gaps automatically if any occur */
   }
 
   /* Zigzag pattern: odd rows have wide card on LEFT, even rows on RIGHT */
@@ -126,41 +121,30 @@
     grid-column: 1 / 3;
   }
 
-  /* Therapists Zigzag: 1st item wide (Left) */
   .grid--therapists .card:nth-child(6n+1) {
     grid-column: span 2;
     flex-direction: row;
-    /* Horizontal layout for wide cards */
     text-align: left;
   }
 
-  /* Therapists Zigzag: 6th item wide (Right) */
   .grid--therapists .card:nth-child(6n) {
     grid-column: span 2;
     flex-direction: row;
-    /* Horizontal layout for wide cards */
     text-align: left;
   }
 
-  /* Adjust image and content for horizontal cards */
   .grid--therapists .card:nth-child(6n+1) .therapist-card__image,
   .grid--therapists .card:nth-child(6n) .therapist-card__image {
     width: calc((100% - var(--spacing-md)) / 2);
-    /* Exact width of one column */
     height: auto;
-    /* Let height match container */
     min-height: 250px;
-    /* Ensure minimum height */
   }
 
   .grid--therapists .card:nth-child(6n+1) .therapist-card__content,
   .grid--therapists .card:nth-child(6n) .therapist-card__content {
     width: calc(100% - ((100% - var(--spacing-md)) / 2));
-    /* Remaining width */
     justify-content: center;
-    /* Center text vertically */
     align-items: flex-start;
-    /* Left align text in horizontal mode */
     text-align: left;
   }
 
@@ -169,13 +153,11 @@
   .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
   .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
     align-self: flex-start;
-    /* Ensure badge is left aligned */
   }
 
   .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
   .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
     margin-top: auto;
-    /* Push stack to bottom */
   }
 
 
@@ -184,7 +166,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Programs List - Enhanced Layout for Larger Screens */
   .program-item__image {
     width: 40%;
   }
