@@ -35,6 +35,40 @@
   flex-grow: 1;
 }
 
+.therapist-card__badge {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.85rem;
+  color: #e74c3c;
+  /* Red/Orange for urgency */
+  font-weight: 600;
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-self: center;
+  /* Center horizontally in vertical layout */
+}
+
+.therapist-card__badge--premium {
+  display: inline-block;
+  margin-top: auto;
+  /* Push to bottom */
+  margin-bottom: var(--spacing-xs);
+  /* Small gap between badges */
+  background-color: #f1c40f;
+  /* Gold */
+  color: #2c3e50;
+  /* Dark text */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-self: center;
+}
+
 .card__link {
   display: inline-block;
   margin-top: auto;
@@ -84,6 +118,8 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  position: relative;
+  /* For absolute positioning of badges */
 }
 
 .therapist-card__name {

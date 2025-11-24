@@ -159,6 +159,23 @@
     /* Remaining width */
     justify-content: center;
     /* Center text vertically */
+    align-items: flex-start;
+    /* Left align text in horizontal mode */
+    text-align: left;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge,
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
+    align-self: flex-start;
+    /* Ensure badge is left aligned */
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
+    margin-top: auto;
+    /* Push stack to bottom */
   }
 
 
