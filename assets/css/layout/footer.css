@@ -15,6 +15,27 @@
   margin-bottom: var(--spacing-lg);
 }
 
+/* Tablet - 2 columns */
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Desktop - 4 equal columns with equal spacing */
+@media (min-width: 1024px) {
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .footer__section:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: var(--spacing-lg);
+  }
+}
+
 .footer__section-title {
   color: white;
   font-size: var(--font-size-h4);
