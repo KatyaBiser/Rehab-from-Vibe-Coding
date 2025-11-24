@@ -60,4 +60,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for changes
     mediaQuery.addEventListener('change', handleTabletChange);
+
+    /* ============================================
+       Search Toggle Logic
+       ============================================ */
+    const searchToggle = document.querySelector('.search-toggle');
+    const searchDropdown = document.querySelector('.search-dropdown');
+    const searchInput = document.querySelector('.search-dropdown .search__input');
+
+    if (searchToggle && searchDropdown) {
+        searchToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = searchToggle.getAttribute('aria-expanded') === 'true';
+
+            searchToggle.setAttribute('aria-expanded', !isExpanded);
+            searchDropdown.classList.toggle('search-dropdown--active');
+
+            if (!isExpanded && searchInput) {
+                // Focus input when opening
+                setTimeout(() => searchInput.focus(), 50);
+            }
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchDropdown.contains(e.target) && !searchToggle.contains(e.target)) {
+                searchToggle.setAttribute('aria-expanded', 'false');
+                searchDropdown.classList.remove('search-dropdown--active');
+            }
+        });
+
+        // Prevent closing when clicking inside the dropdown
+        searchDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
 });
