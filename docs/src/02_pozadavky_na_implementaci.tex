@@ -72,7 +72,7 @@ Projekt využívá sémantické HTML5 elementy: \texttt{<header>} pro hlavičku 
 
 \subsection{Přístupnost (WCAG 2.0 Level AA)}
 
-Web splňuje WCAG 2.0 Level AA požadavky: skip link \texttt{<a href="\#main-content" class="skip-link">} na začátku každé stránky, ARIA atributy (\texttt{aria-label}, \texttt{aria-expanded}, \texttt{aria-current="page"}), screen reader texty s třídou \texttt{sr-only}, smysluplné alt texty pro všechny obrázky, barevný kontrast vyšší než 7:1 (tmavě šedá \texttt{\#212529} na bílém pozadí), výrazné focus stavy pro klávesnicovou navigaci.
+Web splňuje WCAG 2.0 Level AA požadavky. Skip link \texttt{<a href="\#main-content"} \texttt{class="skip-link">} je umístěn na začátku každé stránky. Použité jsou ARIA atributy (\texttt{aria-label}, \texttt{aria-expanded}, \texttt{aria-current="page"}). Screen reader texty používají třídu \texttt{sr-only}. Všechny obrázky mají smysluplné alt texty. Barevný kontrast je vyšší než 7:1 (tmavě šedá \texttt{\#212529} na bílém pozadí). Výrazné focus stavy zajišťují klávesnicovou navigaci.
 
 \section{CSS požadavky}
 
@@ -82,7 +82,13 @@ Projekt používá 100\% vlastní CSS bez frameworků. CSS je organizováno do m
 
 \subsection{CSS Custom Properties}
 
-Systém CSS Custom Properties je definován v \texttt{:root} v souboru \texttt{base/variables.css} a pokrývá barevnou paletu (\texttt{--primary-color}, \texttt{--secondary-color}, \texttt{--accent-color}, atd.), typografii (\texttt{--font-primary}, \texttt{--font-heading}, velikosti písma), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}, \texttt{--transition-speed}). Proměnné zajišťují konzistenci a snadné globální úpravy designu.
+{\sloppy
+Systém CSS Custom Properties je definován v \texttt{:root}. Používá soubor \texttt{base/}\allowbreak\texttt{variables.css}.
+\par}
+
+Pokrývá barevnou paletu (\texttt{--primary-color}, \texttt{--secondary-color}, \texttt{--accent-color}, atd.) a typografii (\texttt{--font-primary}, \texttt{--font-heading}, velikosti písma).
+
+Spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) je oddělená skupina proměnných. Layout obsahuje \texttt{--max-width-container} a \texttt{--border-radius}. Další proměnné: \texttt{--box-shadow}, \texttt{--transition-speed}. Proměnné zajišťují konzistenci a snadné globální úpravy designu.
 
 \subsection{CSS Grid layout}
 
@@ -98,13 +104,15 @@ Flexbox je použit pro jednodimenzionální layouty: navigace (\texttt{.nav\_\_l
 
 \subsection{Responzivní design}
 
-Mobile-first přístup používá základní styly pro nejmenší obrazovky a \texttt{@media (min-width: ...)} media queries pro rozšíření. Techniky zahrnují fluid typography pomocí relative units (rem, em), fluid layouts pomocí procent a CSS Grid/Flexbox, responsive images s \texttt{max-width: 100\%; height: auto}, conditional visibility pomocí \texttt{display: none} a transformaci navigace z vertikální na horizontální.
+Mobile-first přístup používá základní styly pro nejmenší obrazovky. Media queries \texttt{@media (min-width: ...)} rozšiřují layout. Techniky zahrnují fluid typography pomocí relative units (rem, em), fluid layouts pomocí procent a CSS Grid/Flexbox. Responsive images s \texttt{max-width: 100\%; height: auto}, conditional visibility pomocí \texttt{display: none} a transformaci navigace z vertikální na horizontální.
 
 \section{JavaScript požadavky}
 
 \subsection{Vanilla JavaScript}
 
-Projekt používá čistý JavaScript bez knihoven. Celý kód je v souboru \texttt{navigation.js} (85 řádků) a zaměřuje se na interaktivitu UI. Kód začíná \texttt{DOMContentLoaded} event listenerem a používá moderní metody: \texttt{querySelector}, \texttt{addEventListener}, \texttt{classList.toggle}.
+Projekt používá čistý JavaScript bez knihoven. Celý kód je v souboru \texttt{navigation.js} (85 řádků) a zaměřuje se na interaktivitu UI. Kód začíná \texttt{DOMContentLoaded} event listenerem.
+
+Používá moderní metody: \texttt{querySelector}, \texttt{addEventListener}, \texttt{classList.toggle}.
 
 \subsection{Funkcionality}
 
