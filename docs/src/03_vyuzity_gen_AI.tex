@@ -12,7 +12,7 @@ GPT 5.1 (Generative Pre-trained Transformer) od OpenAI byl použit primárně pr
 
 \subsubsection{Příklad promptu}
 
-\begin{lstlisting}[style=htmlstyle, caption={Ukázkový prompt pro tvorbu profilu terapeuta}]
+\begin{lstlisting}[style=promptstyle]
 Vytvor humorny profil fiktivniho terapeuta Dr. Emma HTML,
 ktera se specializuje na lecbu vyvojaru zavislych na pouzivani
 <div> elementu misto semantickeho HTML. Zahrn biografii,
@@ -31,7 +31,7 @@ GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět pr
 
 \subsection{Google Images, Unsplash a Adobe Photoshop}
 
-Pro získání fotografií terapeutů a ilustračních obrázků byly použity Google Images a stock fotografie z Unsplash. Pro každého z devíti terapeutů byla vybrána profesionální fotografie odpovídající specializaci a osobnosti popsané v biografii. Adobe Photoshop byl použit pro ořez fotografií na konzistentní velikosti (150×150px pro karty, 280×280px pro profily), úpravu jasu a kontrastu pro jednotný vizuální styl a odstranění rušivých pozadí. Všechny obrázky byly komprimovány pomocí TinyPNG pro rychlé načítání webu. Tento přístup byl vybrán místo AI generování obrázků (DALL-E, Midjourney) pro zajištění realistického vzhledu skutečných lidí a konzistence vizuálního stylu. Výhodou je široký výběr profesionálních fotografií vysoké kvality a realistické portréty vypadají autentičtěji než AI generované tváře. Nevýhodou je časová náročnost -- výběr vhodných fotografií zabral několik hodin -- a nutnost kontroly licencí a autorských práv.
+Pro získání fotografií terapeutů a ilustračních obrázků byly použity Google Images a stock fotografie z Unsplash. Pro každého z devíti terapeutů byla vybrána profesionální fotografie odpovídající specializaci a osobnosti popsané v biografii. Adobe Photoshop byl použit pro ořez fotografií na konzistentní velikosti (150×150px pro karty, 280×280px pro profily), úpravu jasu a kontrastu pro jednotný vizuální styl a odstranění rušivých pozadí. Všechny obrázky byly komprimovány pomocí TinyPNG pro rychlé načítání webu. Tento přístup byl vybrán místo AI generování obrázků (DALL-E, Midjourney) pro zajištění realistického vzhledu skutečných lidí a konzistence vizuálního stylu. Výhodou je široký výběr profesionálních fotografií vysoké kvality a realistické portréty vypadají autentičtěji než AI generované tváře. Nevýhodou je časová náročnost -- výběr vhodných fotografií zabralo několik hodin -- a nutnost kontroly licencí a autorských práv.
 
 \section{Nástroje pro asistenci při psaní kódu}
 
@@ -75,7 +75,7 @@ GitHub Copilot & 7/10 & Užitečné připomínky, ale vyžaduje manuální filtr
 
 \subsection{Přínosy a omezení}
 
-AI nástroje významně zkrátily čas potřebný pro vytvoření obsahu. Generování devíti profilů terapeutů zabralo 30 minut místo odhadovaných 4-6 hodin. GPT 5.1 zajistil jednotný tone of voice napříč všemi texty a poskytl kreativní nápady (např. humorné názvy publikací ``Why <div> Is Not Always the Answer'', ``I Survived 500 Nested Divs''). Asistence Claude Code měla pedagogickou hodnotu -- vysvětlovala ``proč'' funguje dané řešení, což pomohlo pochopit CSS Grid, Flexbox a accessibility best practices.
+AI nástroje významně zkrátily čas potřebný pro vytvoření obsahu. Generování devíti profilů terapeutů zabralo 30 minut místo odhadovaných 4-6 hodin. GPT 5.1 zajistil jednotný tone of voice napříč všemi texty a poskytl kreativní nápady (např. humorné názvy publikací ``Why <div> Is Not Always the Answer'', ``I Survived 500 Nested Divs''). Asistence od Claude Code měla pedagogickou hodnotu -- vysvětlovala ``proč'' funguje dané řešení, což pomohlo pochopit CSS Grid, Flexbox a accessibility best practices.
 
 Hlavní omezení zahrnují občasnou potřebu manuální úpravy generovaných textů pro přidání specifičnosti, nedostatek kontextu -- AI modely nemají přístup k vizuálnímu zobrazení webu ani širšímu kontextu projektu, riziko závislosti -- přílišné spoléhání se na AI může vést ke ztrátě fundamentálních dovedností (přesně problém, který projekt satiricky kritizuje), a nutnost validace -- GPT 5.1 občas generuje fakticky nesprávné informace (hallucinations) a Claude Code navrhuje řešení, která nebyla vždy optimální.
 
