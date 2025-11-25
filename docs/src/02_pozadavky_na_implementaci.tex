@@ -1,0 +1,129 @@
+\chapter{Požadavky na implementaci}
+
+\section{Popis webových stránek}
+
+Web se skládá z jedenácti HTML stránek: úvodní stránka, seznam terapeutů a devět detailních profilů. Každá stránka je navržena s důrazem na konzistenci designu, přístupnost a responzivní chování.
+
+\subsection{Úvodní stránka (index.html)}
+
+Úvodní stránka obsahuje hero sekci s hlavním nadpisem \textit{``Tired of AI Writing Code for You?''}, sekci o misi centra, interaktivní tabulku příznaků AI závislosti s osmi řádky symptomů a doporučenými léčebnými programy, glosář odborných pojmů (používá sémantické elementy \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}), přehled terapeutických programů, testimonials od fiktivních klientů v \texttt{<blockquote>} elementech a footer s kontakty organizovaný pomocí CSS Grid layoutu do čtyř sloupců.
+
+% SCREENSHOT 1: Hero sekce úvodní stránky
+% Popis: Celá hero sekce s nadpisem, podnázvkem a pozadím
+% Soubor: screenshot-01-hero-section.png
+% Umístění v textu: za tímto odstavcem
+
+% SCREENSHOT 2: Tabulka příznaků AI závislosti
+% Popis: Celá tabulka s hlavičkou a všemi řádky symptomů
+% Soubor: screenshot-02-symptoms-table.png
+% Umístění: za popisem tabulky
+
+% SCREENSHOT 3: Testimonials sekce
+% Popis: Všechny čtyři testimonials s citacemi a jmény autorů
+% Soubor: screenshot-03-testimonials.png
+
+\subsection{Seznam terapeutů (pages/therapists/list.html)}
+
+Stránka prezentuje devět terapeutů v responzivním grid layoutu s úvodním textem a devíti kartami. Každá karta obsahuje portrét, jméno, specializaci, stručný popis a odkaz na detailní profil. Tři terapeuti mají badge \textit{``Lead Therapist''}. Grid se přizpůsobuje šířce obrazovky: jeden sloupec na mobilech, dva na tabletech, tři na desktopech.
+
+% SCREENSHOT 4: Grid layout se všemi 9 terapeuty (desktop view)
+% Popis: Celý grid s všemi 9 kartami terapeutů v 3-sloupcovém layoutu
+% Soubor: screenshot-04-therapists-grid-desktop.png
+
+% SCREENSHOT 5: Grid layout na mobilním zařízení (1 sloupec)
+% Popis: Zobrazení grid layoutu na mobilu s jedním sloupcem karet
+% Soubor: screenshot-05-therapists-grid-mobile.png
+
+\subsection{Detailní profily terapeutů}
+
+Každý terapeut má dedikovanou HTML stránku s breadcrumb navigací, header s portrétem a jménem, biografií, oblastmi expertízy, vybranými publikacemi, vzděláním a certifikacemi, terapeutickým přístupem, recenzemi klientů v \texttt{<blockquote>} elementech a call-to-action sekcí pro rezervaci.
+
+% SCREENSHOT 6: Detailní profil terapeuta (celá stránka nebo header + biografie)
+% Popis: Ukázka detailního profilu s portrétem, jménem, specializací a biografií
+% Soubor: screenshot-06-therapist-detail.png
+
+\section{Chování a interaktivita stránek}
+
+\subsection{Responzivní layout}
+
+Web implementuje Mobile-first přístup s třemi breakpointy: Mobile (<768px) s výchozími styly a jedním sloupcem, Tablet ($\geq$768px) s dvousloupcovými layouty a horizontální navigací, Desktop ($\geq$1024px) s tří a čtyřsloupcovými layouty a maximální šířkou 1200px. Grid layout terapeutů se transformuje z jednoho sloupce přes dva na tři sloupce. Footer grid mění strukturu z jednoho na čtyři sloupce.
+
+% SCREENSHOT 7: Srovnání mobile vs desktop view (split screen)
+% Popis: Stejná stránka zobrazená vedle sebe na mobilu a desktopu
+% Soubor: screenshot-07-responsive-comparison.png
+
+\subsection{Navigace}
+
+Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. JavaScript (\texttt{navigation.js}) přidává třídu \texttt{nav\_\_list--active} při kliknutí, což spouští slide-in animaci z pravé strany a nastavuje \texttt{aria-expanded="true"}. Menu se automaticky zavírá při kliknutí na odkaz, mimo menu nebo změně velikosti okna na tablet/desktop breakpoint. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
+
+\subsection{Vyhledávání a interaktivní efekty}
+
+Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. JavaScript přidává třídu \texttt{search-dropdown--active}, zobrazuje dropdown s CSS transition a nastavuje automatický focus na input pole. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform: translateY(-5px)}, tlačítka s \texttt{transform: scale(1.02)}) a výrazné focus stavy s modrým obrysem pro klávesnicovou navigaci. Skip link je viditelný při focusu.
+
+\section{HTML požadavky}
+
+\subsection{Struktura dokumentu}
+
+Všechny stránky používají HTML5 standard s \texttt{<!DOCTYPE html>}, \texttt{<html lang="en">}, meta tagy pro kódování UTF-8, viewport pro responzivitu, description, keywords a title specifický pro každou stránku. Favicon a apple-touch-icon jsou definovány. Všechny stránky linkují jeden centrální CSS soubor s relativním adresováním.
+
+\subsection{Sémantické elementy}
+
+Projekt využívá sémantické HTML5 elementy: \texttt{<header>} pro hlavičku s logem a navigací, \texttt{<nav>} s \texttt{aria-label}, \texttt{<main id="main-content">} jako target pro skip link, \texttt{<section>} pro tematické sekce, \texttt{<article>} pro karty a profily, \texttt{<aside>} pro testimonials, \texttt{<footer>} pro patičku. Dodržována je správná hierarchie nadpisů s jedním \texttt{<h1>} na stránku. Tabulka používá \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}. Glosář využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
+
+\subsection{Přístupnost (WCAG 2.0 Level AA)}
+
+Web splňuje WCAG 2.0 Level AA požadavky: skip link \texttt{<a href="\#main-content" class="skip-link">} na začátku každé stránky, ARIA atributy (\texttt{aria-label}, \texttt{aria-expanded}, \texttt{aria-current="page"}), screen reader texty s třídou \texttt{sr-only}, smysluplné alt texty pro všechny obrázky, barevný kontrast vyšší než 7:1 (tmavě šedá \texttt{\#212529} na bílém pozadí), výrazné focus stavy pro klávesnicovou navigaci.
+
+\section{CSS požadavky}
+
+\subsection{Architektura CSS}
+
+Projekt používá 100\% vlastní CSS bez frameworků. CSS je organizováno do modulární architektury s hlavním souborem \texttt{style.css}, který importuje moduly pomocí \texttt{@import}: \texttt{base/} (reset, typography, variables), \texttt{layout/}, \texttt{components/}, \texttt{pages/}, \texttt{utilities/}, \texttt{responsive/}. Celková velikost je 936 řádků optimalizovaného kódu.
+
+\subsection{CSS Custom Properties}
+
+Systém CSS Custom Properties je definován v \texttt{:root} v souboru \texttt{base/variables.css} a pokrývá barevnou paletu (\texttt{--primary-color}, \texttt{--secondary-color}, \texttt{--accent-color}, atd.), typografii (\texttt{--font-primary}, \texttt{--font-heading}, velikosti písma), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}, \texttt{--transition-speed}). Proměnné zajišťují konzistenci a snadné globální úpravy designu.
+
+\subsection{CSS Grid layout}
+
+CSS Grid je použit pro layout seznamu terapeutů (\texttt{.grid--therapists}) a footer (\texttt{.footer\_\_grid}). Grid terapeutů obsahuje devět karet s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech, \texttt{repeat(3, 1fr)} na desktopech. Gap mezi položkami je \texttt{var(--spacing-md)}. Footer grid používá čtyři sloupce na desktopech s adaptací na menší počet sloupců. Grid nabízí 2D kontrolu (řádky i sloupce) a jednodušší responzivní úpravy než Flexbox.
+
+% SCREENSHOT 8: DevTools zobrazení CSS Grid (grid overlay)
+% Popis: Chrome DevTools s aktivním grid overlay zobrazujícím grid lines
+% Soubor: screenshot-08-css-grid-devtools.png
+
+\subsection{Flexbox}
+
+Flexbox je použit pro jednodimenzionální layouty: navigace (\texttt{.nav\_\_list} s flexbox pro horizontální/vertikální rozložení), header (\texttt{.header\_\_container} s \texttt{flex-direction: column/row} podle breakpointu), karty (\texttt{.card} s \texttt{flex-direction: column}) a tlačítka (\texttt{.btn} s \texttt{inline-flex; align-items: center; justify-content: center}).
+
+\subsection{Responzivní design}
+
+Mobile-first přístup používá základní styly pro nejmenší obrazovky a \texttt{@media (min-width: ...)} media queries pro rozšíření. Techniky zahrnují fluid typography pomocí relative units (rem, em), fluid layouts pomocí procent a CSS Grid/Flexbox, responsive images s \texttt{max-width: 100\%; height: auto}, conditional visibility pomocí \texttt{display: none} a transformaci navigace z vertikální na horizontální.
+
+\section{JavaScript požadavky}
+
+\subsection{Vanilla JavaScript}
+
+Projekt používá čistý JavaScript bez knihoven. Celý kód je v souboru \texttt{navigation.js} (85 řádků) a zaměřuje se na interaktivitu UI. Kód začíná \texttt{DOMContentLoaded} event listenerem a používá moderní metody: \texttt{querySelector}, \texttt{addEventListener}, \texttt{classList.toggle}.
+
+\subsection{Funkcionality}
+
+Mobilní navigace s toggle hamburger menu, animacemi, správou ARIA atributů (\texttt{aria-expanded}), prevencí scrollování pozadí (\texttt{body.style.overflow}) a automatickým zavíráním. Vyhledávání s toggle search dropdown a focus managementem. Responsive listener s \texttt{window.matchMedia} pro detekci změny breakpointu. Správa accessibility s focus stavy, ARIA atributy a keyboard navigation support. Event listener pro dummy odkazy \texttt{href="\#"} preventující default chování.
+
+\section{Návrh a zdůvodnění technologií}
+
+\subsection{HTML5, CSS3 a Vanilla JavaScript}
+
+HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS3 bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) bez hacků, CSS variables pro snadnou správu designu, nativní transitions a animations a media queries pro responzivní design. Použití čistého CSS prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti ironicky používá čisté technologie). Vanilla JavaScript bez knihoven zajišťuje rychlost (85 řádků vs. desítky KB knihoven), využívá moderní nativní DOM API, usnadňuje maintenance a je součástí satirické zprávy projektu kritizující přílišnou závislost na nástrojích.
+
+\subsection{Statický web a GitHub Pages}
+
+Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS/JS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
+
+% SCREENSHOT 9: Lighthouse audit výsledky (Performance, Accessibility, Best Practices, SEO)
+% Popis: Screenshot Lighthouse reportu ukazující skóre 90+ ve všech kategoriích
+% Soubor: screenshot-09-lighthouse-audit.png
+
+% SCREENSHOT 10: W3C HTML Validator výsledek (Document checking completed. No errors)
+% Popis: Screenshot W3C validátoru potvrzující validní HTML bez chyb
+% Soubor: screenshot-10-w3c-validation.png

@@ -1,0 +1,92 @@
+\chapter{Využití generativní AI}
+
+\section{Úvod}
+
+Při tvorbě projektu byly využity nástroje generativní AI pro tři hlavní oblasti: generování textového obsahu, vyhledávání vizuálního materiálu a asistenci při psaní kódu. Přestože AI významně urychlily některé aspekty vývoje, většina HTML a CSS byla napsána ručně bez AI asistence, což odráží hlavní poselství projektu -- demonstraci fundamentálních webových dovedností.
+
+\section{Nástroje pro generování textového obsahu}
+
+\subsection{GPT 5.1}
+
+GPT 5.1 (Generative Pre-trained Transformer) od OpenAI byl použit primárně pro vytváření textového obsahu webu včetně biografií terapeutů, recenzí klientů, glosáře pojmů a marketingových textů. Model generoval humorné biografie pro všech devět terapeutů kombinující satirický humor s empatickým tónem, vytvořil konzistentní tone of voice napříč celým webem, napsal testimonials od fiktivních klientů (Sarah K., Mike T., James L., Emily R.) a pomohl s generováním tabulky příznaků AI závislosti s osmi symptomy a doporučenými programy.
+
+\subsubsection{Příklad promptu}
+
+\begin{lstlisting}[style=htmlstyle, caption={Ukázkový prompt pro tvorbu profilu terapeuta}]
+Vytvor humorny profil fiktivniho terapeuta Dr. Emma HTML,
+ktera se specializuje na lecbu vyvojaru zavislych na pouzivani
+<div> elementu misto semantickeho HTML. Zahrn biografii,
+specializace a recenze od klientu.
+Ton: satiricky, ale empaticky.
+Delka: 2-3 odstavce biografie.
+\end{lstlisting}
+
+% SCREENSHOT 11: Ukázka použití GPT 5.1
+% Popis: Screenshot rozhraní GPT s promptem a vygenerovaným výstupem (biografie terapeuta)
+% Soubor: screenshot-11-gpt-content-generation.png
+
+GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 30 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Hlavními omezeními jsou občasné generické formulace vyžadující manuální úpravu, tendence opakovat podobné fráze napříč profily a potřeba několika iterací promptu pro dosažení požadovaného výsledku.
+
+\section{Nástroje pro vizuální obsah}
+
+\subsection{Google Images, Unsplash a Adobe Photoshop}
+
+Pro získání fotografií terapeutů a ilustračních obrázků byly použity Google Images a stock fotografie z Unsplash. Pro každého z devíti terapeutů byla vybrána profesionální fotografie odpovídající specializaci a osobnosti popsané v biografii. Adobe Photoshop byl použit pro ořez fotografií na konzistentní velikosti (150×150px pro karty, 280×280px pro profily), úpravu jasu a kontrastu pro jednotný vizuální styl a odstranění rušivých pozadí. Všechny obrázky byly komprimovány pomocí TinyPNG pro rychlé načítání webu. Tento přístup byl vybrán místo AI generování obrázků (DALL-E, Midjourney) pro zajištění realistického vzhledu skutečných lidí a konzistence vizuálního stylu. Výhodou je široký výběr profesionálních fotografií vysoké kvality a realistické portréty vypadají autentičtěji než AI generované tváře. Nevýhodou je časová náročnost -- výběr vhodných fotografií zabral několik hodin -- a nutnost kontroly licencí a autorských práv.
+
+\section{Nástroje pro asistenci při psaní kódu}
+
+\subsection{Claude Code (Sonnet 4.5)}
+
+Claude Code od Anthropic byl použit selektivně pro řešení specifických problémů a kontrolu best practices, nikoliv pro generování celého kódu webu. Nástroj pomáhal s konfigurací responzivního CSS Grid layoutu pro karty terapeutů s transformací z jednoho na tři sloupce, kontrolou accessibility best practices (ověření ARIA atributů, skip links, screen reader textů), generováním struktury CSS custom properties v souboru \texttt{base/variables.css} s konzistentním pojmenováním, konzultací správných přístupů k Mobile-first designu a breakpointům a refaktoringem kódu -- identifikací duplicit a navrhováním vylepšení.
+
+% SCREENSHOT 12: Ukázka použití Claude Code
+% Popis: Screenshot Claude Code rozhraní s dotazem na CSS Grid problém a odpovědí
+% Soubor: screenshot-12-claude-code-assistance.png
+
+Claude Code poskytuje velmi rychlé řešení technických problémů (CSS Grid konfigurace za minuty místo hodin testování), je užitečný pro učení nových CSS technik s vysvětlením ``proč'' funguje daný kód a má silnou podporu pro accessibility best practices s referencemi na WCAG guidelines. Omezením je občasná potřeba upřesnění požadavků pro ideální výsledek, navrhované řešení není vždy nejoptimálnější a model nemá přístup k prohlížeči pro vizuální ověření.
+
+\subsection{GitHub Copilot (Code Review)}
+
+GitHub Copilot v pull requests poskytuje automatickou code review s identifikací potenciálních problémů, bezpečnostních rizik a návrhů na vylepšení. Nástroj byl použit pro automatickou kontrolu kódu před merge, identifikaci chybějících alt textů a nekonzistentního naming a navrhování vylepšení podle best practices. Výhodou je úspora času při review procesu a identifikace drobných chyb, nevýhodou jsou občasné false positive připomínky a nutnost manuálního filtrování doporučení.
+
+\section{Kritické zhodnocení AI nástrojů}
+
+\subsection{Přesnost a spolehlivost}
+
+Následující tabulka shrnuje hodnocení jednotlivých AI nástrojů:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|p{7cm}|}
+\hline
+\textbf{Nástroj} & \textbf{Hodnocení} & \textbf{Poznámky} \\
+\hline
+GPT 5.1 (Content) & 9/10 & Vysoká kvalita textů s minimálními úpravami; výborná konzistence tónu \\
+\hline
+Google Images & 8/10 & Profesionální fotografie, ale časově náročné vyhledávání \\
+\hline
+Claude Code & 8/10 & Moderní, přístupný kód s dobrým pochopením kontextu; občas vyžaduje iteraci \\
+\hline
+GitHub Copilot & 7/10 & Užitečné připomínky, ale vyžaduje manuální filtrování návrhů \\
+\hline
+\end{tabular}
+\caption{Souhrnné hodnocení AI nástrojů}
+\end{table}
+
+\subsection{Přínosy a omezení}
+
+AI nástroje významně zkrátily čas potřebný pro vytvoření obsahu. Generování devíti profilů terapeutů zabralo 30 minut místo odhadovaných 4-6 hodin. GPT 5.1 zajistil jednotný tone of voice napříč všemi texty a poskytl kreativní nápady (např. humorné názvy publikací ``Why <div> Is Not Always the Answer'', ``I Survived 500 Nested Divs''). Asistence Claude Code měla pedagogickou hodnotu -- vysvětlovala ``proč'' funguje dané řešení, což pomohlo pochopit CSS Grid, Flexbox a accessibility best practices.
+
+Hlavní omezení zahrnují občasnou potřebu manuální úpravy generovaných textů pro přidání specifičnosti, nedostatek kontextu -- AI modely nemají přístup k vizuálnímu zobrazení webu ani širšímu kontextu projektu, riziko závislosti -- přílišné spoléhání se na AI může vést ke ztrátě fundamentálních dovedností (přesně problém, který projekt satiricky kritizuje), a nutnost validace -- GPT 5.1 občas generuje fakticky nesprávné informace (hallucinations) a Claude Code navrhuje řešení, která nebyla vždy optimální.
+
+\subsection{Doporučení pro použití AI}
+
+Na základě zkušeností lze doporučit následující best practices: používat AI pro brainstorming a inspiraci (nikoliv jako konečné řešení), generovat placeholder obsah pro rychlé prototypování, konzultovat specifické technické problémy místo kopírování celých komponent, učit se nových technik s vysvětlením od AI a VŽDY kontrolovat a upravovat AI výstupy. Co nedělat: slepě kopírovat AI kód bez pochopení, spoléhat se na AI pro kritické části projektu (security, accessibility), používat AI kód bez testování, ignorovat best practices kvůli ``rychlejším'' návrhům a nahrazovat fundamentální dovednosti AI asistencí.
+
+% SCREENSHOT 13: Srovnání AI vs manuálně psaný kód
+% Popis: Side-by-side porovnání AI vygenerovaného CSS kódu a finálního manuálně upraveného kódu
+% Soubor: screenshot-13-ai-vs-manual-code.png
+
+\section{Závěr}
+
+AI nástroje byly cenným pomocníkem při tvorbě projektu, ale lidský dohled, kritické myšlení a odbornost zůstaly klíčové pro kvalitu výsledku. GPT 5.1 urychlil tvorbu textového obsahu, Claude Code pomohl s technickými problémy a učením best practices, ale většina kódu byla napsána ručně pro demonstraci základních HTML/CSS dovedností. Klíčovým poznatkem je, že AI asistence je nejefektivnější když doplňuje, ne nahrazuje, lidské dovednosti -- přesně tím, co projekt ``Rehab from Vibe Coding'' propaguje.
