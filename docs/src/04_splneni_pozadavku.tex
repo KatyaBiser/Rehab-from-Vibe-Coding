@@ -118,7 +118,9 @@ Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \textt
 \section{Přístupnost}
 
 \subsection{Požadavek 24: WCAG 2.0 Level AA}
-\textbf{SPLNĚNO} -- Web splňuje WCAG 2.0 Level AA požadavky včetně sémantického HTML pro screen readery, skip links pro klávesnicovou navigaci (\texttt{<a href="\#main-content" class="skip-link">}), ARIA labels (aria-label, aria-current, aria-expanded), screen reader text (.sr-only), alt texty na všech obrázcích, barevný kontrast $>$7:1 (WCAG AAA standard), výrazné focus states pro všechny interaktivní elementy a breadcrumb navigace s aria-label.
+\textbf{SPLNĚNO} -- Web splňuje WCAG 2.0 Level AA požadavky včetně sémantického HTML pro screen readery. Skip links pro klávesnicovou navigaci: \\
+\texttt{<a href="\#main-content"\allowbreak{} class="skip-link">} \\
+ARIA labels (aria-label, aria-current, aria-expanded), screen reader text (.sr-only), alt texty na všech obrázcích, barevný kontrast $>$7:1 (WCAG AAA standard), výrazné focus states pro všechny interaktivní elementy a breadcrumb navigace s aria-label.
 
 % SCREENSHOT 18: WAVE accessibility report
 % Popis: Screenshot WAVE Web Accessibility Evaluation Tool ukazující 0 errors
@@ -137,7 +139,10 @@ Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \textt
 \textbf{SPLNĚNO} -- Základní styly pro mobil, media queries pro větší obrazovky pomocí \texttt{@media (min-width: ...)}.
 
 \subsection{Požadavek 27: Relativní adresování}
-\textbf{SPLNĚNO} -- Všechny odkazy používají relativní cesty: \texttt{href="assets/css/style.css"} pro index, \texttt{href="../../assets/css/style.css"} pro detaily, \texttt{src="../../assets/images/..."} pro obrázky.
+\textbf{SPLNĚNO} -- Všechny odkazy používají relativní cesty: \\
+\texttt{href="assets/css/style.css"} pro index; \\
+\texttt{href="../../assets/css/style.css"} pro detaily; \\
+\texttt{src="../../assets/images/..."} pro obrázky.
 
 \section{Dodatečně implementované prvky}
 
