@@ -24,11 +24,12 @@
                 Rehab from Vibe Coding
             </a>
 
-            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" hidden>
+            <label for="nav-toggle" class="nav__toggle" aria-label="Toggle navigation">
                 <span class="nav__toggle-bar"></span>
                 <span class="nav__toggle-bar"></span>
                 <span class="nav__toggle-bar"></span>
-            </button>
+            </label>
 
             <nav class="nav" aria-label="Main navigation">
                 <ul class="nav__list">
@@ -36,7 +37,8 @@
                         <a href="../../index.html" class="nav__link">Home</a>
                     </li>
                     <li class="nav__item">
-                        <a href="../therapists/list.html" class="nav__link nav__link--active" aria-current="page">Our Therapists</a>
+                        <a href="../therapists/list.html" class="nav__link nav__link--active" aria-current="page">Our
+                            Therapists</a>
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link">Programs</a>
@@ -48,14 +50,15 @@
                         <a href="#" class="nav__link">Book Consultation</a>
                     </li>
                     <li class="nav__item nav__item--search">
-                        <button class="search-toggle" aria-label="Toggle search" aria-expanded="false">
+                        <input type="checkbox" id="search-toggle" class="search-toggle-checkbox" hidden>
+                        <label for="search-toggle" class="search-toggle" aria-label="Toggle search">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <circle cx="11" cy="11" r="8"></circle>
                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                             </svg>
-                        </button>
+                        </label>
                         <div class="search-dropdown" id="header-search-dropdown">
                             <form class="search__form" role="search" action="../search-results.html" method="get">
                                 <label for="header-search-input" class="sr-only">Search our site</label>
@@ -65,7 +68,7 @@
                             </form>
                         </div>
                     </li>
-              </ul>
+                </ul>
             </nav>
         </div>
     </header>
@@ -137,7 +140,7 @@
                         <li>Stash Hoarding Intervention</li>
                         <li>Submodule Trauma Processing</li>
                         <li>Rebase vs. Merge Counseling (finding your workflow style)</li>
-                  </ul>
+                    </ul>
                 </section>
 
                 <!-- Publications -->
@@ -164,7 +167,7 @@
                             <strong>"Checkout Your Feelings: A Guide to Branching Out"</strong> -
                             The Staging Environment, 2024
                         </li>
-                  </ul>
+                    </ul>
                 </section>
 
                 <!-- Credentials -->
@@ -176,7 +179,7 @@
                         <li>Advanced Diploma in Conflict Resolution (Merge Strategies)</li>
                         <li>Linus Torvalds Award for Patience</li>
                         <li>Author of "The 7 Habits of Highly Effective Committers"</li>
-                  </ul>
+                    </ul>
                 </section>
 
                 <!-- Approach -->
@@ -193,7 +196,7 @@
                         <li><strong>The <code>commit</code> Phase</strong>: Making a conscious decision to change.</li>
                         <li><strong>The <code>push</code> Phase</strong>: Sharing your progress with the world (or just
                             your team).</li>
-                  </ul>
+                    </ul>
                 </section>
 
                 <!-- Testimonials -->
@@ -275,7 +278,8 @@
                     </ul>
                     <dl class="footer__details">
                         <dt><strong>Address:</strong></dt>
-                        <dd><a href="https://maps.app.goo.gl/NBUb5AmptdM7WWb56" class="footer__link" target="_blank" rel="noopener noreferrer">Kamýcká 129, 165 00 Praha 6</a></dd>
+                        <dd><a href="https://maps.app.goo.gl/NBUb5AmptdM7WWb56" class="footer__link" target="_blank"
+                                rel="noopener noreferrer">Kamýcká 129, 165 00 Praha 6</a></dd>
                         <dt><strong>IČO:</strong></dt>
                         <dd>12345678</dd>
                         <dt><strong>DIČ:</strong></dt>
@@ -291,10 +295,14 @@
                 </p>
                 <p class="footer__team">
                     Team:
-                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=212932;lang=cz" class="footer__link">Bakulina Neonila</a>,
-                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=242864;lang=cz" class="footer__link">Honcharov Oleksandr</a>,
-                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=243124;lang=cz" class="footer__link">Kuzmina Ekaterina</a>,
-                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=240837;lang=cz" class="footer__link">Shamedzka Kseniya</a>
+                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=212932;lang=cz" class="footer__link">Bakulina
+                        Neonila</a>,
+                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=242864;lang=cz" class="footer__link">Honcharov
+                        Oleksandr</a>,
+                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=243124;lang=cz" class="footer__link">Kuzmina
+                        Ekaterina</a>,
+                    <a href="https://is.czu.cz/auth/lide/clovek.pl?id=240837;lang=cz" class="footer__link">Shamedzka
+                        Kseniya</a>
                 </p>
                 <p class="footer__authors">
                     <time datetime="2025">© 2025</time> Rehab from Vibe Coding. All rights reserved.
@@ -304,7 +312,7 @@
         </div>
     </footer>
 
-    <script src="../../assets/js/navigation.js"></script>
+
 </body>
 
 </html>
