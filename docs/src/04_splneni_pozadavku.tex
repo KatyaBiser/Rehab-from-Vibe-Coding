@@ -46,14 +46,6 @@ Patička + autoři & \checkmark & Plná patička s 4 jmény autorů \\
 \caption{Splnění základních požadavků}
 \end{table}
 
-% SCREENSHOT 14: Ukázka AI generovaného obsahu
-% Popis: Screenshot profilu terapeuta ukazující AI vygenerovaný text (biografie + recenze)
-% Soubor: screenshot-14-ai-generated-content.png
-
-% SCREENSHOT 15: Označení studentského projektu
-% Popis: Screenshot footer s upozorněním "STUDENT PROJECT - Created for Educational Purposes"
-% Soubor: screenshot-15-student-project-notice.png
-
 \section{HTML5 a sémantické elementy}
 
 \subsection{Požadavek 13: Nejnovější HTML5}
@@ -84,10 +76,6 @@ main & 12x & Hlavní obsah stránky \\
 
 Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \texttt{<img>} všechny s alt textem, \texttt{<h1>, <h2>, <h3>} se správnou hierarchií nadpisů, \texttt{<a>} odkazy s aria-label kde potřebné, \texttt{<button>} s aria-expanded, glosář používá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy a breadcrumb navigace používá \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"} pro aktuální stránku.
 
-% SCREENSHOT 16: DevTools zobrazení sémantických elementů
-% Popis: Chrome DevTools Elements tab s rozbalenou HTML strukturou ukazující semantic elements
-% Soubor: screenshot-16-semantic-elements-devtools.png
-
 \section{CSS požadavky}
 
 \subsection{Požadavek 17: Bez použití frameworků}
@@ -111,24 +99,12 @@ Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \textt
 \subsection{Požadavek 23: Flexbox}
 \textbf{SPLNĚNO} -- Flexbox použit pro navigaci (\texttt{.header\_\_container} s \texttt{flex-direction: column} na mobilech a \texttt{row} s \texttt{justify-content: space-between} na tabletech/desktopech), karty (\texttt{.card} s vertikální organizací) a tlačítka (\texttt{.btn} s \texttt{inline-flex; align-items: center}).
 
-% SCREENSHOT 17: CSS Grid overlay v DevTools
-% Popis: Chrome DevTools s aktivovaným Grid overlay zobrazujícím grid lines a gaps
-% Soubor: screenshot-17-css-grid-overlay.png
-
 \section{Přístupnost}
 
 \subsection{Požadavek 24: WCAG 2.0 Level AA}
 \textbf{SPLNĚNO} -- Web splňuje WCAG 2.0 Level AA požadavky včetně sémantického HTML pro screen readery. Skip links pro klávesnicovou navigaci: \\
 \texttt{<a href="\#main-content"\allowbreak{} class="skip-link">} \\
 ARIA labels (aria-label, aria-current, aria-expanded), screen reader text (.sr-only), alt texty na všech obrázcích, barevný kontrast $>$7:1 (WCAG AAA standard), výrazné focus states pro všechny interaktivní elementy a breadcrumb navigace s aria-label.
-
-% SCREENSHOT 18: WAVE accessibility report
-% Popis: Screenshot WAVE Web Accessibility Evaluation Tool ukazující 0 errors
-% Soubor: screenshot-18-wave-accessibility-report.png
-
-% SCREENSHOT 19: Lighthouse accessibility score
-% Popis: Screenshot Lighthouse audit ukazující 100 bodů v Accessibility kategorii
-% Soubor: screenshot-19-lighthouse-accessibility.png
 
 \section{Další požadavky}
 
@@ -151,7 +127,3 @@ Kromě základních požadavků projekt obsahuje pokročilé CSS selektory (\tex
 \section{Shrnutí splnění požadavků}
 
 Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 1249 řádků optimalizovaného CSS v jediném souboru (312\% požadavku), CSS Custom Properties, Grid a Flexbox layouty, responzivní Mobile-first design, WCAG 2.0 Level AA accessibility, 12 HTML stránek s plnou funkcionalitou a všechny požadované elementy včetně tabulek, vyhledávání, kontaktů a breadcrumb navigace. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
-
-% SCREENSHOT 20: Celkový přehled projektu
-% Popis: Screenshot homepage nebo collage všech stránek projektu
-% Soubor: screenshot-20-project-overview.png
