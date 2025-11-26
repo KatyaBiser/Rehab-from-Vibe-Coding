@@ -13,41 +13,86 @@ GPT 5.1 (Generative Pre-trained Transformer) od OpenAI byl použit primárně pr
 \subsubsection{Příklad promptu}
 
 \begin{lstlisting}[style=promptstyle]
-Vytvor humorny profil fiktivniho terapeuta Dr. Emma HTML,
-ktera se specializuje na lecbu vyvojaru zavislych na pouzivani
-<div> elementu misto semantickeho HTML. Zahrn biografii,
-specializace a recenze od klientu.
-Ton: satiricky, ale empaticky.
-Delka: 2-3 odstavce biografie.
+Vytvor humorny profil fiktivniho terapeuta pro web "Rehab
+from Vibe Coding" - rehabilitacni centrum pro vyvojare
+zavisla na AI nastroje.
+
+Jmeno a specializace: Vymysli kreativni jmeno a prijmeni
+souvisejici s webovym vyvojem (napr. semanticke HTML,
+CSS vlastnosti, JavaScript koncepty, web technologie).
+
+Struktura profilu:
+1. Biography (3 odstavce):
+   - Pozadi a motivace terapeuta
+   - Osobni pristup k lecbe
+   - Predchozi zkusenosti
+
+2. Areas of Expertise (5-7 bodu):
+   - Specificke oblasti terapie
+   - Humorny pristup k webovym technologiim
+
+3. Selected Publications (4-5 fiktivnich publikaci):
+   - Nazvy clanku/knih s vtipnymi odkazy na web dev
+   - Fiktivni casopisy/vydavatele
+
+4. Education & Certifications (4-5 bodu):
+   - Fiktivni univerzity a certifikace
+   - Creativni nazvy spojena s technologiemi
+
+5. Treatment Approach (uvodni text + 5-6 bodu):
+   - Terapeuticke metody s vtipnou terminologii
+
+6. What Clients Say (2 testimonials):
+   - Fiktivni recenze od vyzdravelych vyvojaru
+   - Format: citace + jmeno klienta
+
+Ton: satiricky a humorny, ale s empatii k vyvojarum.
+Musi byt zabavny, ale ne urazazejici.
+Delka: poucujuci, ale ne prilis dlouhy.
 \end{lstlisting}
 
-% SCREENSHOT 11: Ukázka použití GPT 5.1
-% Popis: Screenshot rozhraní GPT s promptem a vygenerovaným výstupem (biografie terapeuta)
-% Soubor: screenshot-11-gpt-content-generation.png
-
-GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 30 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Hlavními omezeními jsou občasné generické formulace vyžadující manuální úpravu, tendence opakovat podobné fráze napříč profily a potřeba několika iterací promptu pro dosažení požadovaného výsledku.
+GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 15 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Hlavními omezeními jsou občasné generické formulace vyžadující manuální úpravu, tendence opakovat podobné fráze napříč profily a potřeba několika iterací promptu pro dosažení požadovaného výsledku.
 
 \section{Nástroje pro vizuální obsah}
 
-\subsection{Google Images, Unsplash a Adobe Photoshop}
+\subsection{Google Images}
 
-Pro získání fotografií terapeutů a ilustračních obrázků byly použity Google Images a stock fotografie z Unsplash. Pro každého z devíti terapeutů byla vybrána profesionální fotografie odpovídající specializaci a osobnosti popsané v biografii. Adobe Photoshop byl použit pro ořez fotografií na konzistentní velikosti (150×150px pro karty, 280×280px pro profily), úpravu jasu a kontrastu pro jednotný vizuální styl a odstranění rušivých pozadí. Všechny obrázky byly komprimovány pomocí TinyPNG pro rychlé načítání webu. Tento přístup byl vybrán místo AI generování obrázků (DALL-E, Midjourney) pro zajištění realistického vzhledu skutečných lidí a konzistence vizuálního stylu. Výhodou je široký výběr profesionálních fotografií vysoké kvality a realistické portréty vypadají autentičtěji než AI generované tváře. Nevýhodou je časová náročnost -- výběr vhodných fotografií zabralo několik hodin -- a nutnost kontroly licencí a autorských práv.
+Pro získání fotografií terapeutů a ilustračních obrázků byl použit Google Images. Fotografie byly vyhledány pomocí jednoduchých dotazů jako ``lekari fotografie'' pro portréty terapeutů a ``stastni lide v rehabilitaci'' pro ilustrační obrázky na úvodní stránce. Pro každého z devíti terapeutů byla vybrána profesionální fotografie. Tento přístup byl vybrán místo AI generování obrázků (DALL-E, Midjourney) pro zajištění realistického vzhledu.
+
+Protože se jedná o studentský učební projekt, nebyla řešena otázka licencí použitých fotografií. Fotografie byly použity tak, jak byly nalezeny, bez další úpravy formátu nebo velikosti. V reálném komerčním projektu by bylo nutné řešit autorská práva a licence fotografií, případně použít placené stock fotografie nebo AI generované obrázky.
 
 \section{Nástroje pro asistenci při psaní kódu}
 
 \subsection{Claude Code (Sonnet 4.5)}
 
-Claude Code od Anthropic byl použit selektivně pro řešení specifických problémů a kontrolu best practices, nikoliv pro generování celého kódu webu. Nástroj pomáhal s konfigurací responzivního CSS Grid layoutu pro karty terapeutů s transformací z jednoho na tři sloupce, kontrolou accessibility best practices (ověření ARIA atributů, skip links, screen reader textů), generováním struktury CSS custom properties v souboru \texttt{base/variables.css} s konzistentním pojmenováním, konzultací správných přístupů k Mobile-first designu a breakpointům a refaktoringem kódu -- identifikací duplicit a navrhováním vylepšení.
+Claude Code od Anthropic byl použit selektivně pro řešení specifických problémů a kontrolu best practices. Nástroj pomáhal s konfigurací responzivního CSS Grid layoutu pro karty terapeutů s transformací z jednoho na tři sloupce, kontrolou accessibility best practices (ověření ARIA atributů, skip links, screen reader textů), generováním struktury CSS custom properties v souboru \texttt{base/variables.css} s konzistentním pojmenováním, konzultací správných přístupů k Mobile-first designu a breakpointům a refaktoringem kódu -- identifikací duplicit a navrhováním vylepšení.
 
-% SCREENSHOT 12: Ukázka použití Claude Code
-% Popis: Screenshot Claude Code rozhraní s dotazem na CSS Grid problém a odpovědí
-% Soubor: screenshot-12-claude-code-assistance.png
+\subsubsection{Příklad promptu}
+
+\begin{lstlisting}[style=promptstyle]
+Mam CSS Grid s 9 kartami (4 sloupce na desktopu). Chci
+vytvorit zigzag pattern, kde nektery karty zabiraji
+2 sloupce misto 1:
+
+- Radek 1: Karta #1 span 2 (vlevo), karty #2,3 normalne
+- Radek 2: Karty #4,5 normalne, karta #6 span 2 (vpravo)
+- Radek 3: Karta #7 span 2 (vlevo), karty #8,9 normalne
+
+Pls objasni jak to udelat - jake CSS selektory pouzit,
+jake vlastnosti nastavit.
+\end{lstlisting}
 
 Claude Code poskytuje velmi rychlé řešení technických problémů (CSS Grid konfigurace za minuty místo hodin testování), je užitečný pro učení nových CSS technik s vysvětlením ``proč'' funguje daný kód a má silnou podporu pro accessibility best practices s referencemi na WCAG guidelines. Omezením je občasná potřeba upřesnění požadavků pro ideální výsledek, navrhované řešení není vždy nejoptimálnější a model nemá přístup k prohlížeči pro vizuální ověření.
 
 \subsection{GitHub Copilot (Code Review)}
 
 GitHub Copilot v pull requests poskytuje automatickou code review s identifikací potenciálních problémů, bezpečnostních rizik a návrhů na vylepšení. Nástroj byl použit pro automatickou kontrolu kódu před merge, identifikaci chybějících alt textů a nekonzistentního naming a navrhování vylepšení podle best practices. Výhodou je úspora času při review procesu a identifikace drobných chyb, nevýhodou jsou občasné false positive připomínky a nutnost manuálního filtrování doporučení.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/03/01-copilot-check.jpg}
+\caption{GitHub Copilot code review -- identifikace problému se sémantickou strukturou HTML a návrh vylepšení s použitím \texttt{<dl>} místo odděleného \texttt{<li>} elementu}
+\end{figure}
 
 \section{Kritické zhodnocení AI nástrojů}
 
@@ -82,10 +127,6 @@ Hlavní omezení zahrnují občasnou potřebu manuální úpravy generovaných t
 \subsection{Doporučení pro použití AI}
 
 Na základě zkušeností lze doporučit následující best practices: používat AI pro brainstorming a inspiraci (nikoliv jako konečné řešení), generovat placeholder obsah pro rychlé prototypování, konzultovat specifické technické problémy místo kopírování celých komponent, učit se nových technik s vysvětlením od AI a VŽDY kontrolovat a upravovat AI výstupy. Co nedělat: slepě kopírovat AI kód bez pochopení, spoléhat se na AI pro kritické části projektu (security, accessibility), používat AI kód bez testování, ignorovat best practices kvůli ``rychlejším'' návrhům a nahrazovat fundamentální dovednosti AI asistencí.
-
-% SCREENSHOT 13: Srovnání AI vs manuálně psaný kód
-% Popis: Side-by-side porovnání AI vygenerovaného CSS kódu a finálního manuálně upraveného kódu
-% Soubor: screenshot-13-ai-vs-manual-code.png
 
 \section{Závěr}
 

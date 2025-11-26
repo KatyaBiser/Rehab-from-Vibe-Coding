@@ -1,36 +1,1243 @@
 /* ============================================
-   Main Stylesheet
-   Modular CSS Architecture
+   CSS Variables (Custom Properties)
+   ============================================ */
+:root {
+  /* Color Palette - Medical/Clean Theme */
+  --primary-color: #2c7da0;
+  --primary-dark: #014f86;
+  --primary-light: #61a5c2;
+  --secondary-color: #52b788;
+  --secondary-dark: #2d6a4f;
+  --accent-color: #f48c06;
+  --background-color: #ffffff;
+  --background-light: #f8f9fa;
+  --text-color: #212529;
+  --text-light: #5a6268;
+  --border-color: #dee2e6;
+  --error-color: #dc3545;
+  --success-color: #52b788;
+
+  /* Badge Colors */
+  --badge-error-color: #e74c3c;
+  --badge-error-bg: rgba(231, 76, 60, 0.1);
+  --badge-premium-color: #f1c40f;
+  --badge-premium-text: #2c3e50;
+
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Georgia', serif;
+  --base-font-size: 16px;
+  --font-size-extra-small: 0.75rem;
+  --font-size-small: 0.875rem;
+  --font-size-normal: 1rem;
+  --font-size-large: 1.125rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.5rem;
+  --font-size-h4: 1.25rem;
+  --line-height-base: 1.6;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+
+  /* Layout */
+  --max-width-container: 1200px;
+  --max-width-content: 800px;
+  --border-radius: 8px;
+  --border-radius-small: 4px;
+  --border-radius-large: 24px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --box-shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --box-shadow-nav: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+/* ============================================
+   Reset and Base Styles
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remove default focus outline on click, but keep for keyboard navigation */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+html {
+  font-size: var(--base-font-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-normal);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height-heading);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover,
+a:focus {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--primary-color);
+}
+
+/* ============================================
+   Container & Main Layout
+   ============================================ */
+.container {
+  width: 100%;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin: 0 auto;
+}
+
+.main {
+  min-height: 60vh;
+  padding: var(--spacing-lg) 0;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+.header {
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-sm) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--box-shadow);
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--spacing-xs);
+  position: relative;
+}
+
+.nav__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.nav__toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.nav__toggle:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+.nav__toggle-bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+.nav__toggle--active .nav__toggle-bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.nav__toggle--active .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle--active .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.header__logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  color: var(--primary-color);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Smaller font for mobile to fit on one line */
+@media (max-width: 600px) {
+  .header__logo {
+    font-size: 1.2rem;
+  }
+}
+
+.header__logo:hover {
+  text-decoration: none;
+  color: var(--primary-dark);
+}
+
+.nav__list {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+  width: 100%;
+  background-color: var(--background-color);
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--border-color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  box-shadow: var(--box-shadow-nav);
+  z-index: 100;
+}
+
+.nav__list--active {
+  display: flex;
+}
+
+.nav__item {
+  width: 100%;
+  text-align: center;
+}
+
+.nav__link {
+  display: block;
+  padding: var(--spacing-xs);
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: all var(--transition-speed);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+  color: var(--primary-dark);
+  background-color: var(--background-light);
+  text-decoration: none;
+}
+
+.nav__link--active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.nav__link--disabled {
+  color: var(--primary-color);
+  cursor: default;
+  pointer-events: none;
+}
+
+.nav__link--disabled:hover,
+.nav__link--disabled:focus {
+  color: var(--primary-color);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.nav__item--search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed);
+}
+
+.search-toggle:hover,
+.search-toggle:focus {
+  color: var(--primary-dark);
+  outline: none;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-small);
+  width: 300px;
+  display: none;
+  z-index: 200;
+  margin-top: var(--spacing-xs);
+}
+
+.search-dropdown--active {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-dropdown .search__form {
+  margin: 0;
+  width: 100%;
+}
+
+.search-dropdown .search__input {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .nav__item--search {
+    justify-content: flex-start;
+    padding: 0 var(--spacing-xs);
+  }
+
+  .search-dropdown {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: var(--spacing-xs) 0;
+    display: none;
+  }
+
+  .search-dropdown--active {
+    display: block;
+  }
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
+  margin-top: var(--spacing-xxl);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.footer__section-title {
+  color: white;
+  font-size: var(--font-size-h4);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer__list {
+  list-style: none;
+}
+
+.footer__list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__link,
+.footer__link:visited {
+  color: white;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.footer__link:hover {
+  color: var(--accent-color);
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--primary-color);
+  padding-top: var(--spacing-md);
+  text-align: center;
+}
+
+.footer__student-notice {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__authors {
+  color: var(--primary-light);
+  font-size: var(--font-size-small);
+}
+
+/* Last child of a list */
+.footer__list>li:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   CSS Grid Layout
+   ============================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* This is the main grid with 8+ elements requirement */
+.grid--programs,
+.grid--therapists {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-normal);
+  font-weight: 600;
+  font-family: var(--font-primary);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+}
+
+.btn:visited {
+  color: white;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--primary-dark);
+  text-decoration: none;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--box-shadow);
+}
+
+.btn--large {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-normal);
+}
+
+.btn--disabled {
+  background-color: var(--text-muted, #999);
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn--disabled:hover,
+.btn--disabled:focus {
+  background-color: var(--text-muted, #999);
+  transform: none;
+  box-shadow: none;
+  text-decoration: none;
+  color: white;
+}
+
+/* ============================================
+   Card Components
+   ============================================ */
+.card {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  transition: all var(--transition-speed);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.card__title {
+  font-size: var(--font-size-h2);
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.card__description {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-sm);
+  flex-grow: 1;
+}
+
+.therapist-card__badge {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.85rem;
+  color: var(--badge-error-color);
+  font-weight: 600;
+  background-color: var(--badge-error-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-self: center;
+}
+
+.therapist-card__badge--premium {
+  display: inline-block;
+  margin-top: auto;
+  margin-bottom: var(--spacing-xs);
+  background-color: var(--badge-premium-color);
+  color: var(--badge-premium-text);
+  font-size: var(--font-size-extra-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+  box-shadow: var(--box-shadow-small);
+  align-self: center;
+}
+
+.card__link {
+  display: inline-block;
+  margin-top: auto;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: color var(--transition-speed);
+}
+
+/* Entire card clickable via stretched pseudo-element */
+.card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card__link:hover {
+  color: var(--primary-dark);
+}
+
+/* ============================================
+   Therapist Card (Specific)
+   ============================================ */
+.therapist-card {
+  text-align: center;
+  padding: 0;
+}
+
+.therapist-card__image {
+  width: 100%;
+  height: 250px;
+  border-radius: 0;
+  object-fit: cover;
+  margin: 0;
+  border: none;
+  display: block;
+}
+
+.therapist-card__content {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.therapist-card__name {
+  font-size: var(--font-size-h3);
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.therapist-card__specialty {
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   Search Bar
+   ============================================ */
+.search {
+  margin: var(--spacing-md) 0;
+}
+
+.search__form {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.search__input {
+  flex: 1;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-small);
+  font-size: var(--font-size-normal);
+  font-family: var(--font-primary);
+}
+
+.search__input:focus-visible {
+  border-color: var(--primary-light);
+}
+
+.search__button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color var(--transition-speed);
+}
+
+.search__button:hover,
+.search__button:focus {
+  background-color: var(--primary-dark);
+}
+
+/* ============================================
+   Hero Banner
+   ============================================ */
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: var(--spacing-xl) var(--spacing-sm);
+  text-align: center;
+}
+
+.hero__title {
+  color: white;
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-large);
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+/* ============================================
+   Table
+   ============================================ */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--background-color);
+}
+
+.table thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table tbody tr:hover {
+  background-color: var(--background-light);
+}
+
+/* Striped table rows using :nth-child */
+.table tbody tr:nth-child(odd) {
+  background-color: var(--background-light);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: var(--font-size-small);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--spacing-xs);
+  }
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+.breadcrumbs {
+    padding: var(--spacing-sm) 0;
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-color);
+    font-size: var(--font-size-small);
+}
+
+.breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumbs__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+    content: '/';
+    margin: 0 var(--spacing-xs);
+    color: var(--text-light);
+}
+
+.breadcrumbs__link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumbs__link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs__current {
+    color: var(--text-light);
+}
+
+/* ============================================
+   Testimonials
+   ============================================ */
+.testimonials {
+  background-color: var(--background-light);
+  padding: var(--spacing-xl) var(--spacing-sm);
+}
+
+.testimonial {
+  background-color: var(--background-color);
+  border-left: 4px solid var(--secondary-color);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-small);
+}
+
+.testimonial__text {
+  font-style: italic;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+}
+
+.testimonial__author {
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+/* First child emphasis */
+.testimonial:first-child {
+  border-left-width: 6px;
+}
+
+/* ============================================
+   Detail Page Layout
+   ============================================ */
+.detail {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.detail__header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.detail__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  object-fit: cover;
+  margin: 0 auto var(--spacing-md);
+  display: block;
+}
+
+/* Fixed size for therapist images - slightly bigger than card size */
+.detail__image--therapist {
+  width: 300px;
+  /* Slightly larger */
+  height: 300px;
+  border: none;
+  /* Remove border */
+  border-radius: var(--border-radius-large);
+  /* Modern rounded corners (Squircle-ish) */
+  box-shadow: var(--box-shadow-premium);
+  /* Soft, premium shadow */
+  transition: transform var(--transition-speed) ease;
+  /* Subtle hover effect */
+}
+
+.detail__image--therapist:hover {
+  transform: translateY(-5px);
+  /* Lift on hover */
+}
+
+.detail__title {
+  font-size: var(--font-size-h1);
+  margin-bottom: var(--spacing-xs);
+}
+
+.detail__subtitle {
+  font-size: var(--font-size-large);
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.detail__section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.detail__section-title {
+  font-size: var(--font-size-h3);
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-dark);
+  border-bottom: 2px solid var(--primary-light);
+  padding-bottom: var(--spacing-xs);
+}
+
+.detail__list {
+  list-style-position: inside;
+  margin-left: var(--spacing-sm);
+}
+
+.detail__list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ============================================
+   Section Styles
+   ============================================ */
+.section {
+  margin-bottom: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  position: relative;
+  scroll-margin-top: 100px; /* Offset for sticky header + extra space */
+}
+
+/* Add subtle divider between sections */
+.section:not(:first-of-type) {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Decorative centered dot on divider line */
+.section:not(:first-of-type)::before {
+  content: '◆';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-color);
+  padding: 0 var(--spacing-sm);
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-dark);
+}
+
+.section__intro {
+  max-width: var(--max-width-content);
+  margin: 0 auto var(--spacing-lg);
+  text-align: center;
+  color: var(--text-light);
+}
+
+.section__image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto var(--spacing-lg);
+  display: block;
+  border-radius: var(--border-radius);
+}
+
+/* ============================================
+   Accessibility
    ============================================ */
 
-/* Base Styles */
-@import url('base/variables.css');
-@import url('base/reset.css');
-@import url('base/typography.css');
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-decoration: none;
+  z-index: 100;
+}
 
-/* Layout */
-@import url('layout/container.css');
-@import url('layout/header.css');
-@import url('layout/footer.css');
-@import url('layout/grid.css');
+.skip-link:focus {
+  top: 0;
+}
 
-/* Components */
-@import url('components/buttons.css');
-@import url('components/cards.css');
-@import url('components/search.css');
-@import url('components/hero.css');
-@import url('components/tables.css');
-@import url('components/breadcrumbs.css');
-@import url('components/testimonials.css');
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
-/* Pages */
-@import url('pages/detail.css');
-@import url('pages/sections.css');
+/* ============================================
+   Utility/Helper Classes
+   ============================================ */
+.text-center {
+  text-align: center;
+}
 
-/* Utilities */
-@import url('utilities/accessibility.css');
-@import url('utilities/helpers.css');
-@import url('utilities/glossary.css');
+/* ============================================
+   Glossary (Definition Lists)
+   ============================================ */
+.glossary {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
 
-/* Responsive Design */
-@import url('responsive/media-queries.css');
+.glossary__term {
+  font-weight: 700;
+  font-size: var(--font-size-large);
+  color: var(--primary-dark);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+.glossary__definition {
+  margin-left: var(--spacing-md);
+  padding-left: var(--spacing-sm);
+  border-left: 3px solid var(--primary-light);
+  color: var(--text-color);
+  line-height: var(--line-height-base);
+}
+
+/* Direct child combinator > example */
+.glossary > dt {
+  font-style: normal;
+}
+
+/* Adjacent sibling combinator + example */
+.glossary__term + .glossary__definition {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   Responsive Design - Tablet (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  :root {
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+  }
+
+  .container {
+    max-width: var(--max-width-container);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__logo {
+    font-size: var(--font-size-h3);
+  }
+
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    position: static;
+    width: auto;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .nav__item {
+    width: auto;
+  }
+
+  .grid,
+  .grid--programs,
+  .grid--therapists {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    padding: var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  /* Programs List - Horizontal Layout */
+  .program-item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .program-item__content {
+    flex: 1;
+  }
+
+  .program-item__image {
+    width: 45%;
+    flex-shrink: 0;
+  }
+
+  .program-item--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* ============================================
+   Responsive Design - Desktop (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  :root {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.875rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Main grid for programs/therapists - 4 column zigzag layout */
+  .grid--programs,
+  .grid--therapists {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .grid--therapists {
+    grid-auto-flow: dense;
+  }
+
+  /* Zigzag pattern: odd rows have wide card on LEFT, even rows on RIGHT */
+  /* Row 1 (odd): Cards 1, 2, 3 - Card 1 spans 2 columns (left) */
+  /* Row 2 (even): Cards 4, 5, 6 - Card 4 spans 2 columns (right) */
+  /* Row 3 (odd): Cards 7, 8, 9 - Card 7 spans 2 columns (left) */
+
+  /* Wide cards on LEFT (elements 1, 7, 13, 19...) = 6n+1 */
+  .grid--programs .card:nth-child(6n+1) {
+    grid-column: 1 / 3;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) {
+    grid-column: span 2;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .grid--therapists .card:nth-child(6n) {
+    grid-column: span 2;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__image,
+  .grid--therapists .card:nth-child(6n) .therapist-card__image {
+    width: calc((100% - var(--spacing-md)) / 2);
+    height: auto;
+    min-height: 250px;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__content,
+  .grid--therapists .card:nth-child(6n) .therapist-card__content {
+    width: calc(100% - ((100% - var(--spacing-md)) / 2));
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge,
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
+    align-self: flex-start;
+  }
+
+  .grid--therapists .card:nth-child(6n+1) .therapist-card__badge--premium,
+  .grid--therapists .card:nth-child(6n) .therapist-card__badge--premium {
+    margin-top: auto;
+  }
+
+
+
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .footer__section:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: var(--spacing-lg);
+  }
+
+  .program-item__image {
+    width: 40%;
+  }
+
+  .program-item__title {
+    font-size: var(--font-size-h2);
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+
+  .header,
+  .nav,
+  .search,
+  .footer {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    color: black;
+    background: white;
+  }
+
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+}
