@@ -210,6 +210,12 @@ a:visited {
   outline-offset: 2px;
 }
 
+/* Checkbox Hack Utilities */
+.nav-toggle-checkbox,
+.search-toggle-checkbox {
+  display: none;
+}
+
 .nav__toggle-bar {
   width: 100%;
   height: 3px;
@@ -218,15 +224,16 @@ a:visited {
   transition: all var(--transition-speed) ease-in-out;
 }
 
-.nav__toggle--active .nav__toggle-bar:nth-child(1) {
+/* Hamburger Animation based on Checkbox State */
+#nav-toggle:checked~.nav__toggle .nav__toggle-bar:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
 
-.nav__toggle--active .nav__toggle-bar:nth-child(2) {
+#nav-toggle:checked~.nav__toggle .nav__toggle-bar:nth-child(2) {
   opacity: 0;
 }
 
-.nav__toggle--active .nav__toggle-bar:nth-child(3) {
+#nav-toggle:checked~.nav__toggle .nav__toggle-bar:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
 
@@ -268,7 +275,8 @@ a:visited {
   z-index: 100;
 }
 
-.nav__list--active {
+/* Show Nav List when Checkbox is Checked */
+#nav-toggle:checked~.nav .nav__list {
   display: flex;
 }
 
@@ -350,7 +358,8 @@ a:visited {
   margin-top: var(--spacing-xs);
 }
 
-.search-dropdown--active {
+/* Show Search Dropdown when Checkbox is Checked */
+#search-toggle:checked~.search-dropdown {
   display: block;
   animation: fadeIn 0.2s ease-in-out;
 }
