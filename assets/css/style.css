@@ -449,6 +449,11 @@ a:visited {
   color: var(--accent-color);
 }
 
+.footer__link:focus,
+.footer__link:active {
+  color: white;
+}
+
 .footer__bottom {
   border-top: 1px solid var(--primary-color);
   padding-top: var(--spacing-md);
