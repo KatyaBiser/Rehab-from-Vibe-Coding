@@ -8,39 +8,43 @@ Web se skládá z jedenácti HTML stránek: úvodní stránka, seznam terapeutů
 
 Úvodní stránka obsahuje hero sekci s hlavním nadpisem \textit{``Tired of AI Writing Code for You?''}, sekci o misi centra, interaktivní tabulku příznaků AI závislosti s osmi řádky symptomů a doporučenými léčebnými programy, glosář odborných pojmů (používá sémantické elementy \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}), přehled terapeutických programů, testimonials od fiktivních klientů v \texttt{<blockquote>} elementech a footer s kontakty organizovaný pomocí CSS Grid layoutu do čtyř sloupců.
 
-% SCREENSHOT 1: Hero sekce úvodní stránky
-% Popis: Celá hero sekce s nadpisem, podnázvkem a pozadím
-% Soubor: screenshot-01-hero-section.png
-% Umístění v textu: za tímto odstavcem
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/01-hero-section.png}
+\caption{Hero sekce úvodní stránky}
+\end{figure}
 
-% SCREENSHOT 2: Tabulka příznaků AI závislosti
-% Popis: Celá tabulka s hlavičkou a všemi řádky symptomů
-% Soubor: screenshot-02-symptoms-table.png
-% Umístění: za popisem tabulky
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/02-symptoms-table.png}
+\caption{Tabulka příznaků AI závislosti}
+\end{figure}
 
-% SCREENSHOT 3: Testimonials sekce
-% Popis: Všechny čtyři testimonials s citacemi a jmény autorů
-% Soubor: screenshot-03-testimonials.png
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/03-testimonials.png}
+\caption{Testimonials sekce}
+\end{figure}
 
 \subsection{Seznam terapeutů (pages/therapists/list.html)}
 
 Stránka prezentuje devět terapeutů v responzivním grid layoutu s úvodním textem a devíti kartami. Každá karta obsahuje portrét, jméno, specializaci, stručný popis a odkaz na detailní profil. Tři terapeuti mají badge \textit{``Lead Therapist''}. Grid se přizpůsobuje šířce obrazovky: jeden sloupec na mobilech, dva na tabletech, tři na desktopech.
 
-% SCREENSHOT 4: Grid layout se všemi 9 terapeuty (desktop view)
-% Popis: Celý grid s všemi 9 kartami terapeutů v 3-sloupcovém layoutu
-% Soubor: screenshot-04-therapists-grid-desktop.png
-
-% SCREENSHOT 5: Grid layout na mobilním zařízení (1 sloupec)
-% Popis: Zobrazení grid layoutu na mobilu s jedním sloupcem karet
-% Soubor: screenshot-05-therapists-grid-mobile.png
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/04-therapists-grid-desktop.png}
+\caption{Grid layout se všemi 9 terapeuty (desktop view)}
+\end{figure}
 
 \subsection{Detailní profily terapeutů}
 
 Každý terapeut má dedikovanou HTML stránku s breadcrumb navigací, header s portrétem a jménem, biografií, oblastmi expertízy, vybranými publikacemi, vzděláním a certifikacemi, terapeutickým přístupem, recenzemi klientů v \texttt{<blockquote>} elementech a call-to-action sekcí pro rezervaci.
 
-% SCREENSHOT 6: Detailní profil terapeuta (celá stránka nebo header + biografie)
-% Popis: Ukázka detailního profilu s portrétem, jménem, specializací a biografií
-% Soubor: screenshot-06-therapist-detail.png
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/06-therapist-detail.png}
+\caption{Detailní profil terapeuta}
+\end{figure}
 
 \section{Chování a interaktivita stránek}
 
@@ -94,10 +98,6 @@ Spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) je 
 
 CSS Grid je použit pro layout seznamu terapeutů (\texttt{.grid--therapists}) a footer (\texttt{.footer\_\_grid}). Grid terapeutů obsahuje devět karet s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech, \texttt{repeat(3, 1fr)} na desktopech. Gap mezi položkami je \texttt{var(--spacing-md)}. Footer grid používá čtyři sloupce na desktopech s adaptací na menší počet sloupců. Grid nabízí 2D kontrolu (řádky i sloupce) a jednodušší responzivní úpravy než Flexbox.
 
-% SCREENSHOT 8: DevTools zobrazení CSS Grid (grid overlay)
-% Popis: Chrome DevTools s aktivním grid overlay zobrazujícím grid lines
-% Soubor: screenshot-08-css-grid-devtools.png
-
 \subsection{Flexbox}
 
 Flexbox je použit pro jednodimenzionální layouty: navigace (\texttt{.nav\_\_list} s flexbox pro horizontální/vertikální rozložení), header (\texttt{.header\_\_container} s \texttt{flex-direction: column/row} podle breakpointu), karty (\texttt{.card} s \texttt{flex-direction: column}) a tlačítka (\texttt{.btn} s \texttt{inline-flex; align-items: center; justify-content: center}).
@@ -128,10 +128,8 @@ HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících stru
 
 Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS/JS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
 
-% SCREENSHOT 9: Lighthouse audit výsledky (Performance, Accessibility, Best Practices, SEO)
-% Popis: Screenshot Lighthouse reportu ukazující skóre 90+ ve všech kategoriích
-% Soubor: screenshot-09-lighthouse-audit.png
-
-% SCREENSHOT 10: W3C HTML Validator výsledek (Document checking completed. No errors)
-% Popis: Screenshot W3C validátoru potvrzující validní HTML bez chyb
-% Soubor: screenshot-10-w3c-validation.png
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/08-w3c-validation.png}
+\caption{W3C HTML Validator -- výsledek validace Home page (index.html). Všechny stránky byly úspěšně prověřeny validátorem bez chyb.}
+\end{figure}
