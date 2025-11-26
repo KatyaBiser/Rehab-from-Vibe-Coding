@@ -94,10 +94,10 @@ Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \textt
 \textbf{SPLNĚNO} -- 100\% vlastní CSS, žádný Bootstrap, Tailwind nebo jiný framework.
 
 \subsection{Požadavek 18: 1 soubor CSS (alespoň 400 řádků)}
-\textbf{SPLNĚNO} -- Celkem \textbf{936 řádků} optimalizovaného CSS v modulární architektuře s hlavním souborem style.css importujícím moduly: base/ (variables, reset, typography), layout/ (container, header, footer, grid), components/ (buttons, cards, search, hero, tables, testimonials, breadcrumbs), pages/ (detail, sections), utilities/ (accessibility, helpers, glossary) a responsive/ (media-queries). CSS byl optimalizován -- odstraněno 213 řádků nepoužitého kódu. \textbf{Splnění požadavku: 936 / 400 = 234\%}
+\textbf{SPLNĚNO} -- Celkem \textbf{1249 řádků} optimalizovaného CSS v jediném souboru \texttt{assets/css/style.css}. CSS je strukturovaný do logických sekcí s komentáři: CSS Variables (Custom Properties), Reset and Base Styles, Typography, Container \& Main Layout, Header \& Navigation, Footer, CSS Grid Layout, Buttons, Card Components, Search Bar, Hero Banner, Table, Breadcrumbs, Testimonials, Detail Page Layout, Section Styles, Accessibility, Utility/Helper Classes, Glossary, Responsive Design (Tablet 768px+, Desktop 1024px+) a Print Styles. \textbf{Splnění požadavku: 1249 / 400 = 312\%}
 
 \subsection{Požadavek 19: CSS Custom Properties}
-\textbf{SPLNĚNO} -- Komplexní systém CSS Custom Properties v assets/css/base/variables.css definuje v \texttt{:root} proměnné pro barvy (\texttt{--primary-color}, \texttt{--primary-dark}, \texttt{--text-color}), typografii (\texttt{--font-primary}, \texttt{--font-size-h1/h2/h3}), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}).
+\textbf{SPLNĚNO} -- Komplexní systém CSS Custom Properties v souboru \texttt{assets/css/style.css} definuje v \texttt{:root} proměnné pro barvy (\texttt{--primary-color}, \texttt{--primary-dark}, \texttt{--text-color}), typografii (\texttt{--font-primary}, \texttt{--font-size-h1/h2/h3}), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}).
 
 \subsection{Požadavek 20: Grid layout}
 \textbf{SPLNĚNO} -- Grid s 9 kartami terapeutů v pages/therapists/list.html používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px) a \texttt{repeat(3, 1fr)} na desktopech ($\geq$1024px) s \texttt{gap: var(--spacing-md)}.
@@ -150,7 +150,7 @@ Kromě základních požadavků projekt obsahuje pokročilé CSS selektory (\tex
 
 \section{Shrnutí splnění požadavků}
 
-Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 936 řádků optimalizovaného CSS (234\% požadavku), CSS Custom Properties, Grid a Flexbox layouty, responzivní Mobile-first design, WCAG 2.0 Level AA accessibility, 12 HTML stránek s plnou funkcionalitou a všechny požadované elementy včetně tabulek, vyhledávání, kontaktů a breadcrumb navigace. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
+Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 1249 řádků optimalizovaného CSS v jediném souboru (312\% požadavku), CSS Custom Properties, Grid a Flexbox layouty, responzivní Mobile-first design, WCAG 2.0 Level AA accessibility, 12 HTML stránek s plnou funkcionalitou a všechny požadované elementy včetně tabulek, vyhledávání, kontaktů a breadcrumb navigace. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
 
 % SCREENSHOT 20: Celkový přehled projektu
 % Popis: Screenshot homepage nebo collage všech stránek projektu
