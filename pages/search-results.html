@@ -79,8 +79,18 @@
             <section class="section">
                 <h1 class="section__title">Search Results</h1>
                 <p class="section__intro">
-                    Found 3 results for "<strong>Symptoms</strong>"
+                    Found 3 results
                 </p>
+
+                <!-- Search Bar on Results Page -->
+                <div class="search">
+                    <form class="search__form" role="search" action="search-results.html" method="get">
+                        <label for="page-search-input" class="sr-only">Search our site</label>
+                        <input type="search" id="page-search-input" name="q" class="search__input"
+                            placeholder="Search...">
+                        <button type="submit" class="search__button">Search</button>
+                    </form>
+                </div>
 
                 <div class="search-results">
                     <!-- Result 1: Symptoms Checklist -->
@@ -94,24 +104,24 @@
                             aria-label="View AI Dependency Symptoms Checklist">View Checklist →</a>
                     </article>
 
-                    <!-- Result 2: Our Therapists -->
+                    <!-- Result 2: Our Leading Therapists -->
                     <article class="card">
-                        <h2 class="card__title">Meet Our Specialized Therapists</h2>
+                        <h2 class="card__title">Our Leading Therapists</h2>
                         <p class="card__description">
-                            Our team of 9 specialized therapists can help you overcome AI dependency symptoms and regain your coding fundamentals. Each therapist focuses on specific areas like semantic HTML, CSS Grid, accessibility, and security.
+                            Our team of experts has decades of combined experience helping developers break free from AI dependency and rediscover the fundamentals of quality code.
                         </p>
                         <a href="therapists/list.html" class="card__link"
-                            aria-label="View our team of specialized therapists">Meet the Team →</a>
+                            aria-label="View our team of therapists">Meet the Team →</a>
                     </article>
 
-                    <!-- Result 3: Treatment Programs -->
+                    <!-- Result 3: About Our Mission -->
                     <article class="card">
-                        <h2 class="card__title">Evidence-Based Treatment Programs</h2>
+                        <h2 class="card__title">About Our Mission</h2>
                         <p class="card__description">
-                            Explore our comprehensive rehabilitation programs including Semantic HTML Recovery, Bootstrap Detox, CSS Grid Mastery, and Accessibility First. Tailored treatment for every symptom severity level.
+                            In a world where AI assistants promise to accelerate development, many developers are losing fundamental skills, leading to security vulnerabilities and poor code quality. Our mission is to restore developers' confidence and deep understanding of their craft.
                         </p>
-                        <a href="../index.html#symptoms" class="card__link"
-                            aria-label="View our treatment programs">Explore Programs →</a>
+                        <a href="../index.html#about" class="card__link"
+                            aria-label="Learn about our mission">Learn More →</a>
                     </article>
                 </div>
             </section>
@@ -122,13 +132,10 @@
                 const query = urlParams.get('q');
 
                 if (query) {
-                    // Update the "Found results for..." text
-                    document.querySelector('.section__intro strong').textContent = query;
-
-                    // Update the header search input value to match what was searched
-                    const headerSearchInput = document.getElementById('header-search-input');
-                    if (headerSearchInput) {
-                        headerSearchInput.value = query;
+                    // Update the page search input value to match what was searched
+                    const pageSearchInput = document.getElementById('page-search-input');
+                    if (pageSearchInput) {
+                        pageSearchInput.value = query;
                     }
                 }
             </script>
