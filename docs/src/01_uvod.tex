@@ -8,23 +8,7 @@ Cílem projektu je nejen pobavit, ale také vzdělávat. Prezentuje rehabilitač
 
 \section{Struktura webu}
 
-Web se skládá ze tří hlavních částí: úvodní stránky (index.html), seznamu terapeutů (pages/therapists/list.html) a devíti detailních profilů jednotlivých odborníků.
-
-\subsection{Úvodní stránka}
-
-Úvodní stránka obsahuje hero sekci s výrazným nadpisem \textit{"Tired of AI Writing Code for You?"} a motivačním popisem služeb. Následuje sekce \textit{"About Our Mission"}, která představuje poslání centra a vysvětluje problematiku AI závislosti ve vývoji. Klíčovou součástí je interaktivní tabulka příznaků AI závislosti, která uvádí osm běžných symptomů (například ``Accepting all AI suggestions without reading them'' nebo ``Can't write CSS without Tailwind/Bootstrap''), jejich závažnost, doporučený léčebný program a délku léčby.
-
-Dále stránka obsahuje glosář odborných pojmů, který definuje termíny jako \textit{Vibe Coding} (přijímání AI návrhů bez porozumění), \textit{Div Soup} (nadužívání nesémantických elementů), \textit{Semantic Recovery} (proces učení sémantického HTML) a \textit{Framework Dependency} (nadměrná závislost na CSS frameworkech). Sekce s přehledem léčebných programů nabízí úvod do terapeutických služeb a call-to-action sekce vyzývá k rezervaci konzultace.
-
-V dolní části stránky jsou umístěny testimonials -- citace úspěšných klientů, které humorně dokumentují cestu od AI závislosti k plné kontrole nad vlastním kódem. Například Sarah K. (Frontend Developer) popisuje, jak ``přestala klikat 'accept all suggestions' bez čtení'' nebo James L. (Senior Engineer) vysvětluje, jak program ``zachránil jeho reputaci po neúspěšných bezpečnostních auditech''. Stránka je zakončena plnohodnotnou patičkou s kontakty, odkazy na programy, informacemi o týmu a upozorněním, že se jedná o studentský projekt.
-
-\subsection{Seznam terapeutů}
-
-Stránka se seznamem terapeutů prezentuje devět odborníků v responzivním grid layoutu. Každý terapeut je představen kartou obsahující portrét, jméno, specializaci, stručný popis expertízy a odkaz na detailní profil. Vybraní terapeuti mají označení ``Lead Therapist'' s informací ``Currently accepting limited clients'', což vytváří autentický dojem exkluzivity služeb. V horní části stránky je umístěn úvodní text představující tým a jejich kombinované zkušenosti v oblasti léčby AI závislosti.
-
-\subsection{Detailní profily terapeutů}
-
-Každý z devíti terapeutů má vlastní dedikovanou stránku s komplexním profilem. Stránky používají breadcrumb navigaci pro lepší orientaci uživatele (Home $\rightarrow$ Our Therapists $\rightarrow$ Jméno terapeuta). Profil začíná velkým portrétem, jménem a podtitulem specializace, následuje detailní biografie popisující humornou backstory terapeuta a jeho motivaci pomáhat vývojářům. Dále jsou uvedeny oblasti expertízy (5-8 specializací), seznam vybraných publikací s fiktivními tituly článků a knihy, vzdělání a certifikace, popis terapeutického přístupu a recenze od bývalých klientů. Každý profil končí call-to-action sekcí s výzvou k rezervaci sezení.
+Web se skládá ze tří hlavních částí: úvodní stránky představující poslání centra a přehled služeb, seznamu devíti terapeutů v responzivním grid layoutu a detailních profilů jednotlivých odborníků s biografiemi, expertízou a recenzemi. Detailní technické specifikace struktury a obsahu jednotlivých stránek jsou popsány v kapitole \ref{chap:pozadavky}.
 
 \section{Tým terapeutů}
 
@@ -50,14 +34,12 @@ Rehabilitační centrum zaměstnává devět specializovaných terapeutů, z nic
 
 \section{Cílová skupina a účel}
 
-Projekt je primárně určen pro junior vývojáře, kteří se učí programovat v éře všudypřítomných AI asistentů a potřebují pochopit fundamenty před použitím pokročilých nástrojů. Dále cílí na frontend developery s nedostatečnými znalostmi HTML a CSS, kteří se spoléhají výhradně na frameworky a generativní nástroje. Třetí skupinou jsou týmoví lídři a senior vývojáři, kteří hledají vzdělávací materiál pro své juniory, a poslední kategorii tvoří studenti informatiky, kteří si osvojují best practices v oblasti webového vývoje.
+Projekt je určen pro všechny vývojáře bez ohledu na úroveň zkušeností, kteří se stali závislými na AI asistovaném programování (tzv. ``vibe coding'') a ztratili kontakt s fundamentálními dovednostmi. Primární cílovou skupinu tvoří vývojáři, kteří nekriticky přijímají AI návrhy bez porozumění kódu, spoléhají se výhradně na frameworky a generativní nástroje, nebo ztratili schopnost psát čistý HTML/CSS bez asistence. Sekundární skupinu představují týmoví lídři a senior vývojáři hledající vzdělávací materiál o rizicích nadměrné AI závislosti, stejně jako studenti informatiky, kteří si chtějí osvojit správné návyky a best practices ještě před vznikem závislosti na AI nástrojích.
 
 Web má dvojí účel: vzdělávací a humorný. Na jedné straně poskytuje skutečné informace o důležitosti sémantického HTML, přístupnosti, bezpečnosti a čistého CSS bez frameworků. Na druhé straně používá satiru a humor k tomu, aby upozornil na reálný problém nadměrné závislosti na AI nástrojích, který může vést ke ztrátě fundamentálních dovedností, bezpečnostním zranitelnostem a nekvalitnímu kódu.
 
 \section{Technologický přístup}
 
-Projekt je záměrně implementován pomocí čistých webových technologií bez použití moderních frameworků. Využívá HTML5 s důrazem na sémantické elementy (article, section, header, footer, aside, nav, main), CSS3 s moderními technikami (Grid, Flexbox, Custom Properties) a vanilla JavaScript pro interaktivitu. Tento přístup není pouze koncepční -- samotná implementace webu slouží jako manifest a praktická ukázka dovedností, které centrum ``léčí''.
+Projekt je záměrně implementován pomocí čistých webových technologií bez použití frameworků -- HTML5 se sémantickými elementy, CSS3 s moderními technikami (Grid, Flexbox, Custom Properties) a vanilla JavaScript. Tento přístup není pouze koncepční, ale slouží jako manifest hodnot, které centrum propaguje: fundamentální dovednosti před závislostí na nástrojích.
 
-Design je plně responzivní s Mobile-first přístupem, který zajišťuje optimální zobrazení na všech zařízeních od mobilních telefonů po desktopy. Navigace se transformuje z hamburger menu na mobilech na horizontální menu na větších obrazovkách, grid layouty se přizpůsobují od jednoho sloupce (mobil) přes dva sloupce (tablet) až po tři nebo čtyři sloupce (desktop). JavaScript (navigation.js) zajišťuje plynulé přepínání mobilního menu, správu ARIA atributů pro přístupnost a funkcionalitu vyhledávacího pole s dropdown animací.
-
-Web klade velký důraz na přístupnost podle standardu WCAG 2.0 Level AA. Obsahuje skip links pro snadnou klávesnicovou navigaci, ARIA labels a roles kde jsou potřebné, sémantické HTML pro screen readery, dostatečný kontrast barev a viditelné focus states pro všechny interaktivní elementy. Projekt je nasazen na GitHub Pages a je veřejně dostupný na adrese \url{https://katyabiser.github.io/Rehab-from-Vibe-Coding/}.
+Web je plně responzivní s Mobile-first přístupem a splňuje standard WCAG 2.0 Level AA pro přístupnost. Projekt je nasazen na GitHub Pages a dostupný na adrese \url{https://katyabiser.github.io/Rehab-from-Vibe-Coding/}. Detailní technické specifikace, zdůvodnění výběru technologií a implementační detaily jsou popsány v kapitole \ref{chap:pozadavky}.
