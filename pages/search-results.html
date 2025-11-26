@@ -79,11 +79,11 @@
             <section class="section">
                 <h1 class="section__title">Search Results</h1>
                 <p class="section__intro">
-                    Found 1 result for "<strong>Symptoms</strong>"
+                    Found 3 results for "<strong>Symptoms</strong>"
                 </p>
 
                 <div class="search-results">
-                    <!-- Static Result -->
+                    <!-- Result 1: Symptoms Checklist -->
                     <article class="card">
                         <h2 class="card__title">AI Dependency Symptoms Checklist</h2>
                         <p class="card__description">
@@ -92,6 +92,26 @@
                         </p>
                         <a href="../index.html#symptoms" class="card__link"
                             aria-label="View AI Dependency Symptoms Checklist">View Checklist →</a>
+                    </article>
+
+                    <!-- Result 2: Our Therapists -->
+                    <article class="card">
+                        <h2 class="card__title">Meet Our Specialized Therapists</h2>
+                        <p class="card__description">
+                            Our team of 9 specialized therapists can help you overcome AI dependency symptoms and regain your coding fundamentals. Each therapist focuses on specific areas like semantic HTML, CSS Grid, accessibility, and security.
+                        </p>
+                        <a href="therapists/list.html" class="card__link"
+                            aria-label="View our team of specialized therapists">Meet the Team →</a>
+                    </article>
+
+                    <!-- Result 3: Treatment Programs -->
+                    <article class="card">
+                        <h2 class="card__title">Evidence-Based Treatment Programs</h2>
+                        <p class="card__description">
+                            Explore our comprehensive rehabilitation programs including Semantic HTML Recovery, Bootstrap Detox, CSS Grid Mastery, and Accessibility First. Tailored treatment for every symptom severity level.
+                        </p>
+                        <a href="../index.html#symptoms" class="card__link"
+                            aria-label="View our treatment programs">Explore Programs →</a>
                     </article>
                 </div>
             </section>
@@ -105,8 +125,11 @@
                     // Update the "Found results for..." text
                     document.querySelector('.section__intro strong').textContent = query;
 
-                    // Update the search input value to match what was searched
-                    document.getElementById('search-input').value = query;
+                    // Update the header search input value to match what was searched
+                    const headerSearchInput = document.getElementById('header-search-input');
+                    if (headerSearchInput) {
+                        headerSearchInput.value = query;
+                    }
                 }
             </script>
 

@@ -690,6 +690,13 @@ a:visited {
   background-color: var(--primary-dark);
 }
 
+/* Search Results */
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
 /* ============================================
    Hero Banner
    ============================================ */
