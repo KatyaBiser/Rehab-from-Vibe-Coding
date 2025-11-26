@@ -7,55 +7,21 @@ Web se skládá z jedenácti HTML stránek: úvodní stránka, seznam terapeutů
 
 \subsection{Úvodní stránka (index.html)}
 
-Úvodní stránka obsahuje hero sekci s hlavním nadpisem \textit{``Tired of AI Writing Code for You?''}, sekci o misi centra, interaktivní tabulku příznaků AI závislosti s osmi řádky symptomů a doporučenými léčebnými programy, glosář odborných pojmů (používá sémantické elementy \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}), přehled terapeutických programů, testimonials od fiktivních klientů v \texttt{<blockquote>} elementech a footer s kontakty organizovaný pomocí CSS Grid layoutu do čtyř sloupců.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/01-hero-section.png}
-\caption{Hero sekce úvodní stránky}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/02-symptoms-table.png}
-\caption{Tabulka příznaků AI závislosti}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/03-testimonials.png}
-\caption{Testimonials sekce}
-\end{figure}
+Úvodní stránka implementuje sémantické HTML5 elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech do čtyř sloupců na desktopech. Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
 
 \subsection{Seznam terapeutů (pages/therapists/list.html)}
 
-Stránka prezentuje devět terapeutů v responzivním grid layoutu s úvodním textem a devíti kartami. Každá karta obsahuje portrét, jméno, specializaci, stručný popis a odkaz na detailní profil. Tři terapeuti mají badge \textit{``Lead Therapist''}. Grid se přizpůsobuje šířce obrazovky: jeden sloupec na mobilech, dva na tabletech, tři na desktopech.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/04-therapists-grid-desktop.png}
-\caption{Grid layout se všemi 9 terapeuty (desktop view)}
-\end{figure}
+Stránka implementuje CSS Grid layout s devíti položkami. Grid používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px), \texttt{repeat(3, 1fr)} na desktopech ($\geq$1024px). Tři karty obsahují conditional badge element s třídou \texttt{.card\_\_badge} pro označení ``Lead Therapist''. Každá karta je \texttt{<article>} element s \texttt{<img>}, nadpisy a odkazem na detailní profil.
 
 \subsection{Detailní profily terapeutů}
 
-Každý terapeut má dedikovanou HTML stránku s breadcrumb navigací, header s portrétem a jménem, biografií, oblastmi expertízy, vybranými publikacemi, vzděláním a certifikacemi, terapeutickým přístupem, recenzemi klientů v \texttt{<blockquote>} elementech a call-to-action sekcí pro rezervaci.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/06-therapist-detail.png}
-\caption{Detailní profil terapeuta}
-\end{figure}
+Každý terapeut má dedikovanou HTML stránku s breadcrumb navigací implementovanou pomocí \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"} pro aktuální stránku. Recenze klientů používají \texttt{<blockquote>} elementy se sémantickou strukturou citací. Struktura dat zahrnuje: biografie (několik odstavců \texttt{<p>}), oblasti expertízy (neuspořádaný seznam \texttt{<ul>}), vybrané publikace (\texttt{<ul>}), vzdělání a certifikace (\texttt{<ul>}), terapeutický přístup (úvodní text + seznam) a call-to-action sekce s tlačítkem pro rezervaci.
 
 \section{Chování a interaktivita stránek}
 
 \subsection{Responzivní layout}
 
 Web implementuje Mobile-first přístup s třemi breakpointy: Mobile (<768px) s výchozími styly a jedním sloupcem, Tablet ($\geq$768px) s dvousloupcovými layouty a horizontální navigací, Desktop ($\geq$1024px) s tří a čtyřsloupcovými layouty a maximální šířkou 1200px. Grid layout terapeutů se transformuje z jednoho sloupce přes dva na tři sloupce. Footer grid mění strukturu z jednoho na čtyři sloupce.
-
-% SCREENSHOT 7: Srovnání mobile vs desktop view (split screen)
-% Popis: Stejná stránka zobrazená vedle sebe na mobilu a desktopu
-% Soubor: screenshot-07-responsive-comparison.png
 
 \subsection{Navigace}
 
