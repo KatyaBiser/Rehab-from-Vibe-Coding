@@ -25,11 +25,11 @@ Web implementuje Mobile-first přístup s třemi breakpointy: Mobile (<768px) s 
 
 \subsection{Navigace}
 
-Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. JavaScript (\texttt{navigation.js}) přidává třídu \texttt{nav\_\_list--active} při kliknutí, což spouští slide-in animaci z pravé strany a nastavuje \texttt{aria-expanded="true"}. Menu se automaticky zavírá při kliknutí na odkaz, mimo menu nebo změně velikosti okna na tablet/desktop breakpoint. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
+Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. Navigace využívá řešení založené na checkbox elementu -- skrytý \texttt{<input type="checkbox" id="nav-toggle">} element je propojen s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. Při zaškrtnutí checkboxu CSS selektor \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} zobrazuje menu pomocí \texttt{display: flex}. Hamburger animace (transformace do křížku) je realizována pomocí CSS transforms na \texttt{.nav\_\_toggle-bar} elementy. Menu se automaticky zavírá při změně velikosti okna na tablet/desktop breakpoint díky media queries. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
 
 \subsection{Vyhledávání a interaktivní efekty}
 
-Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. JavaScript přidává třídu \texttt{search-dropdown--active}, zobrazuje dropdown s CSS transition a nastavuje automatický focus na input pole. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform: translateY(-5px)}, tlačítka s \texttt{transform: scale(1.02)}) a výrazné focus stavy s modrým obrysem pro klávesnicovou navigaci. Skip link je viditelný při focusu.
+Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. Stejně jako navigace používá CSS řešení s checkbox elementem -- \texttt{<input type="checkbox" id="search-toggle">} propojený s \texttt{<label>} ikonou. Při zaškrtnutí checkboxu CSS selektor \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown} zobrazuje dropdown pomocí \texttt{display: block} s CSS \texttt{@keyframes fadeIn} animací. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform: translateY(-5px)}, tlačítka s \texttt{transform: scale(1.02)}) a výrazné focus stavy s modrým obrysem (\texttt{:focus-visible}) pro klávesnicovou navigaci. Skip link je viditelný při focusu.
 
 \section{HTML požadavky}
 
@@ -73,27 +73,23 @@ Flexbox je použit pro jednodimenzionální layouty: navigace (\texttt{.nav\_\_l
 
 Mobile-first přístup používá základní styly pro nejmenší obrazovky. Media queries \texttt{@media (min-width: ...)} rozšiřují layout. Techniky zahrnují fluid typography pomocí relative units (rem, em), fluid layouts pomocí procent a CSS Grid/Flexbox. Responsive images s \texttt{max-width: 100\%; height: auto}, conditional visibility pomocí \texttt{display: none} a transformaci navigace z vertikální na horizontální.
 
-\section{JavaScript požadavky}
+\section{CSS interaktivita}
 
-\subsection{Vanilla JavaScript}
+\subsection{Interaktivní CSS technika}
 
-Projekt používá čistý JavaScript bez knihoven. Celý kód je v souboru \texttt{navigation.js} (85 řádků) a zaměřuje se na interaktivitu UI. Kód začíná \texttt{DOMContentLoaded} event listenerem.
+Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí selektorů a checkbox elementů -- elegantního řešení, které plně odpovídá filozofii projektu -- demonstraci fundamentálních webových dovedností.
 
-Používá moderní metody: \texttt{querySelector}, \texttt{addEventListener}, \texttt{classList.toggle}.
-
-\subsection{Funkcionality}
-
-Mobilní navigace s toggle hamburger menu, animacemi, správou ARIA atributů (\texttt{aria-expanded}), prevencí scrollování pozadí (\texttt{body.style.overflow}) a automatickým zavíráním. Vyhledávání s toggle search dropdown a focus managementem. Responsive listener s \texttt{window.matchMedia} pro detekci změny breakpointu. Správa accessibility s focus stavy, ARIA atributy a keyboard navigation support. Event listener pro dummy odkazy \texttt{href="\#"} preventující default chování.
+Tato technika využívá kombinaci skrytého \texttt{<input type="checkbox">} elementu, \texttt{<label>} elementu a CSS selektorů pro vytvoření interaktivních komponent. Hamburger menu používá \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} selektor pro zobrazení navigace. Vyhledávací dropdown funguje analogicky s \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown}. Animace hamburger ikony (transformace do křížku) je realizována pomocí CSS \texttt{transform} vlastností na \texttt{.nav\_\_toggle-bar} elementy. ARIA atributy (\texttt{aria-label}, \texttt{aria-current}) jsou staticky definovány v HTML a zajišťují přístupnost pro screen readery. Všechny hover efekty, focus stavy a transitions jsou implementovány v CSS pomocí pseudo-tříd \texttt{:hover}, \texttt{:focus}, \texttt{:focus-visible}.
 
 \section{Návrh a zdůvodnění technologií}
 
-\subsection{HTML5, CSS3 a Vanilla JavaScript}
+\subsection{HTML5 a CSS3}
 
-HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS3 bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) bez hacků, CSS variables pro snadnou správu designu, nativní transitions a animations a media queries pro responzivní design. Použití čistého CSS prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti ironicky používá čisté technologie). Vanilla JavaScript bez knihoven zajišťuje rychlost (85 řádků vs. desítky KB knihoven), využívá moderní nativní DOM API, usnadňuje maintenance a je součástí satirické zprávy projektu kritizující přílišnou závislost na nástrojích.
+HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS3 bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) s čistou implementací, CSS variables pro snadnou správu designu, nativní transitions a animations a media queries pro responzivní design. Použití čistých technologií prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti ironicky používá základní webové standardy). Tento přístup přináší rychlejší načítání, vynikající výkon a plnou kontrolu nad chováním. Je součástí satirické zprávy projektu kritizující přílišnou závislost na frameworkech a nástrojích.
 
 \subsection{Statický web a GitHub Pages}
 
-Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS/JS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
+Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
 
 \begin{figure}[H]
 \centering
