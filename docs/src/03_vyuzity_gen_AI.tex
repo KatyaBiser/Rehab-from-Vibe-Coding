@@ -51,7 +51,7 @@ Musi byt zabavny, ale ne urazazejici.
 Delka: poucujuci, ale ne prilis dlouhy.
 \end{lstlisting}
 
-GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 15 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Hlavními omezeními jsou občasné generické formulace vyžadující manuální úpravu, tendence opakovat podobné fráze napříč profily a potřeba několika iterací promptu pro dosažení požadovaného výsledku.
+GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 15 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Všechny výstupy byly hned použitelné bez nutnosti dalších úprav či opakovaných promptů.
 
 \section{Nástroje pro asistenci při psaní kódu}
 
@@ -78,7 +78,7 @@ Claude Code poskytuje velmi rychlé řešení technických problémů (CSS Grid 
 
 \subsection{GitHub Copilot (Code Review)}
 
-GitHub Copilot v pull requests poskytuje automatickou code review s identifikací potenciálních problémů, bezpečnostních rizik a návrhů na vylepšení. Nástroj byl použit pro automatickou kontrolu kódu před merge, identifikaci chybějících alt textů a nekonzistentního naming a navrhování vylepšení podle best practices. Výhodou je úspora času při review procesu a identifikace drobných chyb, nevýhodou jsou občasné false positive připomínky a nutnost manuálního filtrování doporučení.
+GitHub Copilot v pull requests poskytuje automatickou code review s identifikací potenciálních problémů, bezpečnostních rizik a návrhů na vylepšení. Nástroj byl použit pro automatickou kontrolu kódu před merge, identifikaci chybějících alt textů a nekonzistentního naming a navrhování vylepšení podle best practices. Výhodou je úspora času při review procesu a identifikace drobných chyb, žádné reálné nevýhody jsme nezaznamenali -- jen je potřeba počkat zhruba 5 minut, než Copilot dokončí review, což je stále rychlejší než lidský reviewer.
 
 \begin{figure}[H]
 \centering
@@ -98,11 +98,11 @@ Následující tabulka shrnuje hodnocení jednotlivých AI nástrojů:
 \hline
 \textbf{Nástroj} & \textbf{Hodnocení} & \textbf{Poznámky} \\
 \hline
-GPT 5.1 & 9/10 & Vysoká kvalita textů s minimálními úpravami; výborná konzistence tónu \\
+GPT 5.1 & 10/10 & Vysoká kvalita textů s minimálními úpravami; výborná konzistence tónu \\
 \hline
-Claude Code & 8/10 & Moderní, přístupný kód s dobrým pochopením kontextu; občas vyžaduje iteraci \\
+Claude Code & 9/10 & Moderní, přístupný kód s dobrým pochopením kontextu; občas vyžaduje iteraci \\
 \hline
-GitHub Copilot & 7/10 & Užitečné připomínky, ale vyžaduje manuální filtrování návrhů \\
+GitHub Copilot & 10/10 & Rychlé PR review; jen čekání ~5 minut na dokončení, pořád rychlejší než člověk \\
 \hline
 \end{tabular}
 \caption{Souhrnné hodnocení generativních AI nástrojů}
@@ -110,9 +110,9 @@ GitHub Copilot & 7/10 & Užitečné připomínky, ale vyžaduje manuální filtr
 
 \subsection{Přínosy a omezení}
 
-AI nástroje významně zkrátily čas potřebný pro vytvoření obsahu. Generování devíti profilů terapeutů zabralo 30 minut místo odhadovaných 4-6 hodin. GPT 5.1 zajistil jednotný tone of voice napříč všemi texty a poskytl kreativní nápady pro humorné názvy a koncepty. Asistence od Claude Code měla pedagogickou hodnotu -- vysvětlovala ``proč'' funguje dané řešení, což pomohlo pochopit CSS Grid, Flexbox a accessibility best practices.
+Navazujeme na hodnocení v Tabulce 3.1: kombinace GPT 5.1 pro obsah, Claude Code pro technické konzultace a GitHub Copilot pro PR review zkrátila editační cykly a udržela konzistenci textů i kódu. AI nástroje pokryly rutinní úkoly, takže více času zůstalo na design, přístupnost a finální ladění.
 
-Hlavní omezení zahrnují občasnou potřebu manuální úpravy generovaných textů pro přidání specifičnosti, nedostatek kontextu -- AI modely nemají přístup k vizuálnímu zobrazení webu ani širšímu kontextu projektu, riziko závislosti -- přílišné spoléhání se na AI může vést ke ztrátě fundamentálních dovedností (přesně problém, který projekt satiricky kritizuje), a nutnost validace -- GPT 5.1 občas generuje fakticky nesprávné informace (hallucinations) a Claude Code navrhuje řešení, která nebyla vždy optimální.
+Zásadní nevýhody jsme během projektu nezaznamenali. Prakticky jde jen o procesní omezení: Copilot potřebuje přibližně 5 minut na dokončení review a modely nemají vizuální kontext webu, takže finální schválení zůstává na lidském reviewerovi.
 
 \subsection{Doporučení pro použití AI}
 
