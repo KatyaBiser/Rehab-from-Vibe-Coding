@@ -7,7 +7,7 @@ Web se skládá z jedenácti HTML stránek: úvodní stránka, seznam terapeutů
 
 \subsection{Úvodní stránka (index.html)}
 
-Úvodní stránka implementuje sémantické HTML5 elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech do čtyř sloupců na desktopech. Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
+Úvodní stránka implementuje sémantické HTML elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech do čtyř sloupců na desktopech. Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
 
 \subsection{Seznam terapeutů (pages/therapists/list.html)}
 
@@ -25,21 +25,21 @@ Web implementuje Mobile-first přístup s třemi breakpointy: Mobile (<768px) s 
 
 \subsection{Navigace}
 
-Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. Navigace využívá řešení založené na checkbox elementu -- skrytý \texttt{<input type="checkbox" id="nav-toggle">} element je propojen s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. Při zaškrtnutí checkboxu CSS selektor \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} zobrazuje menu pomocí \texttt{display: flex}. Hamburger animace (transformace do křížku) je realizována pomocí CSS transforms na \texttt{.nav\_\_toggle-bar} elementy. Menu se automaticky zavírá při změně velikosti okna na tablet/desktop breakpoint díky media queries. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
+Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. Navigace využívá řešení založené na checkbox elementu -- skrytý \texttt{<input type="checkbox"\allowbreak{} id="nav-toggle">} element je propojen s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. Při zaškrtnutí checkboxu CSS selektor \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} zobrazuje menu pomocí \texttt{display: flex}. Hamburger animace (transformace do křížku) je realizována pomocí CSS transforms na \texttt{.nav\_\_\allowbreak{}toggle-bar} elementy. Menu se automaticky zavírá při změně velikosti okna na tablet/desktop breakpoint díky media queries. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
 
 \subsection{Vyhledávání a interaktivní efekty}
 
-Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. Stejně jako navigace používá CSS řešení s checkbox elementem -- \texttt{<input type="checkbox" id="search-toggle">} propojený s \texttt{<label>} ikonou. Při zaškrtnutí checkboxu CSS selektor \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown} zobrazuje dropdown pomocí \texttt{display: block} s CSS \texttt{@keyframes fadeIn} animací. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform: translateY(-5px)}, tlačítka s \texttt{transform: scale(1.02)}) a výrazné focus stavy s modrým obrysem (\texttt{:focus-visible}) pro klávesnicovou navigaci. Skip link je viditelný při focusu.
+Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. Stejně jako navigace používá CSS řešení s checkbox elementem -- \texttt{<input type="checkbox"\allowbreak{} id="search-toggle">} propojený s \texttt{<label>} ikonou. Při zaškrtnutí checkboxu CSS selektor \texttt{\#search-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .search-dropdown} zobrazuje dropdown pomocí \texttt{display: block} s CSS \texttt{@keyframes fadeIn} animací. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform:\allowbreak{} translateY(-5px)}, tlačítka s \texttt{transform:\allowbreak{} scale(1.02)}) a výrazné focus stavy s modrým obrysem (\texttt{:focus-visible}) pro klávesnicovou navigaci. Skip link je viditelný při focusu.
 
 \section{HTML požadavky}
 
 \subsection{Struktura dokumentu}
 
-Všechny stránky používají HTML5 standard s \texttt{<!DOCTYPE html>}, \texttt{<html lang="en">}, meta tagy pro kódování UTF-8, viewport pro responzivitu, description, keywords a title specifický pro každou stránku. Favicon a apple-touch-icon jsou definovány. Všechny stránky linkují jeden centrální CSS soubor s relativním adresováním.
+Všechny stránky používají HTML standard s \texttt{<!DOCTYPE html>}, \texttt{<html lang="en">}, meta tagy pro kódování UTF-8, viewport pro responzivitu, description, keywords a title specifický pro každou stránku. Favicon a apple-touch-icon jsou definovány. Všechny stránky linkují jeden centrální CSS soubor s relativním adresováním.
 
 \subsection{Sémantické elementy}
 
-Projekt využívá sémantické HTML5 elementy: \texttt{<header>} pro hlavičku s logem a navigací, \texttt{<nav>} s \texttt{aria-label}, \texttt{<main id="main-content">} jako target pro skip link, \texttt{<section>} pro tematické sekce, \texttt{<article>} pro karty a profily, \texttt{<aside>} pro testimonials, \texttt{<footer>} pro patičku. Dodržována je správná hierarchie nadpisů s jedním \texttt{<h1>} na stránku. Tabulka používá \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}. Glosář využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
+Projekt využívá sémantické HTML elementy: \texttt{<header>} pro hlavičku s logem a navigací, \texttt{<nav>} s \texttt{aria-label}, \texttt{<main id="main-content">} jako target pro skip link, \texttt{<section>} pro tematické sekce, \texttt{<article>} pro karty a profily, \texttt{<aside>} pro testimonials, \texttt{<footer>} pro patičku. Dodržována je správná hierarchie nadpisů s jedním \texttt{<h1>} na stránku. Tabulka používá \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}. Glosář využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
 
 \subsection{Přístupnost (WCAG 2.0 Level AA)}
 
@@ -79,23 +79,17 @@ Mobile-first přístup používá základní styly pro nejmenší obrazovky. Med
 
 Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí checkbox elementů a CSS selektorů -- elegantního řešení, které plně odpovídá filozofii projektu -- demonstraci fundamentálních webových dovedností.
 
-Tato technika využívá kombinaci skrytého \texttt{<input type="checkbox">} elementu, \texttt{<label>} elementu a CSS selektorů pro vytvoření interaktivních komponent. Hamburger menu používá \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} selektor pro zobrazení navigace. Vyhledávací dropdown funguje analogicky s \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown}. Animace hamburger ikony (transformace do křížku) je realizována pomocí CSS \texttt{transform} vlastností na \texttt{.nav\_\_toggle-bar} elementy. ARIA atributy (\texttt{aria-label}, \texttt{aria-current}) jsou staticky definovány v HTML a zajišťují přístupnost pro screen readery. Všechny hover efekty, focus stavy a transitions jsou implementovány v CSS pomocí pseudo-tříd \texttt{:hover}, \texttt{:focus}, \texttt{:focus-visible}.
+Tato technika využívá kombinaci skrytého \texttt{<input type="checkbox">} elementu, \texttt{<label>} elementu a CSS selektorů pro vytvoření interaktivních komponent. Hamburger menu používá \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} selektor pro zobrazení navigace. Vyhledávací dropdown funguje analogicky s \texttt{\#search-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .search-dropdown}. Animace hamburger ikony (transformace do křížku) je realizována pomocí CSS \texttt{transform} vlastností na \texttt{.nav\_\_\allowbreak{}toggle-bar} elementy. ARIA atributy (\texttt{aria-label}, \texttt{aria-current}) jsou staticky definovány v HTML a zajišťují přístupnost pro screen readery. Všechny hover efekty, focus stavy a transitions jsou implementovány v CSS pomocí pseudo-tříd \texttt{:hover}, \texttt{:focus}, \texttt{:focus-visible}.
 \subsection{Implementace}
 
-Navigace používá skrytý \texttt{<input type="checkbox" id="nav-toggle">} element propojený s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. CSS selektor \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} zobrazí menu při zaškrtnutí checkboxu. Vyhledávací dropdown funguje analogicky s \texttt{id="search-toggle"} a CSS animacemi pomocí \texttt{@keyframes fadeIn}. Toto řešení zajišťuje interaktivitu bez externí závislosti, s plnou podporou accessibility (ARIA atributy \texttt{aria-label} na label elementech) a rychlým výkonem díky nativním CSS selektorům.
+Navigace používá skrytý \texttt{<input type="checkbox"\allowbreak{} id="nav-toggle">} element propojený s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. CSS selektor \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} zobrazí menu při zaškrtnutí checkboxu. Vyhledávací dropdown funguje analogicky s \texttt{id="search-toggle"} a CSS animacemi pomocí \texttt{@keyframes fadeIn}. Toto řešení zajišťuje interaktivitu bez externí závislosti, s plnou podporou accessibility (ARIA atributy \texttt{aria-label} na label elementech) a rychlým výkonem díky nativním CSS selektorům.
 
 \section{Návrh a zdůvodnění technologií}
 
-\subsection{HTML5 a CSS3}
+\subsection{HTML a CSS}
 
-HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS3 bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) s čistou implementací, CSS variables pro snadnou správu designu, nativní transitions a animations, media queries pro responzivní design a pokročilé techniky jako checkbox-based interaktivitu pomocí \texttt{:checked} selektorů. Použití čistých technologií prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti demonstruje základní webové dovednosti). Tento přístup přináší rychlejší načítání (1271 řádků CSS bez externích závislostí), vynikající výkon a plnou kontrolu nad chováním UI elementů.
+HTML byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) s čistou implementací, CSS variables pro snadnou správu designu, nativní transitions a animations, media queries pro responzivní design a pokročilé techniky jako checkbox-based interaktivitu pomocí \texttt{:checked} selektorů. Použití čistých technologií prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti demonstruje základní webové dovednosti). Tento přístup přináší rychlejší načítání (1271 řádků CSS bez externích závislostí), vynikající výkon a plnou kontrolu nad chováním UI elementů.
 
 \subsection{Statický web a GitHub Pages}
 
 Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{screens/02/08-w3c-validation.png}
-\caption{W3C HTML Validator -- výsledek validace Home page (index.html). Všechny stránky byly úspěšně prověřeny validátorem bez chyb.}
-\end{figure}

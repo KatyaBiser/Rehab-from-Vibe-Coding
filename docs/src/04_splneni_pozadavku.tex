@@ -5,7 +5,7 @@
 \subsection{Požadavek 1: Projekty tvoří studenti ve skupinách po čtyřech}
 \textbf{SPLNĚNO}
 
-Tým 4 osob: Bakulina Neonila, Honcharov Oleksandr, Kuzmina Ekaterina, Shamedzka Kseniya. Jména autorů jsou uvedena v patičce na všech stránkách (index.html řádek 313-316).
+Tým 4 osob: Bakulina Neonila, Honcharov Oleksandr, Kuzmina Ekaterina, Shamedzka Kseniya. Jména autorů jsou uvedena v patičce na všech stránkách.
 
 \section{Téma}
 
@@ -16,29 +16,31 @@ Rehabilitační centrum ``Rehab from Vibe Coding'' -- fiktivní zdravotnické za
 
 \section{Základní požadavky}
 
+Zvolili jsme variantu zadání: dvě HTML stránky (homepage a ukázka výsledků vyhledávání) a všechny ostatní stránky jako hi-fi Figma prototyp.
+
 \begin{table}[ht]
 \centering
 \begin{tabular}{|p{6cm}|c|p{6cm}|}
 \hline
 \textbf{Požadavek} & \textbf{Stav} & \textbf{Důkaz} \\
 \hline
-Web dává smysl & \checkmark & 12 stránek s konzistentním obsahem \\
+Web dává smysl & \checkmark & Hi-fi Figma prototyp (kompletní web) + 2 HTML stránky (index, search-results) \\
 \hline
-AI generovaný obsah & \checkmark & GPT 5.1 (texty), Claude Code (kód), Google Images (fotky) \\
+AI generovaný obsah & \checkmark & GPT 5.1 (texty), Claude Code (kód) \\
 \hline
 Označení studentského projektu & \checkmark & Footer: "STUDENT PROJECT" \\
 \hline
 Úvodní stránka & \checkmark & index.html (hero, about, tabulka, glosář, testimonials) \\
 \hline
-Seznam terapeutů & \checkmark & pages/therapists/list.html (9 terapeutů v grid) \\
+Seznam terapeutů & \checkmark & Figma prototyp (výpis terapeutů) \\
 \hline
-Detail terapeuta & \checkmark & 9 detailních profilů \\
+Detail terapeuta & \checkmark & Figma prototyp (9 detailních profilů) \\
 \hline
-Vyhledávání & Částečně & UI připraveno, funkce v prototypu \\
+Vyhledávání & \checkmark & search-results.html (funkční stránka výsledků vyhledávání) \\
 \hline
 Kontakt & \checkmark & Email + telefon v patičce \\
 \hline
-Rezervace & Částečně & CTA tlačítka, proces v prototypu \\
+Rezervace & \checkmark & Figma prototyp (kompletní rezervační flow) \\
 \hline
 Patička + autoři & \checkmark & Plná patička s 4 jmény autorů \\
 \hline
@@ -46,35 +48,20 @@ Patička + autoři & \checkmark & Plná patička s 4 jmény autorů \\
 \caption{Splnění základních požadavků}
 \end{table}
 
-\section{HTML5 a sémantické elementy}
+\section{HTML a sémantické elementy}
 
-\subsection{Požadavek 13: Nejnovější HTML5}
-\textbf{SPLNĚNO} -- DOCTYPE \texttt{<!DOCTYPE html>}, HTML5 sémantické elementy konzistentně používány, meta viewport pro responzivitu, všechny stránky validní podle W3C HTML Validator.
+\subsection{Požadavek 13: Nejnovější HTML}
+\textbf{SPLNĚNO} -- DOCTYPE \texttt{<!DOCTYPE html>}, HTML sémantické elementy konzistentně používány, meta viewport pro responzivitu. Všechny stránky projektu (index.html, pages/therapists/list.html, pages/search-results.html a 9 detailních profilů terapeutů) byly úspěšně validovány pomocí W3C Nu Html Checker bez chyb a varování. Validace potvrdila správnou strukturu dokumentů, korektní použití sémantických elementů a dodržení HTML standardu (viz Obrázek \ref{fig:w3c-validator}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{screens/02/08-w3c-validation.png}
+\caption{W3C HTML Validator -- výsledek validace Home page (index.html). Všechny stránky byly úspěšně prověřeny validátorem bez chyb.}
+\label{fig:w3c-validator}
+\end{figure}
 
 \subsection{Požadavek 14: Sémantické elementy}
-\textbf{SPLNĚNO} -- Všechny požadované elementy správně použity:
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{|l|c|l|}
-\hline
-\textbf{Element} & \textbf{Počet použití} & \textbf{Použití} \\
-\hline
-article & 19x & Testimonials, profily terapeutů \\
-section & 111x & Tematické sekce obsahu \\
-header & 21x & Page header + detail headers \\
-footer & 12x & Patička na každé stránce \\
-aside & 10x & Testimonials, doplňkový obsah \\
-time & 12x & Copyright datum \\
-table & 1x & Tabulka příznaků, hodnocení AI \\
-nav & 21x & Navigační menu + breadcrumbs \\
-main & 12x & Hlavní obsah stránky \\
-\hline
-\end{tabular}
-\caption{Použití sémantických elementů}
-\end{table}
-
-Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \texttt{<img>} všechny s alt textem, \texttt{<h1>, <h2>, <h3>} se správnou hierarchií nadpisů, \texttt{<a>} odkazy s aria-label kde potřebné, \texttt{<button>} s aria-expanded, glosář používá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy a breadcrumb navigace používá \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"} pro aktuální stránku.
+\textbf{SPLNĚNO} -- Všechny požadované elementy jsou správně použity napříč stránkami: \texttt{<article>} pro testimonials a profily, \texttt{<section>} pro tematické bloky, \texttt{<header>} a \texttt{<footer>} na každé stránce, \texttt{<aside>} pro doplňkový obsah, \texttt{<time>} pro datum, \texttt{<table>} pro příznaky a hodnocení AI, \texttt{<nav>} pro menu a breadcrumbs a \texttt{<main>} pro hlavní obsah. Další elementy: odstavce \texttt{<p>}, obrázky \texttt{<img>} se smysluplným \texttt{alt}, nadpisy \texttt{<h1>-<h3>} v hierarchii, odkazy \texttt{<a>} s aria-label tam, kde je to vhodné, tlačítka \texttt{<button>} s \texttt{aria-expanded}, glosář \texttt{<dl>, <dt>, <dd>} a breadcrumb navigace \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"} pro aktivní stránku.
 
 \section{CSS požadavky}
 
@@ -126,4 +113,4 @@ Kromě základních požadavků projekt obsahuje pokročilé CSS selektory (\tex
 
 \section{Shrnutí splnění požadavků}
 
-Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 1271 řádků optimalizovaného CSS v jediném souboru, CSS Custom Properties (style.css řádky 4--60 definující barvy, typografii, spacing, layout), Grid layout s 9 kartami terapeutů a 2+ elementy spanning multiple cells (style.css řádky 1189--1199), Flexbox na 12 místech, responzivní Mobile-first design s breakpointy na 768px a 1024px, WCAG 2.0 Level AA accessibility s kompletní ARIA podporou, skip links a screen reader texty, 12 HTML stránek (index.html, search-results.html, list.html a 9 detailních profilů) a všechny požadované sémantické elementy včetně article (karty), section (tematické sekce), header, footer, aside (testimonials), time, table s thead/tbody/th, nav (navigace + breadcrumbs) a main. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
+Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML strukturu s plnou sémantickou strukturou, 1271 řádků optimalizovaného CSS v jediném souboru, CSS Custom Properties (style.css řádky 4--60 definující barvy, typografii, spacing, layout), Grid layout s 9 kartami terapeutů a 2+ elementy spanning multiple cells (style.css řádky 1189--1199), Flexbox na 12 místech, responzivní Mobile-first design s breakpointy na 768px a 1024px, WCAG 2.0 Level AA accessibility s kompletní ARIA podporou, skip links a screen reader texty, 12 HTML stránek (index.html, search-results.html, list.html a 9 detailních profilů) a všechny požadované sémantické elementy včetně article (karty), section (tematické sekce), header, footer, aside (testimonials), time, table s thead/tbody/th, nav (navigace + breadcrumbs) a main. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
