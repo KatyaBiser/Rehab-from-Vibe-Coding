@@ -77,7 +77,7 @@ Mobile-first přístup používá základní styly pro nejmenší obrazovky. Med
 
 \subsection{Interaktivní CSS technika}
 
-Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí selektorů a checkbox elementů -- elegantního řešení, které plně odpovídá filozofii projektu -- demonstraci fundamentálních webových dovedností.
+Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí checkbox elementů a CSS selektorů -- elegantního řešení, které plně odpovídá filozofii projektu -- demonstraci fundamentálních webových dovedností.
 
 Tato technika využívá kombinaci skrytého \texttt{<input type="checkbox">} elementu, \texttt{<label>} elementu a CSS selektorů pro vytvoření interaktivních komponent. Hamburger menu používá \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} selektor pro zobrazení navigace. Vyhledávací dropdown funguje analogicky s \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown}. Animace hamburger ikony (transformace do křížku) je realizována pomocí CSS \texttt{transform} vlastností na \texttt{.nav\_\_toggle-bar} elementy. ARIA atributy (\texttt{aria-label}, \texttt{aria-current}) jsou staticky definovány v HTML a zajišťují přístupnost pro screen readery. Všechny hover efekty, focus stavy a transitions jsou implementovány v CSS pomocí pseudo-tříd \texttt{:hover}, \texttt{:focus}, \texttt{:focus-visible}.
 \subsection{Implementace}
@@ -92,7 +92,7 @@ HTML5 byl vybrán pro bohatou sadu sémantických elementů zlepšujících stru
 
 \subsection{Statický web a GitHub Pages}
 
-Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS soubory s minimálním inline scriptem pro funkční demo), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
+Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
 
 \begin{figure}[H]
 \centering
