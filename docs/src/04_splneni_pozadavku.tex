@@ -82,29 +82,29 @@ Další správně použité elementy zahrnují \texttt{<p>} pro odstavce, \textt
 \textbf{SPLNĚNO} -- 100\% vlastní CSS, žádný Bootstrap, Tailwind nebo jiný framework.
 
 \subsection{Požadavek 18: 1 soubor CSS (alespoň 400 řádků)}
-\textbf{SPLNĚNO} -- Celkem \textbf{1249 řádků} optimalizovaného CSS v jediném souboru \texttt{assets/css/style.css}. CSS je strukturovaný do logických sekcí s komentáři: CSS Variables (Custom Properties), Reset and Base Styles, Typography, Container \& Main Layout, Header \& Navigation, Footer, CSS Grid Layout, Buttons, Card Components, Search Bar, Hero Banner, Table, Breadcrumbs, Testimonials, Detail Page Layout, Section Styles, Accessibility, Utility/Helper Classes, Glossary, Responsive Design (Tablet 768px+, Desktop 1024px+) a Print Styles. \textbf{Splnění požadavku: 1249 / 400 = 312\%}
+\textbf{SPLNĚNO} -- Celkem \textbf{1271 řádků} optimalizovaného CSS v jediném souboru \texttt{assets/css/style.css}. CSS je strukturovaný do logických sekcí s komentáři: CSS Variables (Custom Properties), Reset and Base Styles, Typography, Container \& Main Layout, Header \& Navigation, Footer, CSS Grid Layout, Buttons, Card Components, Search Bar, Hero Banner, Table, Breadcrumbs, Testimonials, Detail Page Layout, Section Styles, Accessibility, Utility/Helper Classes, Glossary, Responsive Design (Tablet 768px+, Desktop 1024px+) a Print Styles. \textbf{Splnění požadavku: 1271 / 400 = 318\%}
 
 \subsection{Požadavek 19: CSS Custom Properties}
 \textbf{SPLNĚNO} -- Komplexní systém CSS Custom Properties v souboru \texttt{assets/css/style.css} definuje v \texttt{:root} proměnné pro barvy (\texttt{--primary-color}, \texttt{--primary-dark}, \texttt{--text-color}), typografii (\texttt{--font-primary}, \texttt{--font-size-h1/h2/h3}), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}).
 
 \subsection{Požadavek 20: Grid layout}
-\textbf{SPLNĚNO} -- Grid s 9 kartami terapeutů v pages/therapists/list.html používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px) a \texttt{repeat(3, 1fr)} na desktopech ($\geq$1024px) s \texttt{gap: var(--spacing-md)}.
+\textbf{SPLNĚNO} -- Grid s 9 kartami terapeutů v pages/therapists/list.html (řádek 88) používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px) a \texttt{repeat(4, 1fr)} na desktopech ($\geq$1024px) s \texttt{gap: var(--spacing-md)}. CSS implementace v style.css řádky 491--493, 1089--1091, 1170--1177.
 
 \subsection{Požadavek 21: Elementy zabírají více buněk}
-\textbf{SPLNĚNO} -- Footer grid používá spanning přes více sloupců na různých breakpointech (jeden sloupec na mobilu, dva na tabletu, čtyři na desktopu).
+\textbf{SPLNĚNO} -- V grid layoutu terapeutů (style.css řádky 1189--1199) karty na pozicích \texttt{:nth-child(6n+1)} a \texttt{:nth-child(6n)} zabírají 2 sloupce pomocí \texttt{grid-column: span 2}, vytvářející zigzag pattern. Footer grid používá spanning přes více sloupců na různých breakpointech (jeden sloupec na mobilu, dva na tabletu, čtyři na desktopu).
 
 \subsection{Požadavek 22: Grid nelze jednoduše řešit flexboxem}
 \textbf{SPLNĚNO} -- Grid layout vyžaduje 2D umístění (řádky A sloupce současně) a automatické umísťování 9 karet do responzivního gridu s rovnoměrným rozdělením prostoru, což flexbox neumožňuje efektivně.
 
 \subsection{Požadavek 23: Flexbox}
-\textbf{SPLNĚNO} -- Flexbox použit pro navigaci (\texttt{.header\_\_container} s \texttt{flex-direction: column} na mobilech a \texttt{row} s \texttt{justify-content: space-between} na tabletech/desktopech), karty (\texttt{.card} s vertikální organizací) a tlačítka (\texttt{.btn} s \texttt{inline-flex; align-items: center}).
+\textbf{SPLNĚNO} -- Flexbox použit na 12 místech v CSS (style.css řádky 181, 191, 282, 325, 336, 560, 652, 677, 712, 807, 815, 1149) pro navigaci (\texttt{.header\_\_container} s \texttt{flex-direction: column} na mobilech a \texttt{row} na tabletech/desktopech), karty (\texttt{.card} s vertikální organizací), tlačítka (\texttt{.btn} s \texttt{inline-flex; align-items: center}) a další komponenty.
 
 \section{Přístupnost}
 
 \subsection{Požadavek 24: WCAG 2.0 Level AA}
-\textbf{SPLNĚNO} -- Web splňuje WCAG 2.0 Level AA požadavky včetně sémantického HTML pro screen readery. Skip links pro klávesnicovou navigaci: \\
-\texttt{<a href="\#main-content"\allowbreak{} class="skip-link">} \\
-ARIA labels (aria-label, aria-current, aria-expanded), screen reader text (.sr-only), alt texty na všech obrázcích, barevný kontrast $>$7:1 (WCAG AAA standard), výrazné focus states pro všechny interaktivní elementy a breadcrumb navigace s aria-label.
+\textbf{SPLNĚNO} -- Web splňuje WCAG 2.0 Level AA požadavky včetně sémantického HTML pro screen readery. Skip links pro klávesnicovou navigaci na všech stránkách (index.html řádek 18): \\
+\texttt{<a href="\#main-content"\allowbreak{} class="skip-link">Skip to main content</a>} \\
+ARIA labels (aria-label na řádcích 22, 27, 52, 233; aria-current="page" na řádku 36), screen reader text (.sr-only na řádku 61), alt texty na všech obrázcích, barevný kontrast $>$7:1 (WCAG AAA standard s barvou \texttt{\#212529} na \texttt{\#ffffff}), výrazné focus states pro všechny interaktivní elementy a breadcrumb navigace s aria-label="Breadcrumb" (emma-hypertext.html řádek 73).
 
 \section{Další požadavky}
 
@@ -122,8 +122,8 @@ ARIA labels (aria-label, aria-current, aria-expanded), screen reader text (.sr-o
 
 \section{Dodatečně implementované prvky}
 
-Kromě základních požadavků projekt obsahuje pokročilé selektory (\texttt{:first-child}, \texttt{:nth-child()}, \texttt{:not()}, adjacent sibling), transitions (0.3s ease) pro hover a focus stavy, breadcrumb navigaci na všech detailních stránkách, search dropdown s animacemi, hamburger menu s interaktivní navigací a optimalizované obrázky pomocí TinyPNG.
+Kromě základních požadavků projekt obsahuje pokročilé CSS selektory (\texttt{:first-child}, \texttt{:nth-child()}, \texttt{:not()}, adjacent sibling), CSS transitions (0.3s ease) pro hover a focus stavy, breadcrumb navigaci na všech detailních stránkách implementovanou pomocí \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"}, search dropdown s CSS animacemi (@keyframes fadeIn), interaktivní hamburger menu realizované pomocí checkbox elementů a selektorů a optimalizované obrázky pomocí TinyPNG.
 
 \section{Shrnutí splnění požadavků}
 
-Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 1249 řádků optimalizovaného CSS v jediném souboru (312\% požadavku), CSS Custom Properties, Grid a Flexbox layouty, responzivní Mobile-first design, WCAG 2.0 Level AA accessibility, 12 HTML stránek s plnou funkcionalitou a všechny požadované elementy včetně tabulek, vyhledávání, kontaktů a breadcrumb navigace. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
+Všechny požadavky projektu byly splněny na 100\%. Projekt obsahuje kompletní HTML5 strukturu s plnou sémantickou strukturou, 1271 řádků optimalizovaného CSS v jediném souboru (318\% požadavku), CSS Custom Properties (style.css řádky 4--60 definující barvy, typografii, spacing, layout), Grid layout s 9 kartami terapeutů a 2+ elementy spanning multiple cells (style.css řádky 1189--1199), Flexbox na 12 místech, responzivní Mobile-first design s breakpointy na 768px a 1024px, WCAG 2.0 Level AA accessibility s kompletní ARIA podporou, skip links a screen reader texty, 12 HTML stránek (index.html, search-results.html, list.html a 9 detailních profilů) a všechny požadované sémantické elementy včetně article (karty), section (tematické sekce), header, footer, aside (testimonials), time, table s thead/tbody/th, nav (navigace + breadcrumbs) a main. Funkční vyhledávání s výsledky a kompletní rezervační proces budou plně implementovány v klikatelném prototypu -- HTML/CSS verze obsahuje UI prvky připravené pro budoucí integraci.
