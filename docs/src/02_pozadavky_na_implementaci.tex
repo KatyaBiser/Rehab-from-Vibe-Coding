@@ -3,15 +3,15 @@
 
 \section{Popis webových stránek}
 
-Web se skládá z jedenácti HTML stránek: úvodní stránka, seznam terapeutů a devět detailních profilů. Každá stránka je navržena s důrazem na konzistenci designu, přístupnost a responzivní chování.
+Web se skládá z dvanácti HTML stránek: úvodní stránka, stránka s výsledky vyhledávání, seznam terapeutů a devět detailních profilů. Každá stránka je navržena s důrazem na konzistenci designu, přístupnost a responzivní chování.
 
 \subsection{Úvodní stránka (index.html)}
 
-Úvodní stránka implementuje sémantické HTML elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech do čtyř sloupců na desktopech. Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
+Úvodní stránka implementuje sémantické HTML elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech přes dva sloupce na tabletech ($\geq$768px) do čtyř sloupců na desktopech ($\geq$1024px). Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
 
 \subsection{Seznam terapeutů (pages/therapists/list.html)}
 
-Stránka implementuje CSS Grid layout s devíti položkami. Grid používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px), \texttt{repeat(3, 1fr)} na desktopech ($\geq$1024px). Tři karty obsahují conditional badge element s třídou \texttt{.card\_\_badge} pro označení ``Lead Therapist''. Každá karta je \texttt{<article>} element s \texttt{<img>}, nadpisy a odkazem na detailní profil.
+Stránka implementuje CSS Grid layout s devíti položkami. Grid používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px), \texttt{repeat(4, 1fr)} na desktopech ($\geq$1024px). Tři karty obsahují conditional badge element s třídou \texttt{.therapist-card\_\_badge--premium} pro označení ``Lead Therapist''. Každá karta je \texttt{<article>} element s \texttt{<img>}, nadpisy a odkazem na detailní profil.
 
 \subsection{Detailní profily terapeutů}
 
@@ -63,7 +63,7 @@ Spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) je 
 
 \subsection{CSS Grid layout}
 
-CSS Grid je použit pro layout seznamu terapeutů (\texttt{.grid--therapists}) a footer (\texttt{.footer\_\_grid}). Grid terapeutů obsahuje devět karet s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech, \texttt{repeat(3, 1fr)} na desktopech. Gap mezi položkami je \texttt{var(--spacing-md)}. Footer grid používá čtyři sloupce na desktopech s adaptací na menší počet sloupců. Grid nabízí 2D kontrolu (řádky i sloupce) a jednodušší responzivní úpravy než Flexbox.
+CSS Grid je použit pro layout seznamu terapeutů (\texttt{.grid--therapists}) a footer (\texttt{.footer\_\_grid}). Grid terapeutů obsahuje devět karet s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech, \texttt{repeat(4, 1fr)} na desktopech. Gap mezi položkami je \texttt{var(--spacing-md)}. Footer grid používá čtyři sloupce na desktopech s adaptací na menší počet sloupců. Grid nabízí 2D kontrolu (řádky i sloupce) a jednodušší responzivní úpravy než Flexbox.
 
 \subsection{Flexbox}
 
