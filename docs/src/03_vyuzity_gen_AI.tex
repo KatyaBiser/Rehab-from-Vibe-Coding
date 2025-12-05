@@ -2,13 +2,20 @@
 
 \section{Úvod}
 
-Při tvorbě projektu byly využity nástroje generativní AI pro dvě hlavní oblasti: generování textového obsahu a asistenci při psaní kódu. Přestože AI významně urychlily některé aspekty vývoje, většina HTML a CSS byla napsána ručně bez AI asistence, což odráží hlavní poselství projektu -- demonstraci fundamentálních webových dovedností.
+\begin{itemize}
+  \item Generativní AI jsme použili pro texty a pro asistenci při kódu.
+  \item Většina HTML/CSS je psaná ručně; AI urychlila dílčí úkoly, ale nenahradila fundamentální dovednosti.
+\end{itemize}
 
 \section{Nástroje pro generování textového obsahu}
 
 \subsection{GPT 5.1}
 
-GPT 5.1 od OpenAI byl použit primárně pro vytváření textového obsahu webu. Model generoval konzistentní tone of voice napříč celým webem, vytvořil strukturovaný obsah kombinující satirický humor s empatickým tónem a pomohl s generováním tabulkových dat a marketingových textů.
+\begin{itemize}
+  \item Generování textů pro web: konzistentní tone of voice, satira + empatie.
+  \item Vytvoření tabulkových dat a marketingových textů s minimem editací.
+  \item Pokrytí 9 profilů terapeutů během ~15 minut.
+\end{itemize}
 
 \subsubsection{Příklad promptu}
 
@@ -51,13 +58,21 @@ Musi byt zabavny, ale ne urazazejici.
 Delka: poucujuci, ale ne prilis dlouhy.
 \end{lstlisting}
 
-GPT 5.1 umožnil rychlé vytváření konzistentního obsahu -- všech devět profilů terapeutů bylo vygenerováno během 15 minut místo odhadovaných 4-6 hodin ručního psaní. Nástroj generuje kreativní nápady pro humorné texty a udržuje konzistentní styl napříč všemi texty. Všechny výstupy byly hned použitelné bez nutnosti dalších úprav či opakovaných promptů.
+\begin{itemize}
+  \item Zrychlení tvorby obsahu (9 profilů za ~15 minut místo hodin).
+  \item Silný brainstorming pro humor + konzistentní styl.
+  \item Výstupy byly použitelné bez opakovaných promptů.
+\end{itemize}
 
 \section{Nástroje pro asistenci při psaní kódu}
 
 \subsection{Claude Code (Sonnet 4.5)}
 
-Claude Code od Anthropic byl použit selektivně pro řešení specifických problémů a kontrolu best practices. Nástroj pomáhal s konfigurací responzivního CSS Grid layoutu pro karty terapeutů s transformací z jednoho na tři sloupce, kontrolou accessibility best practices (ověření ARIA atributů, skip links, screen reader textů), generováním struktury CSS custom properties v souboru \texttt{style.css} s konzistentním pojmenováním, konzultací správných přístupů k Mobile-first designu a breakpointům a refaktoringem kódu -- identifikací duplicit a navrhováním vylepšení.
+\begin{itemize}
+  \item Selektivní použití pro CSS/Grid/Flex konzultace a WCAG best practices.
+  \item Pomoc se strukturou custom properties a Mobile-first breakpoints.
+  \item Refaktoringové tipy: odstranění duplicit, lepší pojmenování.
+\end{itemize}
 
 \subsubsection{Příklad promptu}
 
@@ -74,11 +89,18 @@ Pls objasni jak to udelat - jake CSS selektory pouzit,
 jake vlastnosti nastavit.
 \end{lstlisting}
 
-Claude Code poskytuje velmi rychlé řešení technických problémů (CSS Grid konfigurace za minuty místo hodin testování), je užitečný pro učení nových CSS technik s vysvětlením ``proč'' funguje daný kód a má silnou podporu pro accessibility best practices s referencemi na WCAG guidelines. Omezením je občasná potřeba upřesnění požadavků pro ideální výsledek, navrhované řešení není vždy nejoptimálnější a model nemá přístup k prohlížeči pro vizuální ověření.
+\begin{itemize}
+  \item Rychlé řešení CSS problémů (minuty místo hodin) s vysvětlením „proč“.
+  \item Silná opora v accessibility/WCAG.
+  \item Limit: někdy nutné přesněji zadat, chybí vizuální kontext.
+\end{itemize}
 
 \subsection{GitHub Copilot (Code Review)}
 
-GitHub Copilot v pull requests poskytuje automatickou code review s identifikací potenciálních problémů, bezpečnostních rizik a návrhů na vylepšení. Nástroj byl použit pro automatickou kontrolu kódu před merge, identifikaci chybějících alt textů a nekonzistentního naming a navrhování vylepšení podle best practices. Výhodou je úspora času při review procesu a identifikace drobných chyb; jedinou drobnou nevýhodou je nutnost počkat zhruba 5 minut, než Copilot dokončí review, což je stále rychlejší než lidský reviewer.
+\begin{itemize}
+  \item Automatické PR review: hledání chyb (alt texty, sémantika, naming) a návrhy na vylepšení.
+  \item Šetří čas před merge; jediný drawback je čekání ~5 minut na výsledek.
+\end{itemize}
 
 \begin{figure}[H]
 \centering
@@ -110,14 +132,23 @@ GitHub Copilot & 10/10 & Rychlé PR review; jen čekání ~5 minut na dokončen�
 
 \subsection{Přínosy a omezení}
 
-Navazujeme na hodnocení v Tabulce 3.1: kombinace GPT 5.1 pro obsah, Claude Code pro technické konzultace a GitHub Copilot pro PR review zkrátila editační cykly a udržela konzistenci textů i kódu. AI nástroje pokryly rutinní úkoly, takže více času zůstalo na design, přístupnost a finální ladění.
-
-Zásadní nevýhody jsme během projektu nezaznamenali. Prakticky jde jen o procesní omezení: Copilot potřebuje přibližně 5 minut na dokončení review a modely nemají vizuální kontext webu, takže finální schválení zůstává na lidském reviewerovi.
+\begin{itemize}
+  \item Kombinace: GPT 5.1 pro obsah, Claude Code pro techniku, Copilot pro PR review \textrightarrow{} kratší editační cykly a konzistence.
+  \item AI pokryla rutinní úkoly, tým se soustředil na design, přístupnost a ladění.
+  \item Nevýhody: Copilot má latenci ~5 min; modely bez vizuálního kontextu \textrightarrow{} nutná finální lidská kontrola.
+\end{itemize}
 
 \subsection{Doporučení pro použití AI}
 
-Na základě zkušeností lze doporučit následující best practices: používat AI pro brainstorming a inspiraci (nikoliv jako konečné řešení), generovat placeholder obsah pro rychlé prototypování, konzultovat specifické technické problémy místo kopírování celých komponent, učit se nových technik s vysvětlením od AI a VŽDY kontrolovat a upravovat AI výstupy. Co nedělat: slepě kopírovat AI kód bez pochopení, spoléhat se na AI pro kritické části projektu (security, accessibility), používat AI kód bez testování, ignorovat best practices kvůli ``rychlejším'' návrhům a nahrazovat fundamentální dovednosti AI asistencí.
+\begin{itemize}
+  \item Doporučení: AI pro brainstorming, placeholdery, konzultace specifických problémů, učení se s vysvětlením, vždy validovat/testovat výstupy.
+  \item Co nedělat: slepé kopírování bez porozumění, spoléhat se na AI u kritických částí (security, accessibility), ignorovat best practices kvůli rychlosti.
+\end{itemize}
 
 \section{Závěr}
 
-AI nástroje byly cenným pomocníkem při tvorbě projektu, ale lidský dohled, kritické myšlení a odbornost zůstaly klíčové pro kvalitu výsledku. GPT 5.1 urychlil tvorbu textového obsahu, Claude Code pomohl s technickými problémy a učením best practices, ale většina kódu byla napsána ručně pro demonstraci základních HTML/CSS dovedností. Klíčovým poznatkem je, že AI asistence je nejefektivnější když doplňuje, ne nahrazuje, lidské dovednosti -- přesně tím, co projekt ``Rehab from Vibe Coding'' propaguje.
+\begin{itemize}
+  \item AI pomohla, ale klíčový zůstal lidský dohled, kritické myšlení a ručně psaný kód.
+  \item GPT 5.1 zrychlil texty, Claude Code řešil CSS/aksesibility otázky, Copilot kontroloval PR.
+  \item Poučení: AI je nejlepší jako doplněk, ne náhrada; to je i hlavní message projektu.
+\end{itemize}
