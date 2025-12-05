@@ -3,93 +3,180 @@
 
 \section{Popis webových stránek}
 
-Web se skládá z dvanácti HTML stránek: úvodní stránka, stránka s výsledky vyhledávání, seznam terapeutů a devět detailních profilů. Každá stránka je navržena s důrazem na konzistenci designu, přístupnost a responzivní chování.
+\begin{itemize}
+  \item 12 HTML stránek: homepage, stránka s výsledky vyhledávání, seznam terapeutů, 9 detailních profilů.
+  \item Důraz na konzistentní design, přístupnost a responzivní chování.
+\end{itemize}
 
 \subsection{Úvodní stránka (index.html)}
 
-Úvodní stránka implementuje sémantické HTML elementy pro strukturu obsahu. Glosář odborných pojmů využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>} elementy pro správnou sémantiku definition lists. Testimonials používají \texttt{<blockquote>} elementy s citacemi klientů. Footer je organizován pomocí CSS Grid layoutu s responzivním chováním -- transformace z jednoho sloupce na mobilech přes dva sloupce na tabletech ($\geq$768px) do čtyř sloupců na desktopech ($\geq$1024px). Tabulka příznaků AI závislosti obsahuje osm řádků s využitím \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">} pro přístupnost.
+\begin{itemize}
+  \item Sémantické prvky pro hlavní obsah; glosář přes \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
+  \item Testimonials v \texttt{<blockquote>} s citacemi klientů.
+  \item Footer v CSS Grid: 1 sloupec (mobile), 2 sloupce (tablet), 4 sloupce (desktop).
+  \item Tabulka příznaků AI závislosti s \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}.
+\end{itemize}
 
 \subsection{Seznam terapeutů (pages/therapists/list.html)}
 
-Stránka implementuje CSS Grid layout s devíti položkami. Grid používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px), \texttt{repeat(4, 1fr)} na desktopech ($\geq$1024px). Tři karty obsahují conditional badge element s třídou \texttt{.therapist-card\_\_badge--premium} pro označení ``Lead Therapist''. Každá karta je \texttt{<article>} element s \texttt{<img>}, nadpisy a odkazem na detailní profil.
+\begin{itemize}
+  \item CSS Grid s 9 kartami: 1 sloupec (mobile), 2 sloupce (tablet), 4 sloupce (desktop).
+  \item Badge \texttt{.therapist-card\_\_badge--premium} pro označení Lead Therapist.
+  \item Každá karta je \texttt{<article>} s \texttt{<img>}, nadpisy a odkazem na detail.
+\end{itemize}
 
 \subsection{Detailní profily terapeutů}
 
-Každý terapeut má dedikovanou HTML stránku s breadcrumb navigací implementovanou pomocí \texttt{<nav>} s \texttt{<ol>} a \texttt{aria-current="page"} pro aktuální stránku. Recenze klientů používají \texttt{<blockquote>} elementy se sémantickou strukturou citací. Struktura dat zahrnuje: biografie (několik odstavců \texttt{<p>}), oblasti expertízy (neuspořádaný seznam \texttt{<ul>}), vybrané publikace (\texttt{<ul>}), vzdělání a certifikace (\texttt{<ul>}), terapeutický přístup (úvodní text + seznam) a call-to-action sekce s tlačítkem pro rezervaci.
+\begin{itemize}
+  \item Breadcrumbs v \texttt{<nav>} + \texttt{<ol>} s \texttt{aria-current="page"}.
+  \item Recenze klientů v \texttt{<blockquote>}.
+  \item Obsah: bio (\texttt{<p>}), expertíza (\texttt{<ul>}), publikace (\texttt{<ul>}), vzdělání (\texttt{<ul>}), terapeutický přístup (text + seznam), CTA na rezervaci.
+\end{itemize}
 
 \section{Chování a interaktivita stránek}
 
 \subsection{Responzivní layout}
 
-Web implementuje Mobile-first přístup s třemi breakpointy: Mobile (<768px) s výchozími styly a jedním sloupcem, Tablet ($\geq$768px) s dvousloupcovými layouty a horizontální navigací, Desktop ($\geq$1024px) s tří a čtyřsloupcovými layouty a maximální šířkou 1200px. Grid layout terapeutů se transformuje z jednoho sloupce přes dva na čtyři sloupce. Footer grid mění strukturu z jednoho na čtyři sloupce.
+\begin{itemize}
+  \item Mobile-first: výchozí styly a 1 sloupec pro mobily (<768px).
+  \item Tablet ($\geq$768px): 2 sloupce, horizontální navigace.
+  \item Desktop ($\geq$1024px): 3--4 sloupce, max šířka 1200px.
+  \item Grid terapeutů: 1 \textrightarrow{} 2 \textrightarrow{} 4 sloupce; footer grid: 1 \textrightarrow{} 2 \textrightarrow{} 4 sloupce.
+\end{itemize}
 
 \subsection{Navigace}
 
-Na mobilních zařízeních je menu defaultně skryté s hamburger tlačítkem. Navigace využívá řešení založené na checkbox elementu -- skrytý \texttt{<input type="checkbox"\allowbreak{} id="nav-toggle">} element je propojen s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. Při zaškrtnutí checkboxu CSS selektor \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} zobrazuje menu pomocí \texttt{display: flex}. Hamburger animace (transformace do křížku) je realizována pomocí CSS transforms na \texttt{.nav\_\_\allowbreak{}toggle-bar} elementy. Menu se automaticky zavírá při změně velikosti okna na tablet/desktop breakpoint díky media queries. Na větších obrazovkách je menu vždy viditelné jako horizontální seznam.
+\begin{itemize}
+  \item Mobile: menu skryté, otevření přes hamburger (\texttt{<input type="checkbox" id="nav-toggle">} + \texttt{<label>}).
+  \item Zobrazení menu: selektor \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} \textrightarrow{} \texttt{display: flex}.
+  \item Animace hamburgeru do křížku přes CSS transform na \texttt{.nav\_\_toggle-bar}.
+  \item Na tabletu/desktopu je menu vždy viditelné, při resize se mobilní stav zavře media query.
+\end{itemize}
 
 \subsection{Vyhledávání a interaktivní efekty}
 
-Vyhledávací pole je implementováno jako dropdown aktivovaný tlačítkem s ikonou lupy. Stejně jako navigace používá CSS řešení s checkbox elementem -- \texttt{<input type="checkbox"\allowbreak{} id="search-toggle">} propojený s \texttt{<label>} ikonou. Při zaškrtnutí checkboxu CSS selektor \texttt{\#search-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .search-dropdown} zobrazuje dropdown pomocí \texttt{display: block} s CSS \texttt{@keyframes fadeIn} animací. Všechny interaktivní elementy mají hover efekty (karty s \texttt{transform:\allowbreak{} translateY(-2px)}, tlačítka s \texttt{transform:\allowbreak{} translateY(-1px)}) a výrazné focus stavy s modrým obrysem (\texttt{:focus-visible}) pro klávesnicovou navigaci. Skip link je viditelný při focusu.
+\begin{itemize}
+  \item Vyhledávání jako dropdown: \texttt{<input type="checkbox" id="search-toggle">} + \texttt{<label>} s ikonou lupy.
+  \item Selektor \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown} \textrightarrow{} \texttt{display: block} + animace \texttt{@keyframes fadeIn}.
+  \item Hover efekty: karty \texttt{transform: translateY(-2px)}, tlačítka \texttt{translateY(-1px)}.
+  \item Přístupnost: výrazné \texttt{:focus-visible}, viditelný skip link při focusu.
+\end{itemize}
 
 \section{HTML požadavky}
 
 \subsection{Struktura dokumentu}
 
-Všechny stránky používají HTML standard s \texttt{<!DOCTYPE html>}, \texttt{<html lang="en">}, meta tagy pro kódování UTF-8, viewport pro responzivitu, description a title specifický pro každou stránku. Meta keywords jsou definovány na hlavní stránce. Všechny stránky linkují jeden centrální CSS soubor s relativním adresováním.
+\begin{itemize}
+  \item \texttt{<!DOCTYPE html>}, \texttt{<html lang="en">}, meta UTF-8 + viewport na všech stránkách.
+  \item Vlastní description + title per stránka, meta keywords na homepage.
+  \item Jeden centrální CSS soubor, všude relativní adresy.
+\end{itemize}
 
 \subsection{Sémantické elementy}
 
-Projekt využívá sémantické HTML elementy: \texttt{<header>} pro hlavičku s logem a navigací, \texttt{<nav>} s \texttt{aria-label}, \texttt{<main id="main-content">} jako target pro skip link, \texttt{<section>} pro tematické sekce, \texttt{<article>} pro karty a profily, \texttt{<aside>} pro testimonials, \texttt{<footer>} pro patičku. Dodržována je správná hierarchie nadpisů s jedním \texttt{<h1>} na stránku. Tabulka používá \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}. Glosář využívá \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
+\begin{itemize}
+  \item \texttt{<header>}, \texttt{<nav>} (\texttt{aria-label}), \texttt{<main id="main-content">}, \texttt{<section>}, \texttt{<article>}, \texttt{<aside>}, \texttt{<footer>}.
+  \item Nadpisová hierarchie s jedním \texttt{<h1>} na stránku; \texttt{<h2>}/\texttt{<h3>} pro podnadpisy.
+  \item Tabulka: \texttt{<thead>}, \texttt{<tbody>}, \texttt{<th scope="col">}.
+  \item Glosář: \texttt{<dl>}, \texttt{<dt>}, \texttt{<dd>}.
+\end{itemize}
 
 \subsection{Přístupnost (WCAG 2.0 Level AA)}
 
-Web splňuje WCAG 2.0 Level AA požadavky. Skip link \texttt{<a href="\#main-content"} \texttt{class="skip-link">} je umístěn na začátku každé stránky. Použité jsou ARIA atributy (\texttt{aria-label}, \texttt{aria-current="page"}). Screen reader texty používají třídu \texttt{sr-only}. Všechny obrázky mají smysluplné alt texty. Barevný kontrast je vyšší než 7:1 (tmavě šedá \texttt{\#212529} na bílém pozadí). Výrazné focus stavy zajišťují klávesnicovou navigaci.
+\begin{itemize}
+  \item Skip link na začátku každé stránky: \texttt{<a href="\#main-content" class="skip-link">}.
+  \item ARIA atributy: \texttt{aria-label}, \texttt{aria-current="page"}; screen reader texty přes třídu \texttt{sr-only}.
+  \item Smysluplné alt texty, kontrast > 7:1 (\texttt{\#212529} na \texttt{\#ffffff}).
+  \item Viditelné \texttt{:focus-visible}, klávesnicová navigace ověřena.
+\end{itemize}
 
 \section{CSS požadavky}
 
 \subsection{Architektura CSS}
 
-Projekt používá 100\% vlastní CSS bez frameworků. Veškerý CSS je organizován v jediném souboru \texttt{style.css}, který obsahuje všechny styly strukturované do logických sekcí s komentáři: CSS Variables, Reset \& Base Styles, Typography, Layout (Container, Header, Footer, Grid), Components (Buttons, Cards, Search, Hero, Tables, Breadcrumbs, Testimonials), Pages (Detail, Sections), Utilities (Accessibility, Helpers, Glossary) a Responsive Design. Celková velikost je 1249 řádků optimalizovaného kódu.
+\begin{itemize}
+  \item 100\% vlastní CSS bez frameworků v jednom souboru \texttt{style.css}.
+  \item Struktura: CSS Variables, Reset \& Base, Typography, Layout (Container, Header, Footer, Grid), Components (Buttons, Cards, Search, Hero, Tables, Breadcrumbs, Testimonials), Pages, Utilities, Responsive Design.
+  \item Velikost: 1249 řádků optimalizovaného kódu.
+\end{itemize}
 
 \subsection{CSS Custom Properties}
 
-{\sloppy
-Systém CSS Custom Properties je definován v \texttt{:root} sekci souboru \texttt{style.css}.
-\par}
-
-Pokrývá barevnou paletu (\texttt{--primary-color}, \texttt{--secondary-color}, \texttt{--accent-color}, atd.) a typografii (\texttt{--font-primary}, \texttt{--font-heading}, velikosti písma).
-
-Spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) je oddělená skupina proměnných. Layout obsahuje \texttt{--max-width-container} a \texttt{--border-radius}. Další proměnné: \texttt{--box-shadow}, \texttt{--transition-speed}. Proměnné zajišťují konzistenci a snadné globální úpravy designu.
+\begin{itemize}
+  \item Definováno v \texttt{:root} v \texttt{style.css}.
+  \item Barvy: \texttt{--primary-color}, \texttt{--secondary-color}, \texttt{--accent-color}, atd.
+  \item Typografie: \texttt{--font-primary}, \texttt{--font-heading}, velikosti písma.
+  \item Spacing: \texttt{--spacing-xs} až \texttt{--spacing-xxl} (0.5rem--4rem).
+  \item Layout: \texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}, \texttt{--transition-speed}.
+\end{itemize}
 
 \subsection{CSS Grid layout}
 
-CSS Grid je použit pro layout seznamu terapeutů (\texttt{.grid--therapists}) a footer (\texttt{.footer\_\_grid}). Grid terapeutů obsahuje devět karet s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech, \texttt{repeat(4, 1fr)} na desktopech. Gap mezi položkami je \texttt{var(--spacing-md)}. Footer grid používá čtyři sloupce na desktopech s adaptací na menší počet sloupců. Grid nabízí 2D kontrolu (řádky i sloupce) a jednodušší responzivní úpravy než Flexbox.
+\begin{itemize}
+  \item Grid pro \texttt{.grid--therapists} a \texttt{.footer\_\_grid}.
+  \item Terapeuti: 1/2/4 sloupce dle breakpointu, \texttt{gap: var(--spacing-md)}.
+  \item Footer: až 4 sloupce na desktopu s adaptací na menší displeje.
+  \item 2D řízení layoutu, vhodnější než flex pro rovnoměrné rozmístění a spanování.
+\end{itemize}
 
 \subsection{Flexbox}
 
-Flexbox je použit pro jednodimenzionální layouty: navigace (\texttt{.nav\_\_list} s flexbox pro horizontální/vertikální rozložení), header (\texttt{.header\_\_container} s \texttt{flex-direction: column/row} podle breakpointu) a karty (\texttt{.card} s \texttt{flex-direction: column}). Tlačítka (\texttt{.btn}) používají \texttt{inline-block} s centrovaným textem.
+\begin{itemize}
+  \item Navigace (\texttt{.nav\_\_list}) pro horizontální/vertikální rozložení.
+  \item Header (\texttt{.header\_\_container}) s přepínáním \texttt{flex-direction} podle breakpointu.
+  \item Karty (\texttt{.card}) s vertikálním stackem; tlačítka \texttt{.btn} jako \texttt{inline-flex}/\texttt{inline-block}.
+\end{itemize}
 
 \subsection{Responzivní design}
 
-Mobile-first přístup používá základní styly pro nejmenší obrazovky. Media queries \texttt{@media (min-width: ...)} rozšiřují layout. Techniky zahrnují fluid typography pomocí relative units (rem, em), fluid layouts pomocí procent a CSS Grid/Flexbox. Responsive images s \texttt{max-width: 100\%; height: auto}, conditional visibility pomocí \texttt{display: none} a transformaci navigace z vertikální na horizontální.
+\begin{itemize}
+  \item Mobile-first, rozšíření layoutu pomocí \texttt{@media (min-width: ...)}.
+  \item Fluid typography (rem, em) a fluid layouty (procenta, Grid/Flex).
+  \item Responsive images (\texttt{max-width: 100\%; height: auto}), podmíněná viditelnost \texttt{display: none}.
+  \item Navigace se mění z vertikální (mobile) na horizontální (tablet/desktop).
+\end{itemize}
 
 \section{CSS interaktivita}
 
 \subsection{Interaktivní CSS technika}
 
-Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí checkbox elementů a CSS selektorů -- elegantního řešení, které plně odpovídá filozofii projektu -- demonstraci fundamentálních webových dovedností.
-
-Tato technika využívá kombinaci skrytého \texttt{<input type="checkbox">} elementu, \texttt{<label>} elementu a CSS selektorů pro vytvoření interaktivních komponent. Hamburger menu používá \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} selektor pro zobrazení navigace. Vyhledávací dropdown funguje analogicky s \texttt{\#search-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .search-dropdown}. Animace hamburger ikony (transformace do křížku) je realizována pomocí CSS \texttt{transform} vlastností na \texttt{.nav\_\_\allowbreak{}toggle-bar} elementy. ARIA atributy (\texttt{aria-label}, \texttt{aria-current}) jsou staticky definovány v HTML a zajišťují přístupnost pro screen readery. Všechny hover efekty, focus stavy a transitions jsou implementovány v CSS pomocí pseudo-tříd \texttt{:hover}, \texttt{:focus}, \texttt{:focus-visible}.
+Mobilní navigace a vyhledávací dropdown jsou realizovány pomocí checkbox elementů a CSS selektorů -- elegantního řešení, které plně odpovídá filozofii projektu: demonstrace fundamentálních webových dovedností.
+\begin{itemize}
+  \item Kombinace skrytého \texttt{<input type="checkbox">}, \texttt{<label>} a selektorů \texttt{:checked} pro togglování.
+  \item Hamburger: \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list} zobrazí menu; animace ikony přes \texttt{transform} na \texttt{.nav\_\_toggle-bar}.
+  \item Vyhledávání: \texttt{\#search-toggle:checked \textasciitilde{} .search-dropdown} + animace \texttt{@keyframes fadeIn}.
+  \item ARIA: \texttt{aria-label}, \texttt{aria-current} staticky v HTML; hover/focus/transition stavy v CSS.
+\end{itemize}
 \subsection{Implementace}
 
-Navigace používá skrytý \texttt{<input type="checkbox"\allowbreak{} id="nav-toggle">} element propojený s \texttt{<label for="nav-toggle">}, který funguje jako hamburger tlačítko. CSS selektor \texttt{\#nav-toggle:checked\allowbreak{} \textasciitilde{}\allowbreak{} .nav\allowbreak{} .nav\_\_list} zobrazí menu při zaškrtnutí checkboxu. Vyhledávací dropdown funguje analogicky s \texttt{id="search-toggle"} a CSS animacemi pomocí \texttt{@keyframes fadeIn}. Toto řešení zajišťuje interaktivitu bez externí závislosti, s plnou podporou accessibility (ARIA atributy \texttt{aria-label} na label elementech) a rychlým výkonem díky nativním CSS selektorům.
+\begin{itemize}
+  \item Navigace: \texttt{<input type="checkbox" id="nav-toggle">} + \texttt{<label for="nav-toggle">}; zobrazení menu přes \texttt{\#nav-toggle:checked \textasciitilde{} .nav .nav\_\_list}.
+  \item Vyhledávání: \texttt{id="search-toggle"} + \texttt{@keyframes fadeIn} pro dropdown.
+  \item Žádné externí JS knihovny; interaktivita čistě CSS + ARIA atributy pro přístupnost.
+\end{itemize}
 
 \section{Návrh a zdůvodnění technologií}
 
 \subsection{HTML a CSS}
 
-HTML byl vybrán pro bohatou sadu sémantických elementů zlepšujících strukturu, SEO a accessibility, nativní podporu multimédií a formulářů, a širokou podporu v moderních prohlížečích. CSS bez frameworků umožňuje moderní layoutové systémy (Grid, Flexbox) s čistou implementací, CSS variables pro snadnou správu designu, nativní transitions a animations, media queries pro responzivní design a pokročilé techniky jako checkbox-based interaktivitu pomocí \texttt{:checked} selektorů. Použití čistých technologií prokazuje fundamentální znalosti a je konceptuálně konzistentní s tématem projektu (web o rehabilitaci od AI závislosti demonstruje základní webové dovednosti). Tento přístup přináší rychlejší načítání (1271 řádků CSS bez externích závislostí), vynikající výkon a plnou kontrolu nad chováním UI elementů.
+\begin{itemize}
+  \item HTML: sémantické elementy, SEO a přístupnost out-of-the-box, podpora multimédií a formulářů.
+  \item CSS bez frameworků: Grid/Flex, custom properties, transitions/animations, media queries, \texttt{:checked} interakce.
+  \item Konzistence s tématem: demonstrace fundamentálních dovedností místo závislosti na nástrojích.
+  \item Výkon: žádné externí závislosti, plná kontrola nad UI, 1271 řádků optimalizovaného CSS.
+\end{itemize}
 
 \subsection{Statický web a GitHub Pages}
 
-Projekt je implementován jako statický web bez backendu pro jednoduchost (pouze HTML/CSS soubory), bezpečnost (bez SQL injection, XSS rizik), rychlost a škálovatelnost. GitHub Pages byl vybrán jako hosting platforma pro bezplatný hosting s HTTPS, automatický deployment při push do repository, vysokou spolehlivost GitHub infrastruktury a kompletní verzování díky Git. Absence backendu zjednodušuje deployment a eliminuje potřebu správy serverů.
+\begin{itemize}
+  \item Statický web bez backendu: jednoduchost, žádné SQL/XSS riziko ze serveru, rychlý load.
+  \item Hosting: GitHub Pages s HTTPS, automatický deploy při push, spolehlivá infrastruktura a verzování v Git.
+  \item Odpadá správa serverů, deployment je plně automatizovaný.
+\end{itemize}
+
+\subsection{Nasazení, údržba a provoz}
+\begin{itemize}
+  \item \textbf{Hosting} (realizováno): GitHub Pages (statický obsah, automatický HTTPS, verzování přes Git).
+  \item \textbf{Deploy pipeline} (realizováno): GitHub Actions workflow \texttt{deploy.yml} (\texttt{actions/configure-pages}, \texttt{upload-pages-artifact}, \texttt{deploy-pages}); trigger na push do \texttt{main}.
+  \item \textbf{Další kroky, pokud budeme projekt rozvíjet}: lehká privacy-friendly analytika (Plausible/GA4) jako jeden embed skript s eventy na CTA a vyhledávání; statická sitemap a og meta (\texttt{og:title}/\texttt{og:description}/\texttt{og:image}) pro sdílení; pravidelná údržba (měsíční kontrola actions verzí, vizuální smoke test po deploy); kvartální UX/accessibility review (klávesnice, kontrast, Lighthouse/W3C validator).
+\end{itemize}
