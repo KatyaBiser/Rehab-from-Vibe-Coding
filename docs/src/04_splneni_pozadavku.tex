@@ -69,10 +69,10 @@ Patička + autoři & \checkmark & Plná patička s 4 jmény autorů \\
 \textbf{SPLNĚNO} -- 100\% vlastní CSS, žádný Bootstrap, Tailwind nebo jiný framework.
 
 \subsection{Požadavek 18: 1 soubor CSS (alespoň 400 řádků)}
-\textbf{SPLNĚNO} -- Celkem \textbf{1271 řádků} optimalizovaného CSS v jediném souboru \texttt{assets/css/style.css}. CSS je strukturovaný do logických sekcí s komentáři: CSS Variables (Custom Properties), Reset and Base Styles, Typography, Container \& Main Layout, Header \& Navigation, Footer, CSS Grid Layout, Buttons, Card Components, Search Bar, Hero Banner, Table, Breadcrumbs, Testimonials, Detail Page Layout, Section Styles, Accessibility, Utility/Helper Classes, Glossary, Responsive Design (Tablet 768px+, Desktop 1024px+) a Print Styles.
+\textbf{SPLNĚNO} -- Celkem \textbf{1271 řádků} optimalizovaného CSS v jediném souboru \texttt{style.css}. CSS je strukturovaný do logických sekcí s komentáři: CSS Variables (Custom Properties), Reset and Base Styles, Typography, Container \& Main Layout, Header \& Navigation, Footer, CSS Grid Layout, Buttons, Card Components, Search Bar, Hero Banner, Table, Breadcrumbs, Testimonials, Detail Page Layout, Section Styles, Accessibility, Utility/Helper Classes, Glossary, Responsive Design (Tablet 768px+, Desktop 1024px+) a Print Styles.
 
 \subsection{Požadavek 19: CSS Custom Properties}
-\textbf{SPLNĚNO} -- Komplexní systém CSS Custom Properties v souboru \texttt{assets/css/}\allowbreak\texttt{style.css} definuje v \texttt{:root} proměnné pro barvy (\texttt{--primary-color}, \texttt{--primary-dark}, \texttt{--text-color}), typografii (\texttt{--font-primary}, \texttt{--font-size-h1/h2/h3}), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}).
+\textbf{SPLNĚNO} -- Komplexní systém CSS Custom Properties v souboru \texttt{style.css} definuje v \texttt{:root} proměnné pro barvy (\texttt{--primary-color}, \texttt{--primary-dark}, \texttt{--text-color}), typografii (\texttt{--font-primary}, \texttt{--font-size-h1/h2/h3}), spacing (\texttt{--spacing-xs} až \texttt{--spacing-xxl} od 0.5rem do 4rem) a layout (\texttt{--max-width-container}, \texttt{--border-radius}, \texttt{--box-shadow}).
 
 \subsection{Požadavek 20: Grid layout}
 \textbf{SPLNĚNO} -- Grid s 9 kartami terapeutů v pages/therapists/list.html (řádek 88) používá \texttt{display: grid} s responzivními sloupci: \texttt{grid-template-columns: 1fr} na mobilech, \texttt{repeat(2, 1fr)} na tabletech ($\geq$768px) a \texttt{repeat(4, 1fr)} na desktopech ($\geq$1024px) s \texttt{gap: var(--spacing-md)}. CSS implementace v style.css řádky 491--493, 1089--1091, 1170--1177.
@@ -103,8 +103,8 @@ ARIA labels (aria-label na řádcích 22, 27, 52, 233; aria-current="page" na ř
 
 \subsection{Požadavek 27: Relativní adresování}
 \textbf{SPLNĚNO} -- Všechny odkazy používají relativní cesty: \\
-\texttt{href="assets/css/style.css"} pro index; \\
-\texttt{href="../../assets/css/style.css"} pro detaily; \\
+\texttt{href="style.css"} pro index; \\
+\texttt{href="../../style.css"} pro detaily; \\
 \texttt{src="../../assets/images/..."} pro obrázky.
 
 \section{Dodatečně implementované prvky}
